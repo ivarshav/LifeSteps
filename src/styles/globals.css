@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+:root {
+  --font: var(--font-heebo), system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* WP-1 fills in the full token set — leave a clearly marked stub */
+}
+
+html {
+  font-family: var(--font);
+}
+
+body {
+  line-height: 1.65; /* Hebrew needs more leading than Latin */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

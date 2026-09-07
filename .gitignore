@@ -1,0 +1,23 @@
+# dependencies
+node_modules
+
+# next
+.next
+out
+
+# test / tooling
+coverage
+playwright-report
+test-results
+blob-report
+
+# env
+.env*.local
+
+# os / ide
+.DS_Store
+Thumbs.db
+*.log
+
+# doc
+plan
