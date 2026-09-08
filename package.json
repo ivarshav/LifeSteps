@@ -1,6 +1,7 @@
 {
   "name": "life-steps",
   "private": true,
+  "type": "module",
   "engines": {
     "node": "24.x",
     "npm": "11.x"
@@ -8,8 +9,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run validate:content && npm run build:search && next build",
+    "heroku-postbuild": "npm run build",
     "start": "node server.js",
-    "lint": "eslint .",
+    "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "test": "vitest run",
