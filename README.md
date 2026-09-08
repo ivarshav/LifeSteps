@@ -1,6 +1,29 @@
-# LifeSteps
-LifeSteps is a smart web platform that provides curated checklists and actionable guidance for major life events. Whether you're buying a car, purchasing a home, welcoming a newborn, getting married, relocating, or starting a new job, LifeSteps helps you navigate every step with confidence. Instead of searching across dozens of websites, users receive a clear, personalized checklist of tasks, documents, deadlines, and recommendations tailored to their specific situation.
+# צעדי חיים
 
+**צעדי חיים** הוא מנטור מעשי לאירועי החיים הגדולים בישראל: לא רק מה צריך
+לסדר, אלא גם מה כדאי לשקול, מה קל לפספס, ובאיזה סדר נכון להתקדם.
 
-Add a step: 
-npm run new-step -- --create career open-pension-fund "פתיחת קרן פנסיה" --tier 2
+אפשר להשתמש בו, למשל, לפני קניית רכב או דירה, סביב
+נישואין, היריון ולידה, בתחילת או בסיום עבודה, לקראת פרישה, ובנושאים של
+בריאות, מסמכים, לימודים ונסיעות.
+
+## איך משתמשים
+
+1. בוחרים תחום חיים מדף הבית, או מחפשים מונח, צעד או משימה.
+2. פותחים צעד ועוברים על הרשימה לפי הסדר. בכל משימה יכולים להופיע הסבר,
+   מסמכים נדרשים, תזמון, עלות משוערת, אזהרות וקישורים שימושיים.
+3. מסמנים משימות שהושלמו. ההתקדמות נשמרת בדפדפן ומופיעה גם בביקור הבא מאותו
+   דפדפן.
+
+בכל צעד מופיעים מקורות, קישורים לגופים הרשמיים ותאריך בדיקה אחרונה. אפשר גם
+לעבור בין צעדים קשורים, ולסנן או למיין צעדים בתוך קטגוריה.
+
+## פרטיות וגבולות המידע
+
+- אין צורך בהרשמה או במסירת פרטים מזהים.
+- סימון המשימות נשמר רק ב־`localStorage` של הדפדפן; הוא אינו נשלח לשרת ואינו
+  מסתנכרן בין מכשירים. אפשר לאפס התקדמות בצעד עצמו או למחוק את נתוני האתר
+  בהגדרות הדפדפן.
+- התוכן מסביר ומסדר תהליכים, אך אינו תחליף לייעוץ משפטי, רפואי או פיננסי
+  המותאם למקרה אישי. נהלים, סכומים ומועדים עשויים להשתנות, ולכן יש לאמת מידע
+  מחייב מול המקור הרשמי לפני פעולה.
