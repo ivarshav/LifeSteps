@@ -159,9 +159,6 @@ export default function HomePage() {
             <h2 className="text-2xl font-semibold text-[var(--gray-900)]">
               צעדים להתחיל מהם
             </h2>
-            <p className="mt-1 text-[var(--gray-500)]">
-              מדריכים מלאים שכבר זמינים באתר.
-            </p>
           </div>
           <div className="flex gap-4 overflow-x-auto pb-3">
             {popular.map((step) => (
