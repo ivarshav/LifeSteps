@@ -30,9 +30,7 @@ export default function PrivacyPage() {
             מה נשמר בדפדפן
           </h2>
           <p className="mt-2">
-            סימון משימות נשמר ב־<bdi>localStorage</bdi> תחת המפתח{" "}
-            <bdi>ls_progress_v1</bdi>. בחירת ערכת הצבע נשמרת גם היא ב־
-            <bdi>localStorage</bdi>. בגרסת ההתאמה האישית תישמר העדפה כללית
+            סימון משימות נשמר ב־<bdi>localStorage</bdi>. בגרסת ההתאמה האישית תישמר העדפה כללית
             בעוגייה בדפדפן.
           </p>
         </section>

@@ -51,7 +51,7 @@ export function Footer() {
         <hr className="border-block-start my-6 border-0 border-[var(--gray-200)]" />
         <p className="text-sm text-[var(--gray-500)]">
           המידע באתר הוא מידע כללי בלבד ואינו מהווה ייעוץ משפטי, פיננסי או
-          רפואי. אגרות, סכומים ומועדים משתנים — יש לאמת מול הגורם הרשמי הרלוונטי
+          רפואי. אגרות, סכומים ומועדים משתנים - יש לאמת מול הגורם הרשמי הרלוונטי
           לפני ביצוע. © {new Date().getFullYear()} צעדי חיים.
         </p>
       </Container>
