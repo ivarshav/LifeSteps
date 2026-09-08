@@ -23,6 +23,7 @@
     "new-category": "node content/tools/new-category.mjs"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "compression": "^1.8",
     "express": "^5",
     "fuse.js": "^7",
