@@ -1,0 +1,11 @@
+{
+  "name": "life-steps",
+  "description": "Hebrew life-event checklists",
+  "stack": "heroku-24",
+  "buildpacks": [{ "url": "heroku/nodejs" }],
+  "env": {
+    "NPM_CONFIG_PRODUCTION": { "value": "false" },
+    "NEXT_PUBLIC_SITE_URL": { "required": true }
+  },
+  "formation": { "web": { "quantity": 1, "size": "eco" } }
+}

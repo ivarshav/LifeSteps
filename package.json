@@ -7,39 +7,43 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run validate:content && npm run build:search && next build",
     "start": "node server.js",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "test": "vitest run",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "validate:content": "tsx scripts/validate-content.ts",
+    "build:search": "tsx scripts/build-search-index.ts",
+    "link-check": "node content/tools/link-check.mjs",
+    "new-step": "node content/tools/new-step.mjs",
+    "new-category": "node content/tools/new-category.mjs"
   },
   "dependencies": {
     "compression": "^1.8",
     "express": "^5",
     "fuse.js": "^7",
     "helmet": "^8",
-    "lucide-react": "^0.4",
+    "lucide-react": "^0.577.0",
     "lz-string": "^1.5",
-    "next": "^15",
-    "react": "^19",
-    "react-dom": "^19",
+    "next": "16.3.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "react-markdown": "^9",
     "remark-gfm": "^4",
     "zod": "^3"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
     "@playwright/test": "^1",
     "@tailwindcss/postcss": "^4",
     "@testing-library/react": "^16",
     "@types/node": "^24",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5",
     "@vitejs/plugin-react": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "^15",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.4",
     "jsdom": "^25",
     "prettier": "^3",
     "prettier-plugin-tailwindcss": "^0.6",
@@ -47,5 +51,9 @@
     "tsx": "^4",
     "typescript": "^5",
     "vitest": "^2"
+  },
+  "overrides": {
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5"
   }
 }
