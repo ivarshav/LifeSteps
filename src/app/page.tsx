@@ -203,7 +203,7 @@ export default function HomePage() {
               <Card className="relative p-5 ps-20" key={title}>
                 <span
                   aria-hidden="true"
-                  className="inset-block-start-5 inset-inline-start-5 absolute grid size-11 place-items-center rounded-full bg-[var(--brand-500)] text-lg font-bold text-white"
+                  className="top-5 start-5 absolute grid size-11 place-items-center rounded-full bg-[var(--brand-500)] text-lg font-bold text-white"
                 >
                   {index + 1}
                 </span>

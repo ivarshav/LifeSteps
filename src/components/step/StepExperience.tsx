@@ -49,7 +49,7 @@ export function StepExperience({
           <Disclaimer>{step.disclaimer}</Disclaimer>
           <Sources sources={step.sources} />
         </div>
-        <aside className="inset-block-start-[calc(var(--hdr-h)+100px)] sticky hidden lg:block">
+        <aside className="top-[calc(var(--hdr-h)+100px)] sticky hidden lg:block">
           {sidebar}
         </aside>
       </div>

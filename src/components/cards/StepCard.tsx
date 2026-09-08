@@ -28,7 +28,7 @@ export function StepCard({
       )}
       href={`/steps/${step.id}`}
     >
-      <div className="flex items-start gap-3">
+      <div className="flex min-w-0 items-start gap-3">
         <span
           aria-hidden="true"
           className="grid size-[42px] shrink-0 place-items-center rounded-[var(--radius-md)] text-xl"
@@ -37,7 +37,9 @@ export function StepCard({
           {step.emoji}
         </span>
         <div className="min-w-0 flex-1">
-          <h3 className="font-semibold text-[var(--gray-900)]">{step.title}</h3>
+          <h3 className="break-words font-semibold text-[var(--gray-900)]">
+            {step.title}
+          </h3>
           {showCategory && category ? (
             <div
               className="text-xs font-semibold"
@@ -49,12 +51,12 @@ export function StepCard({
         </div>
         {comingSoon ? <Pill>בקרוב</Pill> : null}
       </div>
-      <p className="text-sm leading-[1.5] text-[var(--gray-500)]">
+      <p className="min-w-0 break-words text-sm leading-[1.5] text-[var(--gray-500)]">
         {step.summary}
       </p>
-      <div className="mt-auto flex flex-wrap gap-1.5 pt-2">
+      <div className="mt-auto flex min-w-0 flex-wrap items-start gap-1.5 pt-2">
         {step.estimatedDuration ? (
-          <Pill className="max-w-full text-start whitespace-normal">
+          <Pill className="max-w-full text-start" wrap>
             ⏱ {step.estimatedDuration}
           </Pill>
         ) : null}

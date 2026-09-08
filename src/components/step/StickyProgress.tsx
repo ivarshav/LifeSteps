@@ -14,7 +14,7 @@ export function StickyProgress({}: Record<string, never>) {
 
   return (
     <>
-      <div className="inset-block-start-[var(--hdr-h)] sticky z-50 mb-6 rounded-[var(--radius-md)] border border-[var(--gray-200)] bg-[var(--surface)] p-4 shadow-[var(--shadow-sm)]">
+      <div className="top-[var(--hdr-h)] sticky z-50 mb-6 rounded-[var(--radius-md)] border border-[var(--gray-200)] bg-[var(--surface)] p-4 shadow-[var(--shadow-sm)]">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <strong aria-live="polite">
             השלמת {done.toLocaleString("he-IL")} מתוך{" "}

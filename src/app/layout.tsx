@@ -47,7 +47,7 @@ export default function RootLayout({
       </head>
       <body className="overflow-x-clip" suppressHydrationWarning>
         <a
-          className="focus:inset-block-start-2 focus:inset-inline-start-2 sr-only focus:not-sr-only focus:fixed focus:z-[200] focus:rounded-lg focus:bg-[var(--surface)] focus:px-4 focus:py-2"
+          className="focus:top-2 focus:start-2 sr-only focus:not-sr-only focus:fixed focus:z-[200] focus:rounded-lg focus:bg-[var(--surface)] focus:px-4 focus:py-2"
           href="#main-content"
         >
           דילוג לתוכן הראשי

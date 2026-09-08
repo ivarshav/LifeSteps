@@ -16,7 +16,7 @@ export function SearchBox({
     <div className="relative w-full max-w-2xl">
       <Search
         aria-hidden
-        className="inset-block-start-1/2 inset-inline-start-4 absolute -translate-y-1/2 text-[var(--gray-500)]"
+        className="top-1/2 end-4 absolute -translate-y-1/2 text-[var(--gray-500)]"
         size={19}
       />
       <label className="sr-only" htmlFor="main-search">
@@ -25,7 +25,7 @@ export function SearchBox({
       <input
         autoComplete="off"
         autoFocus
-        className="w-full rounded-[var(--radius-pill)] border border-[var(--gray-200)] bg-[var(--surface)] py-3 ps-11 pe-4 text-base text-[var(--gray-800)] shadow-[var(--shadow-sm)]"
+        className="w-full rounded-[var(--radius-pill)] border border-[var(--gray-200)] bg-[var(--surface)] py-3 ps-4 pe-11 text-base text-[var(--gray-800)] shadow-[var(--shadow-sm)]"
         id="main-search"
         onChange={onChange}
         onFocus={onFocus}

@@ -48,7 +48,7 @@ export function MobileNav() {
       </summary>
       <nav
         aria-label="ניווט לנייד"
-        className="inset-block-start-[var(--hdr-h)] inset-inline-0 border-block-end absolute flex flex-col border-[var(--gray-200)] bg-[var(--surface)] p-3 shadow-[var(--shadow-md)]"
+        className="top-[var(--hdr-h)] inset-x-0 border-block-end absolute flex flex-col border-[var(--gray-200)] bg-[var(--surface)] p-3 shadow-[var(--shadow-md)]"
       >
         {links.map((link) => (
           <a

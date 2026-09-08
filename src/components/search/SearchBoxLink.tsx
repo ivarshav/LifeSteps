@@ -22,11 +22,11 @@ export function SearchBoxLink() {
       </label>
       <Search
         aria-hidden
-        className="inset-block-start-1/2 inset-inline-start-4 absolute -translate-y-1/2 text-[var(--gray-500)]"
+        className="top-1/2 end-4 absolute -translate-y-1/2 text-[var(--gray-500)]"
         size={18}
       />
       <input
-        className="w-full rounded-full border border-[var(--gray-200)] bg-[var(--surface)] py-3 ps-11 pe-4"
+        className="w-full rounded-full border border-[var(--gray-200)] bg-[var(--surface)] py-3 ps-4 pe-11"
         id="not-found-search"
         onChange={(event) => setQuery(event.target.value)}
         placeholder="מה חיפשתם? למשל: משכנתא"
