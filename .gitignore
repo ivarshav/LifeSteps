@@ -18,6 +18,9 @@ blob-report
 .DS_Store
 Thumbs.db
 *.log
+*.tsbuildinfo
 
 # doc
 plan
+.lighthouse-results
+content/research

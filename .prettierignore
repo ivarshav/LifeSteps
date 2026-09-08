@@ -3,4 +3,12 @@ out
 node_modules
 package-lock.json
 plan
+content/.nid-registry.json
+content/catalog.json
+content/categories.json
+content/research
+content/steps
+content/templates
+public/search-index.json
+next-env.d.ts
 LICENSE
