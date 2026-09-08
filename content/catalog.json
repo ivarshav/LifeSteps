@@ -1,0 +1,639 @@
+{
+  "$comment": "The taxonomy manifest — the single machine-readable list of every step the site will ever have. Adding a step means adding a row here and running `node content/tools/new-step.mjs <id>`. nid blocks are spaced by 10 per category so a step can be inserted later without disturbing the numbering. See plan/docs/06-step-catalog.md and plan/docs/10-content-data-pipeline.md.",
+  "version": 1,
+  "steps": [
+    {
+      "id": "get-drivers-license",
+      "nid": 10,
+      "categoryId": "vehicle",
+      "title": "הוצאת רישיון נהיגה",
+      "tier": 3,
+      "relatedStepIds": [
+        "buy-used-car",
+        "car-insurance"
+      ]
+    },
+    {
+      "id": "buy-new-car",
+      "nid": 11,
+      "categoryId": "vehicle",
+      "title": "קניית רכב חדש",
+      "tier": 1,
+      "relatedStepIds": [
+        "car-insurance",
+        "car-periodic-service",
+        "buy-used-car"
+      ]
+    },
+    {
+      "id": "buy-used-car",
+      "nid": 12,
+      "categoryId": "vehicle",
+      "title": "קניית רכב יד שנייה",
+      "tier": 1,
+      "relatedStepIds": [
+        "car-insurance",
+        "car-periodic-service",
+        "sell-car"
+      ]
+    },
+    {
+      "id": "car-periodic-service",
+      "nid": 13,
+      "categoryId": "vehicle",
+      "title": "טיפול תקופתי וטסט",
+      "tier": 1,
+      "relatedStepIds": [
+        "car-insurance",
+        "buy-used-car"
+      ]
+    },
+    {
+      "id": "car-insurance",
+      "nid": 14,
+      "categoryId": "vehicle",
+      "title": "ביטוח רכב",
+      "tier": 2,
+      "relatedStepIds": [
+        "buy-used-car",
+        "after-car-accident"
+      ]
+    },
+    {
+      "id": "sell-car",
+      "nid": 15,
+      "categoryId": "vehicle",
+      "title": "מכירת רכב",
+      "tier": 2,
+      "relatedStepIds": [
+        "buy-used-car",
+        "car-insurance"
+      ]
+    },
+    {
+      "id": "after-car-accident",
+      "nid": 16,
+      "categoryId": "vehicle",
+      "title": "אחרי תאונת דרכים",
+      "tier": 2,
+      "relatedStepIds": [
+        "car-insurance",
+        "medical-committee"
+      ]
+    },
+    {
+      "id": "rent-apartment",
+      "nid": 20,
+      "categoryId": "housing",
+      "title": "שכירת דירה",
+      "tier": 1,
+      "relatedStepIds": [
+        "moving-home",
+        "buy-apartment"
+      ]
+    },
+    {
+      "id": "buy-apartment",
+      "nid": 21,
+      "categoryId": "housing",
+      "title": "קניית דירה",
+      "tier": 1,
+      "relatedStepIds": [
+        "get-mortgage",
+        "moving-home",
+        "home-renovation",
+        "investment-property"
+      ]
+    },
+    {
+      "id": "get-mortgage",
+      "nid": 22,
+      "categoryId": "housing",
+      "title": "לקיחת משכנתא",
+      "tier": 1,
+      "relatedStepIds": [
+        "buy-apartment",
+        "buy-from-developer",
+        "investment-property"
+      ]
+    },
+    {
+      "id": "moving-home",
+      "nid": 23,
+      "categoryId": "housing",
+      "title": "מעבר דירה",
+      "tier": 2,
+      "relatedStepIds": [
+        "rent-apartment",
+        "buy-apartment"
+      ]
+    },
+    {
+      "id": "sell-apartment",
+      "nid": 24,
+      "categoryId": "housing",
+      "title": "מכירת דירה",
+      "tier": 2,
+      "relatedStepIds": [
+        "buy-apartment",
+        "moving-home"
+      ]
+    },
+    {
+      "id": "home-renovation",
+      "nid": 25,
+      "categoryId": "housing",
+      "title": "שיפוץ דירה",
+      "tier": 3,
+      "relatedStepIds": [
+        "buy-apartment",
+        "moving-home"
+      ]
+    },
+    {
+      "id": "buy-from-developer",
+      "nid": 26,
+      "categoryId": "housing",
+      "title": "קניית דירה מקבלן",
+      "tier": 2,
+      "relatedStepIds": [
+        "get-mortgage",
+        "buy-apartment"
+      ]
+    },
+    {
+      "id": "investment-property",
+      "nid": 27,
+      "categoryId": "housing",
+      "title": "נדל״ן להשקעה",
+      "tier": 2,
+      "relatedStepIds": [
+        "buy-apartment",
+        "get-mortgage",
+        "tax-refund",
+        "first-investments"
+      ]
+    },
+    {
+      "id": "getting-married",
+      "nid": 30,
+      "categoryId": "family",
+      "title": "נישואין",
+      "tier": 1,
+      "relatedStepIds": [
+        "prenup-agreement",
+        "pregnancy",
+        "write-will"
+      ]
+    },
+    {
+      "id": "prenup-agreement",
+      "nid": 31,
+      "categoryId": "family",
+      "title": "הסכם ממון / חיים משותפים",
+      "tier": 2,
+      "relatedStepIds": [
+        "getting-married",
+        "common-law-partners"
+      ]
+    },
+    {
+      "id": "pregnancy",
+      "nid": 32,
+      "categoryId": "family",
+      "title": "היריון",
+      "tier": 1,
+      "relatedStepIds": [
+        "childbirth",
+        "child-savings-benefits",
+        "register-child-school",
+        "maternity-leave"
+      ]
+    },
+    {
+      "id": "childbirth",
+      "nid": 33,
+      "categoryId": "family",
+      "title": "לידה",
+      "tier": 1,
+      "relatedStepIds": [
+        "child-savings-benefits",
+        "register-child-school",
+        "pregnancy",
+        "maternity-leave"
+      ]
+    },
+    {
+      "id": "register-child-school",
+      "nid": 34,
+      "categoryId": "family",
+      "title": "רישום ילד למעון, לגן ולבית ספר",
+      "tier": 2,
+      "relatedStepIds": [
+        "childbirth",
+        "child-savings-benefits",
+        "leisure-activities"
+      ]
+    },
+    {
+      "id": "child-savings-benefits",
+      "nid": 35,
+      "categoryId": "family",
+      "title": "חיסכון לכל ילד ומענקי ביטוח לאומי",
+      "tier": 2,
+      "relatedStepIds": [
+        "childbirth",
+        "pregnancy"
+      ]
+    },
+    {
+      "id": "divorce",
+      "nid": 36,
+      "categoryId": "family",
+      "title": "גירושין",
+      "tier": 1,
+      "relatedStepIds": [
+        "prenup-agreement",
+        "write-will",
+        "child-savings-benefits"
+      ]
+    },
+    {
+      "id": "common-law-partners",
+      "nid": 37,
+      "categoryId": "family",
+      "title": "ידועים בציבור",
+      "tier": 3,
+      "relatedStepIds": [
+        "prenup-agreement",
+        "write-will"
+      ]
+    },
+    {
+      "id": "bar-bat-mitzvah",
+      "nid": 38,
+      "categoryId": "family",
+      "title": "בר מצווה ובת מצווה",
+      "tier": 3,
+      "relatedStepIds": [
+        "register-child-school"
+      ]
+    },
+    {
+      "id": "maternity-leave",
+      "nid": 39,
+      "categoryId": "family",
+      "title": "חופשת לידה",
+      "tier": 1,
+      "relatedStepIds": [
+        "pregnancy",
+        "childbirth"
+      ]
+    },
+    {
+      "id": "start-new-job",
+      "nid": 40,
+      "categoryId": "career",
+      "title": "תחילת העסקה",
+      "tier": 1,
+      "relatedStepIds": [
+        "pension-transfer",
+        "study-fund",
+        "tax-refund",
+        "job-search"
+      ]
+    },
+    {
+      "id": "end-employment",
+      "nid": 41,
+      "categoryId": "career",
+      "title": "סיום העסקה",
+      "tier": 1,
+      "relatedStepIds": [
+        "unemployment-benefits",
+        "pension-transfer",
+        "tax-refund"
+      ]
+    },
+    {
+      "id": "unemployment-benefits",
+      "nid": 42,
+      "categoryId": "career",
+      "title": "דמי אבטלה",
+      "tier": 2,
+      "relatedStepIds": [
+        "end-employment",
+        "start-new-job",
+        "job-search"
+      ]
+    },
+    {
+      "id": "open-business",
+      "nid": 43,
+      "categoryId": "career",
+      "title": "פתיחת עסק ועבודה כעצמאי",
+      "tier": 2,
+      "relatedStepIds": [
+        "tax-refund",
+        "pension-transfer"
+      ]
+    },
+    {
+      "id": "pension-transfer",
+      "nid": 44,
+      "categoryId": "career",
+      "title": "פנסיה וניוד קרנות",
+      "tier": 1,
+      "relatedStepIds": [
+        "start-new-job",
+        "end-employment",
+        "retirement",
+        "study-fund"
+      ]
+    },
+    {
+      "id": "tax-refund",
+      "nid": 45,
+      "categoryId": "career",
+      "title": "החזר מס",
+      "tier": 1,
+      "relatedStepIds": [
+        "end-employment",
+        "start-new-job",
+        "open-business",
+        "investment-property"
+      ]
+    },
+    {
+      "id": "study-fund",
+      "nid": 46,
+      "categoryId": "career",
+      "title": "קרן השתלמות",
+      "tier": 3,
+      "relatedStepIds": [
+        "start-new-job",
+        "pension-transfer",
+        "career-development",
+        "first-investments"
+      ]
+    },
+    {
+      "id": "open-bank-account",
+      "nid": 47,
+      "categoryId": "career",
+      "title": "פתיחת חשבון בנק ומעבר בין בנקים",
+      "tier": 3,
+      "relatedStepIds": [
+        "start-new-job",
+        "first-investments"
+      ]
+    },
+    {
+      "id": "first-investments",
+      "nid": 48,
+      "categoryId": "career",
+      "title": "השקעות ראשונות",
+      "tier": 3,
+      "relatedStepIds": [
+        "study-fund",
+        "pension-transfer",
+        "open-bank-account",
+        "investment-property"
+      ]
+    },
+    {
+      "id": "job-search",
+      "nid": 49,
+      "categoryId": "career",
+      "title": "חיפוש עבודה",
+      "tier": 1,
+      "relatedStepIds": [
+        "start-new-job",
+        "unemployment-benefits"
+      ]
+    },
+    {
+      "id": "switch-health-fund",
+      "nid": 50,
+      "categoryId": "health",
+      "title": "מעבר קופת חולים",
+      "tier": 3,
+      "relatedStepIds": [
+        "health-insurance"
+      ]
+    },
+    {
+      "id": "health-insurance",
+      "nid": 51,
+      "categoryId": "health",
+      "title": "ביטוח בריאות משלים ופרטי",
+      "tier": 2,
+      "relatedStepIds": [
+        "switch-health-fund",
+        "before-surgery"
+      ]
+    },
+    {
+      "id": "before-surgery",
+      "nid": 52,
+      "categoryId": "health",
+      "title": "לקראת ניתוח או אשפוז",
+      "tier": 2,
+      "relatedStepIds": [
+        "health-insurance",
+        "medical-committee"
+      ]
+    },
+    {
+      "id": "dental-care",
+      "nid": 53,
+      "categoryId": "health",
+      "title": "טיפול שיניים ואורתודנטיה",
+      "tier": 3,
+      "relatedStepIds": [
+        "health-insurance"
+      ]
+    },
+    {
+      "id": "medical-committee",
+      "nid": 54,
+      "categoryId": "health",
+      "title": "ועדה רפואית ונכות",
+      "tier": 2,
+      "relatedStepIds": [
+        "before-surgery",
+        "elder-care"
+      ]
+    },
+    {
+      "id": "write-will",
+      "nid": 60,
+      "categoryId": "legal",
+      "title": "צוואה",
+      "tier": 1,
+      "relatedStepIds": [
+        "lasting-power-of-attorney",
+        "death-of-relative"
+      ]
+    },
+    {
+      "id": "lasting-power-of-attorney",
+      "nid": 61,
+      "categoryId": "legal",
+      "title": "ייפוי כוח מתמשך",
+      "tier": 1,
+      "relatedStepIds": [
+        "write-will",
+        "guardianship",
+        "elder-care"
+      ]
+    },
+    {
+      "id": "death-of-relative",
+      "nid": 62,
+      "categoryId": "legal",
+      "title": "פטירה של קרוב",
+      "tier": 1,
+      "relatedStepIds": [
+        "write-will",
+        "guardianship"
+      ]
+    },
+    {
+      "id": "guardianship",
+      "nid": 63,
+      "categoryId": "legal",
+      "title": "אפוטרופסות",
+      "tier": 3,
+      "relatedStepIds": [
+        "lasting-power-of-attorney",
+        "elder-care"
+      ]
+    },
+    {
+      "id": "change-name",
+      "nid": 64,
+      "categoryId": "legal",
+      "title": "שינוי שם",
+      "tier": 3,
+      "relatedStepIds": [
+        "getting-married",
+        "passport"
+      ]
+    },
+    {
+      "id": "idf-enlistment",
+      "nid": 70,
+      "categoryId": "army-edu",
+      "title": "גיוס לצה\"ל",
+      "tier": 2,
+      "relatedStepIds": [
+        "idf-discharge"
+      ]
+    },
+    {
+      "id": "idf-discharge",
+      "nid": 71,
+      "categoryId": "army-edu",
+      "title": "שחרור מצה\"ל",
+      "tier": 1,
+      "relatedStepIds": [
+        "academic-studies",
+        "start-new-job",
+        "travel-abroad"
+      ]
+    },
+    {
+      "id": "academic-studies",
+      "nid": 72,
+      "categoryId": "army-edu",
+      "title": "לימודים אקדמיים",
+      "tier": 2,
+      "relatedStepIds": [
+        "idf-discharge",
+        "start-new-job",
+        "career-development"
+      ]
+    },
+    {
+      "id": "passport",
+      "nid": 80,
+      "categoryId": "travel",
+      "title": "הוצאת דרכון וחידושו",
+      "tier": 2,
+      "relatedStepIds": [
+        "travel-abroad",
+        "change-name"
+      ]
+    },
+    {
+      "id": "travel-abroad",
+      "nid": 81,
+      "categoryId": "travel",
+      "title": "טיסה לחו\"ל",
+      "tier": 3,
+      "relatedStepIds": [
+        "passport",
+        "health-insurance"
+      ]
+    },
+    {
+      "id": "relocation",
+      "nid": 82,
+      "categoryId": "travel",
+      "title": "רילוקיישן",
+      "tier": 3,
+      "relatedStepIds": [
+        "passport",
+        "pension-transfer",
+        "tax-refund"
+      ]
+    },
+    {
+      "id": "retirement",
+      "nid": 90,
+      "categoryId": "retirement",
+      "title": "פרישה לגמלאות",
+      "tier": 2,
+      "relatedStepIds": [
+        "pension-transfer",
+        "write-will",
+        "elder-care"
+      ]
+    },
+    {
+      "id": "elder-care",
+      "nid": 91,
+      "categoryId": "retirement",
+      "title": "סיעוד וטיפול בהורים",
+      "tier": 2,
+      "relatedStepIds": [
+        "lasting-power-of-attorney",
+        "medical-committee",
+        "guardianship"
+      ]
+    },
+    {
+      "id": "career-development",
+      "nid": 1000,
+      "categoryId": "career",
+      "title": "פיתוח קריירה",
+      "tier": 2,
+      "relatedStepIds": [
+        "study-fund",
+        "start-new-job",
+        "academic-studies"
+      ]
+    },
+    {
+      "id": "leisure-activities",
+      "nid": 1100,
+      "categoryId": "family",
+      "title": "חוגים, קייטנות ושעות פנאי",
+      "tier": 3,
+      "relatedStepIds": [
+        "register-child-school"
+      ]
+    }
+  ]
+}
