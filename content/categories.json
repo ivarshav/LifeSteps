@@ -1,0 +1,145 @@
+[
+  {
+    "id": "vehicle",
+    "nid": 1,
+    "nidBlocks": [
+      {
+        "start": 10,
+        "size": 10
+      }
+    ],
+    "title": "רכב ותחבורה",
+    "description": "רישיון, קנייה, ביטוח, טיפולים ומכירה — כל מה שקשור לרכב שלך.",
+    "emoji": "🚗",
+    "color": "#3B6FF5",
+    "order": 1
+  },
+  {
+    "id": "housing",
+    "nid": 2,
+    "nidBlocks": [
+      {
+        "start": 20,
+        "size": 10
+      }
+    ],
+    "title": "דיור ונדל\"ן",
+    "description": "שכירות, קנייה, משכנתא ומעבר דירה — הצעדים והמלכודות בדרך.",
+    "emoji": "🏠",
+    "color": "#0EA37A",
+    "order": 2
+  },
+  {
+    "id": "family",
+    "nid": 3,
+    "nidBlocks": [
+      {
+        "start": 30,
+        "size": 10
+      },
+      {
+        "start": 1100,
+        "size": 100
+      }
+    ],
+    "title": "משפחה וזוגיות",
+    "description": "נישואין, היריון, לידה וגידול ילדים — מה צריך להסדיר ומתי.",
+    "emoji": "👨‍👩‍👧",
+    "color": "#E0508A",
+    "order": 3
+  },
+  {
+    "id": "career",
+    "nid": 4,
+    "nidBlocks": [
+      {
+        "start": 40,
+        "size": 10
+      },
+      {
+        "start": 1000,
+        "size": 100
+      }
+    ],
+    "title": "קריירה וכספים",
+    "description": "תחילת וסיום עבודה, פנסיה, מיסים ופתיחת עסק — הכסף שלך, מסודר.",
+    "emoji": "💼",
+    "color": "#7C5CD6",
+    "order": 4
+  },
+  {
+    "id": "health",
+    "nid": 5,
+    "nidBlocks": [
+      {
+        "start": 50,
+        "size": 10
+      }
+    ],
+    "title": "בריאות",
+    "description": "קופות חולים, ביטוחים, ניתוחים וועדות רפואיות.",
+    "emoji": "🩺",
+    "color": "#E0645A",
+    "order": 5
+  },
+  {
+    "id": "legal",
+    "nid": 6,
+    "nidBlocks": [
+      {
+        "start": 60,
+        "size": 10
+      }
+    ],
+    "title": "משפטי ואישי",
+    "description": "צוואה, ייפוי כוח מתמשך, ירושה ואפוטרופסות.",
+    "emoji": "⚖️",
+    "color": "#6B7280",
+    "order": 6
+  },
+  {
+    "id": "army-edu",
+    "nid": 7,
+    "nidBlocks": [
+      {
+        "start": 70,
+        "size": 10
+      }
+    ],
+    "title": "צבא ולימודים",
+    "description": "גיוס, שחרור, פיקדון ומענקים, ולימודים אקדמיים.",
+    "emoji": "🎓",
+    "color": "#D97706",
+    "order": 7
+  },
+  {
+    "id": "travel",
+    "nid": 8,
+    "nidBlocks": [
+      {
+        "start": 80,
+        "size": 10
+      }
+    ],
+    "title": "מסמכים ונסיעות",
+    "description": "דרכון, ויזות, ביטוח נסיעות ורילוקיישן.",
+    "emoji": "✈️",
+    "color": "#0EA5E9",
+    "order": 8
+  },
+  {
+    "id": "retirement",
+    "nid": 9,
+    "nidBlocks": [
+      {
+        "start": 90,
+        "size": 10
+      }
+    ],
+    "title": "פרישה וגיל שלישי",
+    "description": "פרישה לגמלאות, סיעוד וטיפול בהורים.",
+    "emoji": "🌿",
+    "color": "#4D7C0F",
+    "order": 9
+  }
+]
