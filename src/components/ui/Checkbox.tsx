@@ -48,7 +48,7 @@ export function Checkbox({
         "grid shrink-0 place-items-center border-2 bg-[var(--surface)] transition-[background,border-color,transform,opacity] duration-200 ease-out hover:border-[var(--accent-500)] active:scale-90",
         size === "sm"
           ? "size-5 rounded-md"
-          : "mt-0.5 size-[26px] rounded-[8px]",
+          : "mt-0.5 size-11 rounded-[8px]",
         checked === true && "border-[var(--accent-500)] bg-[var(--accent-500)]",
         checked === "mixed" &&
           "border-[var(--brand-500)] bg-[var(--brand-500)]",

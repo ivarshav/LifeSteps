@@ -5,7 +5,7 @@ export function ThemeControl() {
     <>
       <button
         aria-label="החלפת מצב בהיר או כהה"
-        className="grid size-[38px] place-items-center rounded-[var(--radius-md)] border border-[var(--gray-200)] bg-[var(--surface)] text-[var(--gray-600)] transition-colors duration-200 hover:bg-[var(--gray-100)] hover:text-[var(--gray-900)]"
+        className="grid size-11 place-items-center rounded-[var(--radius-md)] border border-[var(--gray-200)] bg-[var(--surface)] text-[var(--gray-600)] transition-colors duration-200 hover:bg-[var(--gray-100)] hover:text-[var(--gray-900)]"
         title="מצב כהה / בהיר"
         type="button"
       >

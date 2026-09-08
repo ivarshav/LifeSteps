@@ -22,7 +22,7 @@ export function MobileNav() {
     <details className="group sm:hidden" onKeyDown={closeOnEscape}>
       <summary
         aria-label="פתיחת תפריט"
-        className="grid size-[38px] cursor-pointer list-none place-items-center rounded-[var(--radius-md)] border border-[var(--gray-200)] bg-[var(--surface)] text-[var(--gray-600)] [&::-webkit-details-marker]:hidden"
+        className="grid size-11 cursor-pointer list-none place-items-center rounded-[var(--radius-md)] border border-[var(--gray-200)] bg-[var(--surface)] text-[var(--gray-600)] [&::-webkit-details-marker]:hidden"
       >
         <svg
           aria-hidden="true"

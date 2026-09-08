@@ -1,6 +1,6 @@
 "use client";
 
-import { RotateCcw, Share2 } from "lucide-react";
+import { RotateCcw } from "lucide-react";
 import { useState } from "react";
 
 import { Button, ConfirmDialog, Pill, ProgressBar } from "@/components/ui";
@@ -9,7 +9,7 @@ import { useStepProgress } from "./ProgressContext";
 
 export function StickyProgress({}: Record<string, never>) {
   const [confirming, setConfirming] = useState(false);
-  const { done, reset, stepId, total } = useStepProgress();
+  const { done, reset, total } = useStepProgress();
   const pct = total === 0 ? 0 : Math.round((done / total) * 100);
 
   return (
@@ -24,13 +24,8 @@ export function StickyProgress({}: Record<string, never>) {
             <Pill className="bg-[var(--accent-50)] text-[var(--accent-500)]">
               {pct}%
             </Pill>
-            <Button asChild size="sm" variant="secondary">
-              <a href={`/share?step=${encodeURIComponent(stepId)}`}>
-                <Share2 aria-hidden size={16} />
-                שתף רשימה
-              </a>
-            </Button>
             <Button
+              className="min-h-11"
               onClick={() => setConfirming(true)}
               size="sm"
               variant="ghost"

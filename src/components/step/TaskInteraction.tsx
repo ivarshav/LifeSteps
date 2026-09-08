@@ -46,7 +46,7 @@ export function TaskInteraction({
             aria-controls={detailsId}
             aria-expanded={detailsOpen}
             aria-label={`פרטים נוספים על ${title}`}
-            className="inset-block-start-4 inset-inline-end-4 absolute z-10 grid size-8 cursor-pointer list-none place-items-center rounded-lg text-[var(--gray-500)] hover:bg-[var(--gray-100)] [&::-webkit-details-marker]:hidden"
+            className="inset-block-start-2 inset-inline-end-2 absolute z-10 grid size-11 cursor-pointer list-none place-items-center rounded-lg text-[var(--gray-500)] hover:bg-[var(--gray-100)] [&::-webkit-details-marker]:hidden"
           >
             <ChevronDown
               aria-hidden
@@ -64,7 +64,7 @@ export function TaskInteraction({
       ) : (
         <span
           aria-hidden="true"
-          className="inset-block-start-4 inset-inline-end-4 absolute size-8"
+          className="inset-block-start-2 inset-inline-end-2 absolute size-11"
         />
       )}
     </article>
