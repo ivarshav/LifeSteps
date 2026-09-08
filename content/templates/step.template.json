@@ -1,0 +1,64 @@
+{
+  "id": "REPLACE-with-latin-kebab-slug",
+  "nid": 0,
+  "categoryId": "vehicle",
+  "title": "REPLACE — כותרת הצעד בעברית",
+  "shortTitle": "",
+  "summary": "REPLACE — משפט או שניים. 40–160 תווים. משמש גם כתיאור לגוגל.",
+  "emoji": "📋",
+  "keywords": ["", ""],
+
+  "estimatedDuration": "",
+  "estimatedCost": {
+    "min": 0,
+    "max": 0,
+    "currency": "ILS",
+    "note": "לאימות"
+  },
+  "difficulty": 2,
+
+  "requiredDocuments": [],
+
+  "sections": [
+    {
+      "id": "section-one",
+      "nid": 1,
+      "title": "REPLACE — שם השלב",
+      "description": "",
+      "tasks": [
+        {
+          "id": "task-one",
+          "nid": 1,
+          "title": "REPLACE — שם פעולה: בדיקת… / הוצאת… / תשלום… / חתימה על…",
+          "details": "",
+          "optional": false,
+          "important": false,
+          "warning": "",
+          "timing": "",
+          "cost": { "min": 0, "max": 0, "currency": "ILS", "note": "לאימות" },
+          "documents": [],
+          "links": [
+            { "label": "", "url": "https://", "official": true }
+          ],
+          "audience": {
+            "any": [
+              { "key": "housing", "op": "in", "value": ["renting", "owns"] }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+
+  "faq": [
+    { "q": "", "a": "" }
+  ],
+
+  "relatedStepIds": [],
+
+  "lastReviewed": "YYYY-MM-DD",
+  "sources": [
+    { "label": "", "url": "https://", "official": true }
+  ],
+  "status": "published"
+}
