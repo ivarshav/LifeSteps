@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "fields": {
+    "lifeStage": {
+      "label": "איפה אתם נמצאים בחיים?",
+      "options": [
+        { "value": "studies", "label": "לימודים" },
+        { "value": "military", "label": "שירות צבאי" },
+        { "value": "early-career", "label": "תחילת קריירה" },
+        { "value": "young-family", "label": "משפחה צעירה" },
+        { "value": "midlife", "label": "אמצע החיים" },
+        { "value": "pre-retirement", "label": "לקראת פרישה" }
+      ]
+    },
+    "maritalStatus": {
+      "label": "מה המצב המשפחתי שלכם?",
+      "options": [
+        { "value": "single", "label": "רווק/ה" },
+        { "value": "partnered", "label": "בזוגיות" },
+        { "value": "married", "label": "נשוי/אה" },
+        { "value": "other", "label": "אחר" }
+      ]
+    },
+    "kids": {
+      "label": "מה מתאים למשפחה שלכם כרגע?",
+      "options": [
+        { "value": "none", "label": "ללא ילדים כרגע" },
+        { "value": "young", "label": "ילדים צעירים" },
+        { "value": "teens", "label": "בני נוער" },
+        { "value": "adult", "label": "ילדים בוגרים" }
+      ]
+    },
+    "housing": {
+      "label": "מה מצב הדיור?",
+      "options": [
+        { "value": "with-parents", "label": "גרים עם ההורים" },
+        { "value": "renting", "label": "בשכירות" },
+        { "value": "owns", "label": "בבעלות" },
+        { "value": "buying", "label": "בתהליך קנייה" }
+      ]
+    },
+    "employment": {
+      "label": "מה המצב התעסוקתי?",
+      "options": [
+        { "value": "employee", "label": "שכיר/ה" },
+        { "value": "self-employed", "label": "עצמאי/ת" },
+        { "value": "business-owner", "label": "בעל/ת עסק" },
+        { "value": "student", "label": "סטודנט/ית" },
+        { "value": "retired", "label": "בפנסיה" }
+      ]
+    }
+  }
+}
