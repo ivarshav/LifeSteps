@@ -792,9 +792,19 @@ export function validateStore(store) {
         err(`relatedStepIds[${i}]`, "a step cannot be related to itself");
     }
 
-    checkMoney(data.estimatedCost, "estimatedCost", e("estimatedCost"), (m) =>
-      warn("estimatedCost", m),
-    );
+    if (
+      data.estimatedCost !== undefined &&
+      typeof data.estimatedCost !== "string"
+    ) {
+      checkMoney(data.estimatedCost, "estimatedCost", e("estimatedCost"), (m) =>
+        warn("estimatedCost", m),
+      );
+    } else if (
+      typeof data.estimatedCost === "string" &&
+      !data.estimatedCost.trim()
+    ) {
+      err("estimatedCost", "must be a non-empty string when it is not a range");
+    }
     checkMatch(data.audience, "audience", e("audience"), codes);
 
     // ── sections and tasks ──────────────────────────────────────────
