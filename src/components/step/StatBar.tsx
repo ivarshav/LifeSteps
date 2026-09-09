@@ -1,4 +1,4 @@
-import type { Money, Step } from "@/lib/schema";
+import type { EstimatedCost, Money, Step } from "@/lib/schema";
 
 export function formatMoney(money: Money): string {
   const number = new Intl.NumberFormat("he-IL");
@@ -7,6 +7,10 @@ export function formatMoney(money: Money): string {
       ? number.format(money.min)
       : `${number.format(money.min)}–${number.format(money.max)}`;
   return `${range} ₪`;
+}
+
+function formatEstimatedCost(cost: EstimatedCost): string {
+  return typeof cost === "string" ? cost : formatMoney(cost);
 }
 
 export function StatBar({ step }: { step: Step }) {
@@ -18,7 +22,7 @@ export function StatBar({ step }: { step: Step }) {
     ["משך משוער", step.estimatedDuration ?? "משתנה"],
     [
       "עלות משוערת",
-      step.estimatedCost ? formatMoney(step.estimatedCost) : "משתנה",
+      step.estimatedCost ? formatEstimatedCost(step.estimatedCost) : "משתנה",
     ],
     ["מספר משימות", taskCount.toLocaleString("he-IL")],
     ["רמת מורכבות", step.difficulty ? `${step.difficulty} מתוך 3` : "משתנה"],

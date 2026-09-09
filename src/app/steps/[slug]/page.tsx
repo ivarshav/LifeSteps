@@ -52,7 +52,7 @@ export default async function StepPage({ params }: Props) {
     name: step.title,
     description: step.summary,
     totalTime: durationToIso(step.estimatedDuration),
-    ...(step.estimatedCost
+    ...(step.estimatedCost && typeof step.estimatedCost !== "string"
       ? {
           estimatedCost: {
             "@type": "MonetaryAmount",

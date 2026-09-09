@@ -59,8 +59,6 @@ export function TaskRow({ task }: { task: Task }) {
     <TaskInteraction
       badges={
         <>
-          {task.optional ? <Badge variant="optional" /> : null}
-          {task.important ? <Badge variant="important" /> : null}
           {task.timing ? <Badge variant="due">{task.timing}</Badge> : null}
         </>
       }
