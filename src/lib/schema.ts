@@ -51,6 +51,8 @@ export const MoneySchema = z
     path: ["min"],
   });
 
+export const EstimatedCostSchema = z.union([MoneySchema, NonEmptyStringSchema]);
+
 export const LinkSchema = z
   .object({
     label: NonEmptyStringSchema,
@@ -130,7 +132,7 @@ export const StepSchema = z
     emoji: NonEmptyStringSchema,
     keywords: z.array(NonEmptyStringSchema),
     estimatedDuration: NonEmptyStringSchema.optional(),
-    estimatedCost: MoneySchema.optional(),
+    estimatedCost: EstimatedCostSchema.optional(),
     difficulty: z.union([z.literal(1), z.literal(2), z.literal(3)]).optional(),
     audience: MatchSchema.optional(),
     sections: z.array(SectionSchema),
@@ -184,6 +186,7 @@ export const CatalogSchema = z
 export type Block = z.infer<typeof BlockSchema>;
 export type Category = z.infer<typeof CategorySchema>;
 export type Money = z.infer<typeof MoneySchema>;
+export type EstimatedCost = z.infer<typeof EstimatedCostSchema>;
 export type Link = z.infer<typeof LinkSchema>;
 export type ProfileKey = z.infer<typeof ProfileKeySchema>;
 export type Condition = z.infer<typeof ConditionSchema>;

@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 import { StepCard } from "@/components/cards/StepCard";
 import type { Category, Step } from "@/lib/schema";
 
-type Filter = "all" | "published" | "soon" | "short";
+type Filter = "all" | "short";
 type Sort = "catalog" | "tasks" | "duration";
 
 function countTasks(step: Step): number {
@@ -27,10 +27,8 @@ export function CategoryBrowser({
 
   const visible = useMemo(() => {
     const filtered = steps.filter((step) => {
-      if (filter === "published") return step.status !== "coming-soon";
-      if (filter === "soon") return step.status === "coming-soon";
       if (filter === "short")
-        return countTasks(step) > 0 && countTasks(step) <= 15;
+        return countTasks(step) > 0 && countTasks(step) <= 20;
       return true;
     });
     if (sort === "tasks") {
@@ -57,9 +55,7 @@ export function CategoryBrowser({
         >
           {[
             ["all", "הכל"],
-            ["published", "זמין עכשיו"],
-            ["soon", "בקרוב"],
-            ["short", "עד 15 משימות"],
+            ["short", "עד 20 משימות"],
           ].map(([value, label]) => (
             <button
               aria-pressed={filter === value}
