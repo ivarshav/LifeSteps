@@ -5,6 +5,8 @@ import type { KeyboardEvent } from "react";
 const links = [
   { href: "/", label: "בית" },
   { href: "/#categories", label: "קטגוריות" },
+  { href: "/share", label: "שיתוף רשימה" },
+  { href: "/saved", label: "הרשימות ששמרתי" },
   { href: "/search", label: "חיפוש" },
   { href: "/about", label: "אודות" },
 ];

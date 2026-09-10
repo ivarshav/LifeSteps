@@ -34,6 +34,18 @@ export function Header() {
           </a>
           <a
             className="rounded-lg px-3 py-2 text-sm font-medium text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
+            href="/share"
+          >
+            שיתוף רשימה
+          </a>
+          <a
+            className="rounded-lg px-3 py-2 text-sm font-medium text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
+            href="/saved"
+          >
+            הרשימות ששמרתי
+          </a>
+          <a
+            className="rounded-lg px-3 py-2 text-sm font-medium text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
             href="/about"
           >
             אודות

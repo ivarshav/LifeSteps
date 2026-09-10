@@ -4,6 +4,7 @@ import { ChevronDown } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import { TaskCheckbox } from "./TaskCheckbox";
+import { TaskFeedbackControls } from "./FeedbackControls";
 
 export function TaskInteraction({
   badges,
@@ -24,7 +25,7 @@ export function TaskInteraction({
 
   return (
     <article
-      className="task-row relative border-block-start first:border-block-start-0 border-[var(--gray-100)] bg-[var(--surface)]"
+      className="task-row border-block-start first:border-block-start-0 relative border-[var(--gray-100)] bg-[var(--surface)]"
       data-task-id={taskId}
     >
       <div className="flex min-h-16 items-start gap-3 p-4 pe-14">
@@ -46,7 +47,7 @@ export function TaskInteraction({
             aria-controls={detailsId}
             aria-expanded={detailsOpen}
             aria-label={`פרטים נוספים על ${title}`}
-            className="top-2 end-2 absolute z-10 grid size-11 cursor-pointer list-none place-items-center rounded-lg text-[var(--gray-500)] hover:bg-[var(--gray-100)] [&::-webkit-details-marker]:hidden"
+            className="absolute end-2 top-2 z-10 grid size-11 cursor-pointer list-none place-items-center rounded-lg text-[var(--gray-500)] hover:bg-[var(--gray-100)] [&::-webkit-details-marker]:hidden"
           >
             <ChevronDown
               aria-hidden
@@ -59,13 +60,13 @@ export function TaskInteraction({
             id={detailsId}
           >
             {children}
+            <TaskFeedbackControls taskId={taskId} />
           </div>
         </details>
       ) : (
-        <span
-          aria-hidden="true"
-          className="top-2 end-2 absolute size-11"
-        />
+        <div className="px-4 ps-[58px] pb-3">
+          <TaskFeedbackControls taskId={taskId} />
+        </div>
       )}
     </article>
   );
