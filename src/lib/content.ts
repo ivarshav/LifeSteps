@@ -4,10 +4,8 @@ import { join } from "node:path";
 import {
   CatalogSchema,
   CategorySchema,
-  HomepageDiscoverySchema,
   StepSchema,
   type Category,
-  type HomepageDiscoveryItem,
   type Step,
 } from "./schema";
 
@@ -24,9 +22,6 @@ const categories = CategorySchema.array()
 
 const catalog = CatalogSchema.parse(
   readJson(join(CONTENT_DIRECTORY, "catalog.json")),
-);
-const homepageDiscovery = HomepageDiscoverySchema.parse(
-  readJson(join(CONTENT_DIRECTORY, "homepage-discovery.json")),
 );
 const parsedSteps = new Map(
   readdirSync(STEPS_DIRECTORY)
@@ -61,9 +56,6 @@ const categoryById = new Map(
 const stepById = new Map(steps.map((step) => [step.id, step]));
 const stepByNid = new Map(steps.map((step) => [step.nid, step]));
 
-export type HomepageDiscovery =
-  { type: "step"; item: Step } | { type: "category"; item: Category };
-
 export function getAllCategories(): Category[] {
   return [...categories];
 }
@@ -90,26 +82,6 @@ export function getStepsByCategory(categoryId: string): Step[] {
 
 export function getPublishedSteps(): Step[] {
   return steps.filter((step) => step.status !== "coming-soon");
-}
-
-export function getHomepageDiscovery(): HomepageDiscovery[] {
-  return homepageDiscovery.items.map((entry: HomepageDiscoveryItem) => {
-    if (entry.type === "step") {
-      const step = stepById.get(entry.id);
-      if (!step || step.status === "coming-soon") {
-        throw new Error(
-          `Homepage discovery step "${entry.id}" must be published and exist`,
-        );
-      }
-      return { type: "step", item: step };
-    }
-
-    const category = categoryById.get(entry.id);
-    if (!category) {
-      throw new Error(`Homepage discovery category "${entry.id}" must exist`);
-    }
-    return { type: "category", item: category };
-  });
 }
 
 export function countTasks(step: Step): number {

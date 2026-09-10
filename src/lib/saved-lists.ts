@@ -21,7 +21,8 @@ function isStoredList(value: unknown): value is StoredList {
   return (
     typeof list.id === "string" &&
     typeof list.payload === "string" &&
-    typeof list.savedAt === "string"
+    typeof list.savedAt === "string" &&
+    Number.isFinite(Date.parse(list.savedAt))
   );
 }
 
@@ -38,12 +39,13 @@ function readStore(): StoredList[] {
   }
 }
 
-function writeStore(lists: StoredList[]) {
+function writeStore(lists: StoredList[]): boolean {
   try {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined") return false;
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(lists));
+    return true;
   } catch {
-    // Saving remains in the open share link when browser storage is unavailable.
+    return false;
   }
 }
 
@@ -62,7 +64,7 @@ export function isListSaved(selection: ShareSelection): boolean {
   return getSavedLists().some((list) => list.payload === payload);
 }
 
-export function saveList(selection: ShareSelection): SavedList {
+export function saveList(selection: ShareSelection): SavedList | null {
   const payload = encodeShare(selection);
   const existing = getSavedLists().find((list) => list.payload === payload);
   if (existing) return existing;
@@ -73,10 +75,11 @@ export function saveList(selection: ShareSelection): SavedList {
     savedAt: new Date().toISOString(),
     selection,
   };
-  writeStore([saved, ...readStore()].slice(0, MAX_SAVED_LISTS));
-  return saved;
+  return writeStore([saved, ...readStore()].slice(0, MAX_SAVED_LISTS))
+    ? saved
+    : null;
 }
 
-export function removeSavedList(id: string) {
-  writeStore(readStore().filter((list) => list.id !== id));
+export function removeSavedList(id: string): boolean {
+  return writeStore(readStore().filter((list) => list.id !== id));
 }

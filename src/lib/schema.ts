@@ -246,44 +246,6 @@ export const CatalogSchema = z
   })
   .strict();
 
-export const HomepageDiscoveryItemSchema = z.discriminatedUnion("type", [
-  z
-    .object({
-      type: z.literal("step"),
-      id: KebabCaseSchema,
-    })
-    .strict(),
-  z
-    .object({
-      type: z.literal("category"),
-      id: KebabCaseSchema,
-    })
-    .strict(),
-]);
-
-export const HomepageDiscoverySchema = z
-  .object({
-    $comment: z.string().optional(),
-    version: z.number().int().positive(),
-    items: z.array(HomepageDiscoveryItemSchema).min(1),
-  })
-  .strict()
-  .superRefine((discovery, context) => {
-    const itemKeys = new Set<string>();
-
-    discovery.items.forEach((item, index) => {
-      const key = `${item.type}:${item.id}`;
-      if (itemKeys.has(key)) {
-        context.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: "Discovery items must not be duplicated",
-          path: ["items", index],
-        });
-      }
-      itemKeys.add(key);
-    });
-  });
-
 export type Block = z.infer<typeof BlockSchema>;
 export type Category = z.infer<typeof CategorySchema>;
 export type Money = z.infer<typeof MoneySchema>;
@@ -299,4 +261,3 @@ export type Section = z.infer<typeof SectionSchema>;
 export type Step = z.infer<typeof StepSchema>;
 export type CatalogEntry = z.infer<typeof CatalogEntrySchema>;
 export type Catalog = z.infer<typeof CatalogSchema>;
-export type HomepageDiscoveryItem = z.infer<typeof HomepageDiscoveryItemSchema>;
