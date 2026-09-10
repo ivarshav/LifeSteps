@@ -15,6 +15,11 @@ import { fileURLToPath } from "node:url";
 export const CONTENT_DIR = join(dirname(fileURLToPath(import.meta.url)), "..");
 export const STEPS_DIR = join(CONTENT_DIR, "steps");
 export const RESEARCH_DIR = join(CONTENT_DIR, "research");
+export const SOURCE_PROVIDERS_FILE = join(CONTENT_DIR, "source-providers.json");
+export const HOMEPAGE_DISCOVERY_FILE = join(
+  CONTENT_DIR,
+  "homepage-discovery.json",
+);
 
 /**
  * The frozen answer codes from plan/docs/04 §4.1.
@@ -203,6 +208,8 @@ const readJson = (path) => JSON.parse(readFileSync(path, "utf8"));
 export function loadStore() {
   const categories = readJson(join(CONTENT_DIR, "categories.json"));
   const catalog = readJson(join(CONTENT_DIR, "catalog.json"));
+  const homepageDiscovery = readJson(HOMEPAGE_DISCOVERY_FILE);
+  const sourceProviders = readJson(SOURCE_PROVIDERS_FILE);
   const registry = existsSync(join(CONTENT_DIR, ".nid-registry.json"))
     ? readJson(join(CONTENT_DIR, ".nid-registry.json"))
     : { categories: {}, steps: {} };
@@ -221,7 +228,15 @@ export function loadStore() {
     }
   }
 
-  return { categories, catalog, registry, steps, unreadable };
+  return {
+    categories,
+    catalog,
+    homepageDiscovery,
+    sourceProviders,
+    registry,
+    steps,
+    unreadable,
+  };
 }
 
 const monthsSince = (iso) =>
@@ -290,7 +305,7 @@ export function syncRegistry(store) {
   };
 }
 
-function checkLinks(links, where, err) {
+function checkLinks(links, where, err, providersById) {
   if (links === undefined) return;
   if (!Array.isArray(links)) return err(`${where} must be an array`);
   links.forEach((l, i) => {
@@ -300,6 +315,21 @@ function checkLinks(links, where, err) {
       err(
         `${where}[${i}].url must be an absolute https:// URL, received ${JSON.stringify(l?.url)}`,
       );
+    }
+    if (l?.providerId !== undefined) {
+      const provider = providersById.get(l.providerId);
+      if (!provider) {
+        err(
+          `${where}[${i}].providerId ${JSON.stringify(l.providerId)} is not declared in content/source-providers.json`,
+        );
+      } else if (
+        provider.approvalStatus !== "approved" ||
+        provider.reviewStatus !== "reviewed"
+      ) {
+        err(
+          `${where}[${i}].providerId references "${l.providerId}", which is ${provider.approvalStatus}/${provider.reviewStatus}. Only approved, reviewed providers may be cited in published content`,
+        );
+      }
     }
   });
 }
@@ -393,6 +423,137 @@ export function validateStore(store) {
   const catalogById = new Map(store.catalog.steps.map((s) => [s.id, s]));
   const stepIds = new Set(store.steps.map((s) => s.data.id));
   const seenStepNids = new Map();
+  const providersById = new Map();
+
+  // ── homepage-discovery.json ───────────────────────────────────────
+  const DISCOVERY_FILE = "content/homepage-discovery.json";
+  if (
+    typeof store.homepageDiscovery !== "object" ||
+    store.homepageDiscovery === null ||
+    !Number.isInteger(store.homepageDiscovery.version) ||
+    store.homepageDiscovery.version <= 0 ||
+    !Array.isArray(store.homepageDiscovery.items)
+  ) {
+    errors.push({
+      file: DISCOVERY_FILE,
+      path: "",
+      message: "must contain a positive integer version and an items array",
+    });
+  } else {
+    const seenDiscoveryItems = new Set();
+    for (const [index, item] of store.homepageDiscovery.items.entries()) {
+      const at = `items[${index}]`;
+      const derr = (path, message) =>
+        errors.push({ file: DISCOVERY_FILE, path: `${at}.${path}`, message });
+      if (!["step", "category"].includes(item?.type)) {
+        derr("type", 'must be "step" or "category"');
+        continue;
+      }
+      if (
+        typeof item?.id !== "string" ||
+        !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.id)
+      ) {
+        derr("id", "must be a lowercase Latin kebab-case identifier");
+        continue;
+      }
+      const key = `${item.type}:${item.id}`;
+      if (seenDiscoveryItems.has(key)) derr("id", "must not be duplicated");
+      seenDiscoveryItems.add(key);
+
+      if (item.type === "category" && !categoryIds.has(item.id)) {
+        derr("id", `"${item.id}" does not resolve to a category`);
+      }
+      if (item.type === "step") {
+        const step = store.steps.find(({ data }) => data?.id === item.id)?.data;
+        if (!step) derr("id", `"${item.id}" does not resolve to a step`);
+        else if (step.status === "coming-soon")
+          derr("id", `"${item.id}" must be a published step`);
+      }
+    }
+    if (store.homepageDiscovery.items.length === 0) {
+      errors.push({
+        file: DISCOVERY_FILE,
+        path: "items",
+        message: "must include at least one discovery item",
+      });
+    }
+  }
+
+  // ── source-providers.json ─────────────────────────────────────────
+  const PROVIDERS_FILE = "content/source-providers.json";
+  if (
+    typeof store.sourceProviders !== "object" ||
+    store.sourceProviders === null ||
+    !Number.isInteger(store.sourceProviders.version) ||
+    store.sourceProviders.version <= 0 ||
+    !Array.isArray(store.sourceProviders.providers)
+  ) {
+    errors.push({
+      file: PROVIDERS_FILE,
+      path: "",
+      message: "must contain a positive integer version and a providers array",
+    });
+  } else {
+    for (const [index, provider] of store.sourceProviders.providers.entries()) {
+      const at = `providers[${index}] ${provider?.id ?? "?"}`;
+      const perr = (path, message) =>
+        errors.push({ file: PROVIDERS_FILE, path: `${at}.${path}`, message });
+      if (
+        typeof provider?.id !== "string" ||
+        !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(provider.id)
+      ) {
+        perr("id", "must be lowercase Latin kebab-case");
+      } else if (providersById.has(provider.id)) {
+        perr("id", "must be unique");
+      } else {
+        providersById.set(provider.id, provider);
+      }
+      if (typeof provider?.name !== "string" || !provider.name.trim())
+        perr("name", "is required");
+      if (
+        !["official-primary", "reviewed-supplementary"].includes(
+          provider?.sourceType,
+        )
+      )
+        perr(
+          "sourceType",
+          'must be "official-primary" or "reviewed-supplementary"',
+        );
+      if (
+        !["proposed", "approved", "retired"].includes(provider?.approvalStatus)
+      )
+        perr("approvalStatus", 'must be "proposed", "approved", or "retired"');
+      if (
+        typeof provider?.sourceUrl !== "string" ||
+        !/^https:\/\/.+/.test(provider.sourceUrl)
+      )
+        perr("sourceUrl", "must be an absolute https:// URL");
+      if (
+        typeof provider?.attributionNote !== "string" ||
+        !provider.attributionNote.trim()
+      )
+        perr("attributionNote", "is required");
+      if (!["pending", "reviewed"].includes(provider?.reviewStatus))
+        perr("reviewStatus", 'must be "pending" or "reviewed"');
+      if (provider?.editorialReviewRequired !== true)
+        perr(
+          "editorialReviewRequired",
+          "must be true; provider material never becomes LifeSteps advice automatically",
+        );
+      if (provider?.contentUsage !== "editorial-review-required")
+        perr("contentUsage", 'must be "editorial-review-required"');
+      if (
+        provider?.approvalStatus === "proposed" &&
+        provider?.reviewStatus !== "pending"
+      )
+        perr("reviewStatus", "a proposed provider must remain pending review");
+      if (
+        provider?.approvalStatus === "approved" &&
+        provider?.reviewStatus !== "reviewed"
+      )
+        perr("reviewStatus", "an approved provider must be reviewed");
+    }
+  }
 
   // ── files that could not be parsed at all ─────────────────────────
   for (const { file, message } of store.unreadable ?? []) {
@@ -771,7 +932,7 @@ export function validateStore(store) {
         "at least one source is required (plan/docs/02 §6 rule 5)",
       );
     } else {
-      checkLinks(data.sources, "sources", e("sources"));
+      checkLinks(data.sources, "sources", e("sources"), providersById);
       if (!data.sources.some((s) => s.official)) {
         warn(
           "sources",
@@ -893,7 +1054,7 @@ export function validateStore(store) {
         checkMoney(task.cost, `${tp}.cost`, e(`${tp}.cost`), (m) =>
           warn(`${tp}.cost`, m),
         );
-        checkLinks(task.links, `${tp}.links`, e(`${tp}.links`));
+        checkLinks(task.links, `${tp}.links`, e(`${tp}.links`), providersById);
         checkMatch(task.audience, `${tp}.audience`, e(`${tp}.audience`), codes);
       }
 
