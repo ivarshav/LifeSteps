@@ -1,0 +1,30 @@
+{
+  "$comment": "Editorial homepage discovery. This is intentionally maintained by content owners, rather than derived from visits, completions, searches, or user profiles. Use stable category and step IDs; all referenced steps must be published.",
+  "version": 1,
+  "items": [
+    {
+      "type": "step",
+      "id": "rent-apartment"
+    },
+    {
+      "type": "step",
+      "id": "childbirth"
+    },
+    {
+      "type": "step",
+      "id": "job-search"
+    },
+    {
+      "type": "category",
+      "id": "housing"
+    },
+    {
+      "type": "category",
+      "id": "family"
+    },
+    {
+      "type": "category",
+      "id": "vehicle"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$comment": "Content-owned registry for trusted source providers. A provider is not a license to reproduce its content: supplementary material requires LifeSteps editorial review before it can inform published guidance. See content/templates/SOURCE-ATTRIBUTION-GUIDE.md.",
+  "version": 1,
+  "providers": [
+    {
+      "id": "gov-il",
+      "name": "ממשלת ישראל",
+      "sourceType": "official-primary",
+      "approvalStatus": "approved",
+      "sourceUrl": "https://www.gov.il/",
+      "attributionNote": "מקור רשמי של ממשלת ישראל. יש לקשר לעמוד הממשלתי המדויק ולבדוק אותו בעת כל סקירת תוכן.",
+      "reviewStatus": "reviewed",
+      "editorialReviewRequired": true,
+      "contentUsage": "editorial-review-required"
+    },
+    {
+      "id": "midrag",
+      "name": "מידרג",
+      "sourceType": "reviewed-supplementary",
+      "approvalStatus": "proposed",
+      "sourceUrl": "https://www.midrag.co.il/",
+      "attributionNote": "ספק משלים מוצע בלבד. אין להשתמש בתוכן, בדירוגים או בהמלצות שלו באתר עד לאישור ובדיקת עורך/ת LifeSteps.",
+      "reviewStatus": "pending",
+      "editorialReviewRequired": true,
+      "contentUsage": "editorial-review-required"
+    }
+  ]
+}
