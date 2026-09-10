@@ -16,10 +16,6 @@ export const CONTENT_DIR = join(dirname(fileURLToPath(import.meta.url)), "..");
 export const STEPS_DIR = join(CONTENT_DIR, "steps");
 export const RESEARCH_DIR = join(CONTENT_DIR, "research");
 export const SOURCE_PROVIDERS_FILE = join(CONTENT_DIR, "source-providers.json");
-export const HOMEPAGE_DISCOVERY_FILE = join(
-  CONTENT_DIR,
-  "homepage-discovery.json",
-);
 
 /**
  * The frozen answer codes from plan/docs/04 §4.1.
@@ -208,7 +204,6 @@ const readJson = (path) => JSON.parse(readFileSync(path, "utf8"));
 export function loadStore() {
   const categories = readJson(join(CONTENT_DIR, "categories.json"));
   const catalog = readJson(join(CONTENT_DIR, "catalog.json"));
-  const homepageDiscovery = readJson(HOMEPAGE_DISCOVERY_FILE);
   const sourceProviders = readJson(SOURCE_PROVIDERS_FILE);
   const registry = existsSync(join(CONTENT_DIR, ".nid-registry.json"))
     ? readJson(join(CONTENT_DIR, ".nid-registry.json"))
@@ -231,7 +226,6 @@ export function loadStore() {
   return {
     categories,
     catalog,
-    homepageDiscovery,
     sourceProviders,
     registry,
     steps,
@@ -424,60 +418,6 @@ export function validateStore(store) {
   const stepIds = new Set(store.steps.map((s) => s.data.id));
   const seenStepNids = new Map();
   const providersById = new Map();
-
-  // ── homepage-discovery.json ───────────────────────────────────────
-  const DISCOVERY_FILE = "content/homepage-discovery.json";
-  if (
-    typeof store.homepageDiscovery !== "object" ||
-    store.homepageDiscovery === null ||
-    !Number.isInteger(store.homepageDiscovery.version) ||
-    store.homepageDiscovery.version <= 0 ||
-    !Array.isArray(store.homepageDiscovery.items)
-  ) {
-    errors.push({
-      file: DISCOVERY_FILE,
-      path: "",
-      message: "must contain a positive integer version and an items array",
-    });
-  } else {
-    const seenDiscoveryItems = new Set();
-    for (const [index, item] of store.homepageDiscovery.items.entries()) {
-      const at = `items[${index}]`;
-      const derr = (path, message) =>
-        errors.push({ file: DISCOVERY_FILE, path: `${at}.${path}`, message });
-      if (!["step", "category"].includes(item?.type)) {
-        derr("type", 'must be "step" or "category"');
-        continue;
-      }
-      if (
-        typeof item?.id !== "string" ||
-        !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.id)
-      ) {
-        derr("id", "must be a lowercase Latin kebab-case identifier");
-        continue;
-      }
-      const key = `${item.type}:${item.id}`;
-      if (seenDiscoveryItems.has(key)) derr("id", "must not be duplicated");
-      seenDiscoveryItems.add(key);
-
-      if (item.type === "category" && !categoryIds.has(item.id)) {
-        derr("id", `"${item.id}" does not resolve to a category`);
-      }
-      if (item.type === "step") {
-        const step = store.steps.find(({ data }) => data?.id === item.id)?.data;
-        if (!step) derr("id", `"${item.id}" does not resolve to a step`);
-        else if (step.status === "coming-soon")
-          derr("id", `"${item.id}" must be a published step`);
-      }
-    }
-    if (store.homepageDiscovery.items.length === 0) {
-      errors.push({
-        file: DISCOVERY_FILE,
-        path: "items",
-        message: "must include at least one discovery item",
-      });
-    }
-  }
 
   // ── source-providers.json ─────────────────────────────────────────
   const PROVIDERS_FILE = "content/source-providers.json";
