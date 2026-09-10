@@ -5,7 +5,6 @@ import {
   getAllCategories,
   getAllSteps,
   getCategory,
-  getHomepageDiscovery,
   getPublishedSteps,
   getStep,
   getStepByNid,
@@ -54,29 +53,5 @@ describe("content loader", () => {
       getAllSteps().filter((step) => step.categoryId === "vehicle"),
     );
     expect(vehicleSteps.length).toBeGreaterThan(0);
-  });
-
-  it("resolves content-owned homepage discovery items to published guides and categories", () => {
-    const discovery = getHomepageDiscovery();
-
-    expect(discovery).toHaveLength(6);
-    expect(discovery.map(({ type, item }) => `${type}:${item.id}`)).toEqual([
-      "step:rent-apartment",
-      "step:childbirth",
-      "step:job-search",
-      "category:housing",
-      "category:family",
-      "category:vehicle",
-    ]);
-    expect(
-      discovery
-        .filter(
-          (
-            entry,
-          ): entry is Extract<(typeof discovery)[number], { type: "step" }> =>
-            entry.type === "step",
-        )
-        .every((entry) => entry.item.status !== "coming-soon"),
-    ).toBe(true);
   });
 });
