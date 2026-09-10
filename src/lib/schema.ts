@@ -63,8 +63,71 @@ export const LinkSchema = z
         message: "Expected an absolute https:// URL",
       }),
     official: z.boolean().optional(),
+    providerId: KebabCaseSchema.optional(),
   })
   .strict();
+
+export const SourceProviderSchema = z
+  .object({
+    id: KebabCaseSchema,
+    name: NonEmptyStringSchema,
+    sourceType: z.enum(["official-primary", "reviewed-supplementary"]),
+    approvalStatus: z.enum(["proposed", "approved", "retired"]),
+    sourceUrl: z
+      .string()
+      .url()
+      .refine((url) => url.startsWith("https://"), {
+        message: "Expected an absolute https:// URL",
+      }),
+    attributionNote: NonEmptyStringSchema,
+    reviewStatus: z.enum(["pending", "reviewed"]),
+    editorialReviewRequired: z.literal(true),
+    contentUsage: z.literal("editorial-review-required"),
+  })
+  .strict()
+  .superRefine((provider, context) => {
+    if (
+      provider.approvalStatus === "proposed" &&
+      provider.reviewStatus !== "pending"
+    ) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Proposed providers must have pending review status",
+        path: ["reviewStatus"],
+      });
+    }
+    if (
+      provider.approvalStatus === "approved" &&
+      provider.reviewStatus !== "reviewed"
+    ) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Approved providers must have reviewed status",
+        path: ["reviewStatus"],
+      });
+    }
+  });
+
+export const SourceProvidersSchema = z
+  .object({
+    $comment: z.string().optional(),
+    version: z.number().int().positive(),
+    providers: z.array(SourceProviderSchema),
+  })
+  .strict()
+  .superRefine(({ providers }, context) => {
+    const seen = new Set<string>();
+    providers.forEach((provider, index) => {
+      if (seen.has(provider.id)) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Provider ids must be unique",
+          path: ["providers", index, "id"],
+        });
+      }
+      seen.add(provider.id);
+    });
+  });
 
 export const ProfileKeySchema = z.enum([
   "lifeStage",
@@ -183,11 +246,51 @@ export const CatalogSchema = z
   })
   .strict();
 
+export const HomepageDiscoveryItemSchema = z.discriminatedUnion("type", [
+  z
+    .object({
+      type: z.literal("step"),
+      id: KebabCaseSchema,
+    })
+    .strict(),
+  z
+    .object({
+      type: z.literal("category"),
+      id: KebabCaseSchema,
+    })
+    .strict(),
+]);
+
+export const HomepageDiscoverySchema = z
+  .object({
+    $comment: z.string().optional(),
+    version: z.number().int().positive(),
+    items: z.array(HomepageDiscoveryItemSchema).min(1),
+  })
+  .strict()
+  .superRefine((discovery, context) => {
+    const itemKeys = new Set<string>();
+
+    discovery.items.forEach((item, index) => {
+      const key = `${item.type}:${item.id}`;
+      if (itemKeys.has(key)) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Discovery items must not be duplicated",
+          path: ["items", index],
+        });
+      }
+      itemKeys.add(key);
+    });
+  });
+
 export type Block = z.infer<typeof BlockSchema>;
 export type Category = z.infer<typeof CategorySchema>;
 export type Money = z.infer<typeof MoneySchema>;
 export type EstimatedCost = z.infer<typeof EstimatedCostSchema>;
 export type Link = z.infer<typeof LinkSchema>;
+export type SourceProvider = z.infer<typeof SourceProviderSchema>;
+export type SourceProviders = z.infer<typeof SourceProvidersSchema>;
 export type ProfileKey = z.infer<typeof ProfileKeySchema>;
 export type Condition = z.infer<typeof ConditionSchema>;
 export type Match = z.infer<typeof MatchSchema>;
@@ -196,3 +299,4 @@ export type Section = z.infer<typeof SectionSchema>;
 export type Step = z.infer<typeof StepSchema>;
 export type CatalogEntry = z.infer<typeof CatalogEntrySchema>;
 export type Catalog = z.infer<typeof CatalogSchema>;
+export type HomepageDiscoveryItem = z.infer<typeof HomepageDiscoveryItemSchema>;
