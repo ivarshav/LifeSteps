@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 
 import { CategoryCard } from "@/components/cards/CategoryCard";
-import { StepCard } from "@/components/cards/StepCard";
 import { Container } from "@/components/layout/Container";
 import { Card } from "@/components/ui/Card";
 import { Pill } from "@/components/ui/Pill";
 import {
-  countTasks,
   getAllCategories,
   getPublishedSteps,
   getStepsByCategory,
@@ -23,7 +21,6 @@ export const metadata: Metadata = pageMetadata({
 export default function HomePage() {
   const categories = getAllCategories();
   const published = getPublishedSteps();
-  const popular = published.slice(0, 6);
 
   return (
     <>
@@ -65,43 +62,6 @@ export default function HomePage() {
               <span>✓ חינם לגמרי</span>
             </div>
           </div>
-          {popular[0] ? (
-            <Card
-              aria-hidden="true"
-              className="hidden p-5 shadow-[var(--shadow-lg)] sm:block"
-            >
-              <div className="mb-3 flex items-center justify-between gap-3">
-                <strong>{popular[0].title}</strong>
-                <Pill>{countTasks(popular[0])} משימות</Pill>
-              </div>
-              {popular[0].sections
-                .flatMap((section) => section.tasks)
-                .slice(0, 6)
-                .map((task, index) => (
-                  <div
-                    className="border-block-start flex items-center gap-3 border-[var(--gray-100)] py-2.5 text-sm"
-                    key={task.id}
-                  >
-                    <span
-                      className={`grid size-5 place-items-center rounded-md border ${
-                        index < 3
-                          ? "border-[var(--accent-500)] bg-[var(--accent-500)] text-white"
-                          : "border-[var(--gray-300)]"
-                      }`}
-                    >
-                      {index < 3 ? "✓" : ""}
-                    </span>
-                    <span
-                      className={
-                        index < 3 ? "text-[var(--gray-500)] line-through" : ""
-                      }
-                    >
-                      {task.title}
-                    </span>
-                  </div>
-                ))}
-            </Card>
-          ) : null}
         </Container>
       </section>
 
@@ -153,28 +113,6 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-10">
-        <Container>
-          <div className="mb-5">
-            <h2 className="text-2xl font-semibold text-[var(--gray-900)]">
-              צעדים להתחיל מהם
-            </h2>
-          </div>
-          <div className="flex gap-4 overflow-x-auto pb-3">
-            {popular.map((step) => (
-              <StepCard
-                category={categories.find(
-                  (category) => category.id === step.categoryId,
-                )}
-                className="min-w-[262px] flex-[0_0_262px]"
-                key={step.id}
-                step={step}
-              />
-            ))}
-          </div>
-        </Container>
-      </section>
-
       <section className="py-8">
         <Container>
           <div className="mb-5">
@@ -200,7 +138,7 @@ export default function HomePage() {
               <Card className="relative p-5 ps-20" key={title}>
                 <span
                   aria-hidden="true"
-                  className="top-5 start-5 absolute grid size-11 place-items-center rounded-full bg-[var(--brand-500)] text-lg font-bold text-white"
+                  className="absolute start-5 top-5 grid size-11 place-items-center rounded-full bg-[var(--brand-500)] text-lg font-bold text-white"
                 >
                   {index + 1}
                 </span>
