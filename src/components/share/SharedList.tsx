@@ -39,6 +39,8 @@ function resolve(selection: ShareSelection, steps: Step[]) {
 export function SharedList({ steps }: { steps: Step[] }) {
   const [selection, setSelection] = useState<ShareSelection | null | undefined>(undefined);
   const [saved, setSaved] = useState(false);
+  const [collapsedSteps, setCollapsedSteps] = useState<Set<string>>(new Set());
+  const [saveError, setSaveError] = useState("");
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -60,8 +62,12 @@ export function SharedList({ steps }: { steps: Step[] }) {
 
   const { resolved, unavailable } = resolve(selection, steps);
   const save = () => {
-    saveList(selection);
-    setSaved(true);
+    if (saveList(selection)) {
+      setSaved(true);
+      setSaveError("");
+      return;
+    }
+    setSaveError("לא הצלחנו לשמור את הרשימה בדפדפן. כדאי לבדוק שהאחסון המקומי זמין ולנסות שוב.");
   };
 
   return (
@@ -74,7 +80,18 @@ export function SharedList({ steps }: { steps: Step[] }) {
       </Card>
       {resolved.map(({ step, taskIds }) => (
         <Card className="mb-4 p-5" key={step.id}>
-          <details className="group" open>
+          <details
+            open={!collapsedSteps.has(step.id)}
+            onToggle={(event) => {
+              const isOpen = event.currentTarget.open;
+              setCollapsedSteps((current) => {
+                const next = new Set(current);
+                if (isOpen) next.delete(step.id);
+                else next.add(step.id);
+                return next;
+              });
+            }}
+          >
             <summary className="flex cursor-pointer list-none items-start gap-3 [&::-webkit-details-marker]:hidden">
               <span aria-hidden className="text-3xl leading-none">{step.emoji}</span>
               <div className="min-w-0 flex-1">
@@ -83,7 +100,9 @@ export function SharedList({ steps }: { steps: Step[] }) {
               </div>
               <ChevronDown
                 aria-hidden
-                className="mt-1 shrink-0 text-[var(--gray-500)] transition-transform group-open:rotate-180"
+                className={`mt-1 shrink-0 text-[var(--gray-500)] transition-transform ${
+                  collapsedSteps.has(step.id) ? "rotate-0" : "rotate-180"
+                }`}
                 size={20}
               />
             </summary>
@@ -98,7 +117,12 @@ export function SharedList({ steps }: { steps: Step[] }) {
                 }))
                 .filter((section) => section.tasks.length > 0)
                 .map((section, index) => (
-                  <SectionBlock index={index} key={section.id} section={section} />
+                  <SectionBlock
+                    domIdPrefix={`shared-${step.id}`}
+                    index={index}
+                    key={section.id}
+                    section={section}
+                  />
                 ))}
             </ProgressProvider>
           </details>
@@ -116,6 +140,11 @@ export function SharedList({ steps }: { steps: Step[] }) {
             </>
           ) : <Button onClick={save} variant="secondary">שמור את הרשימה אצלי</Button>}
           <Button asChild variant="ghost"><Link href="/">גלה עוד צעדים באתר</Link></Button>
+          {saveError ? (
+            <p className="basis-full text-sm font-medium text-[var(--danger-500)]" role="alert">
+              {saveError}
+            </p>
+          ) : null}
         </div>
       ) : null}
     </div>

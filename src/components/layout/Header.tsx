@@ -6,7 +6,7 @@ import { ThemeControl } from "./ThemeControl";
 
 export function Header() {
   return (
-    <header className="top-0 border-block-end sticky z-[60] border-[var(--gray-200)] bg-[color-mix(in_srgb,var(--surface)_88%,transparent)] backdrop-blur-[10px]">
+    <header className="border-block-end sticky top-0 z-[60] border-[var(--gray-200)] bg-[color-mix(in_srgb,var(--surface)_88%,transparent)] backdrop-blur-[10px]">
       <div className="mx-auto flex h-[var(--hdr-h)] max-w-[var(--maxw)] items-center gap-4 px-5">
         <a
           aria-label="צעדי חיים — לדף הבית"
@@ -18,34 +18,34 @@ export function Header() {
         </a>
         <nav
           aria-label="ניווט ראשי"
-          className="hidden items-center gap-1 sm:flex"
+          className="hidden items-center gap-1 lg:flex"
         >
           <a
-            className="rounded-lg px-3 py-2 text-sm font-medium text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
+            className="rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
             href="/"
           >
             בית
           </a>
           <a
-            className="rounded-lg px-3 py-2 text-sm font-medium text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
+            className="rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
             href="/#categories"
           >
             קטגוריות
           </a>
           <a
-            className="rounded-lg px-3 py-2 text-sm font-medium text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
+            className="rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
             href="/share"
           >
             שיתוף רשימה
           </a>
           <a
-            className="rounded-lg px-3 py-2 text-sm font-medium text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
+            className="rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
             href="/saved"
           >
             הרשימות ששמרתי
           </a>
           <a
-            className="rounded-lg px-3 py-2 text-sm font-medium text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
+            className="rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
             href="/about"
           >
             אודות
@@ -63,7 +63,7 @@ export function Header() {
           </label>
           <svg
             aria-hidden="true"
-            className="top-1/2 end-3 absolute -translate-y-1/2 text-[var(--gray-500)]"
+            className="absolute end-3 top-1/2 -translate-y-1/2 text-[var(--gray-500)]"
             fill="none"
             height="16"
             viewBox="0 0 20 20"

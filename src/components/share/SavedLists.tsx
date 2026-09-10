@@ -10,6 +10,7 @@ import { getSavedLists, removeSavedList, type SavedList } from "@/lib/saved-list
 export function SavedLists() {
   const [lists, setLists] = useState<SavedList[]>([]);
   const [ready, setReady] = useState(false);
+  const [storageError, setStorageError] = useState("");
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -20,7 +21,11 @@ export function SavedLists() {
   }, []);
 
   const remove = (id: string) => {
-    removeSavedList(id);
+    if (!removeSavedList(id)) {
+      setStorageError("לא הצלחנו להסיר את הרשימה מהדפדפן. כדאי לבדוק שהאחסון המקומי זמין ולנסות שוב.");
+      return;
+    }
+    setStorageError("");
     setLists((current) => current.filter((list) => list.id !== id));
   };
 
@@ -30,6 +35,11 @@ export function SavedLists() {
       <p className="mt-3 text-[var(--gray-600)]">
         הרשימות נשמרות רק בדפדפן ובמכשיר הזה.
       </p>
+      {storageError ? (
+        <p className="mt-4 text-sm font-medium text-[var(--danger-500)]" role="alert">
+          {storageError}
+        </p>
+      ) : null}
       {!ready ? <p className="mt-6 text-[var(--gray-600)]">טוענים רשימות…</p> : null}
       {ready && lists.length === 0 ? (
         <Card className="mt-6 p-6">

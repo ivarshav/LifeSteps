@@ -9,18 +9,22 @@ import { TaskFeedbackControls } from "./FeedbackControls";
 export function TaskInteraction({
   badges,
   children,
+  domIdPrefix,
   hasDetails,
   taskId,
   title,
 }: {
   badges: ReactNode;
   children: ReactNode;
+  domIdPrefix?: string;
   hasDetails: boolean;
   taskId: string;
   title: string;
 }) {
   const [detailsOpen, setDetailsOpen] = useState(false);
-  const titleId = `task-${taskId}`;
+  const titleId = domIdPrefix
+    ? `${domIdPrefix}-task-${taskId}`
+    : `task-${taskId}`;
   const detailsId = `${titleId}-details`;
 
   return (

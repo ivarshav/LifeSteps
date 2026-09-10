@@ -21,7 +21,7 @@ function closeOnEscape(event: KeyboardEvent<HTMLDetailsElement>) {
 
 export function MobileNav() {
   return (
-    <details className="group sm:hidden" onKeyDown={closeOnEscape}>
+    <details className="group lg:hidden" onKeyDown={closeOnEscape}>
       <summary
         aria-label="פתיחת תפריט"
         className="grid size-11 cursor-pointer list-none place-items-center rounded-[var(--radius-md)] border border-[var(--gray-200)] bg-[var(--surface)] text-[var(--gray-600)] [&::-webkit-details-marker]:hidden"
@@ -50,7 +50,7 @@ export function MobileNav() {
       </summary>
       <nav
         aria-label="ניווט לנייד"
-        className="top-[var(--hdr-h)] inset-x-0 border-block-end absolute flex flex-col border-[var(--gray-200)] bg-[var(--surface)] p-3 shadow-[var(--shadow-md)]"
+        className="border-block-end absolute inset-x-0 top-[var(--hdr-h)] flex flex-col border-[var(--gray-200)] bg-[var(--surface)] p-3 shadow-[var(--shadow-md)]"
       >
         {links.map((link) => (
           <a

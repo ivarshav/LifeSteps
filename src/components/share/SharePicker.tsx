@@ -104,35 +104,39 @@ export function SharePicker({
               const categoryState =
                 selectedCount === 0 ? false : selectedCount === categorySteps.length ? true : "mixed";
               return (
-                <details className="group rounded-lg border border-[var(--gray-200)]" key={category.id}>
-                  <summary className="flex cursor-pointer items-center gap-3 p-3 font-semibold text-[var(--gray-800)]">
+                <div className="relative rounded-lg border border-[var(--gray-200)]" key={category.id}>
+                  <div className="absolute start-3 top-3 z-10">
                     <Checkbox
                       checked={categoryState}
                       label={`בחירת כל צעדי ${category.title}`}
                       onChange={(checked) => setCategory(categorySteps, checked)}
                     />
-                    <span>{category.emoji} {category.title}</span>
-                    <ChevronDown
-                      aria-hidden
-                      className="me-1 ms-auto transition-transform group-open:rotate-180"
-                      size={18}
-                    />
-                  </summary>
-                  <div className="space-y-3 border-block-start border-[var(--gray-100)] p-3">
-                    {categorySteps.map((step) => {
-                      return (
-                        <div className="flex items-center gap-3 rounded-md bg-[var(--gray-50)] p-3" key={step.id}>
-                          <Checkbox
-                            checked={selection.has(step.nid)}
-                            label={`בחירת ${step.title}`}
-                            onChange={(checked) => setStep(step, checked)}
-                          />
-                          <span className="font-medium text-[var(--gray-800)]">{step.title}</span>
-                        </div>
-                      );
-                    })}
                   </div>
-                </details>
+                  <details className="group">
+                    <summary className="flex min-h-[68px] cursor-pointer items-center gap-3 py-3 pe-3 ps-[68px] font-semibold text-[var(--gray-800)]">
+                      <span>{category.emoji} {category.title}</span>
+                      <ChevronDown
+                        aria-hidden
+                        className="me-1 ms-auto transition-transform group-open:rotate-180"
+                        size={18}
+                      />
+                    </summary>
+                    <div className="space-y-3 border-block-start border-[var(--gray-100)] p-3">
+                      {categorySteps.map((step) => {
+                        return (
+                          <div className="flex items-center gap-3 rounded-md bg-[var(--gray-50)] p-3" key={step.id}>
+                            <Checkbox
+                              checked={selection.has(step.nid)}
+                              label={`בחירת ${step.title}`}
+                              onChange={(checked) => setStep(step, checked)}
+                            />
+                            <span className="font-medium text-[var(--gray-800)]">{step.title}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </details>
+                </div>
               );
             })}
           </div>
