@@ -67,7 +67,6 @@ export function StepFeedback({
 }) {
   const textAreaId = useId();
   const [draft, setDraft] = useState("");
-  const [copyStatus, setCopyStatus] = useState("");
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -85,27 +84,6 @@ export function StepFeedback({
     saveFeedbackDraft(stepId, nextDraft);
   };
 
-  const copyFeedback = async () => {
-    try {
-      await navigator.clipboard.writeText(`${issue.title}\n\n${issue.body}`);
-      setCopyStatus("המשוב הועתק. הוא עדיין נשמר רק במכשיר הזה.");
-    } catch {
-      setCopyStatus("לא הצלחנו להעתיק. אפשר לבחור את הטקסט ולהעתיק ידנית.");
-    }
-  };
-
-  const downloadFeedback = () => {
-    const blob = new Blob([`${issue.title}\n\n${issue.body}\n`], {
-      type: "text/plain;charset=utf-8",
-    });
-    const url = URL.createObjectURL(blob);
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = `lifesteps-feedback-${stepId}.txt`;
-    anchor.click();
-    URL.revokeObjectURL(url);
-  };
-
   return (
     <Card className="my-8 p-5">
       <h2 className="text-xl font-semibold text-[var(--gray-900)]">
@@ -113,7 +91,7 @@ export function StepFeedback({
       </h2>
       <p className="mt-2 max-w-[68ch] text-sm leading-6 text-[var(--gray-600)]">
         אפשר לנסח הצעה לשיפור או לצעד חסר. הטיוטה נשמרת רק בדפדפן ובמכשיר הזה,
-        עד שתבחרו במפורש להעתיק, להוריד או לפתוח אותה ב-GitHub.
+        עד שתבחרו במפורש לפתוח אותה ב-GitHub.
       </p>
       <p className="mt-2 text-sm text-[var(--gray-600)]">
         אל תכללו פרטים אישיים, מספרי זהות, כתובות או מידע רפואי/פיננסי.
@@ -140,22 +118,6 @@ export function StepFeedback({
         {draft.length}/{MAX_FEEDBACK_LENGTH} תווים
       </p>
       <div className="mt-4 flex flex-wrap gap-2">
-        <Button
-          disabled={!canShare}
-          onClick={copyFeedback}
-          size="sm"
-          variant="secondary"
-        >
-          העתקת המשוב
-        </Button>
-        <Button
-          disabled={!canShare}
-          onClick={downloadFeedback}
-          size="sm"
-          variant="secondary"
-        >
-          הורדת קובץ טקסט
-        </Button>
         {canShare ? (
           <Button asChild size="sm">
             <LinkWithExternalIcon href={getFeedbackIssueUrl(issue)}>
@@ -169,8 +131,8 @@ export function StepFeedback({
         )}
       </div>
       <p aria-live="polite" className="mt-3 text-sm text-[var(--gray-600)]">
-        {copyStatus ||
-          "ב-GitHub תידרש התחברות ובדיקה של הטיוטה לפני שליחה. האתר לא שולח משוב בעצמו."}
+        ב-GitHub תידרש התחברות ובדיקה של הטיוטה לפני שליחה. האתר לא שולח משוב
+        בעצמו.
       </p>
     </Card>
   );
