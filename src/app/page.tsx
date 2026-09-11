@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { CategoryCard } from "@/components/cards/CategoryCard";
 import { StepCard } from "@/components/cards/StepCard";
 import { Container } from "@/components/layout/Container";
+import { ProfilePrompt } from "@/components/profile/ProfilePrompt";
 import { Card } from "@/components/ui/Card";
 import { Pill } from "@/components/ui/Pill";
 import {
@@ -115,18 +116,7 @@ export default function HomePage() {
               בהמשך נוכל להתאים את הסדר אליך. בינתיים כל התוכן פתוח וזמין.
             </p>
           </div>
-          <Card className="flex flex-wrap items-center gap-5 border-[var(--brand-100)] bg-[linear-gradient(100deg,var(--brand-50),var(--accent-50))] p-6">
-            <div className="min-w-60 flex-1">
-              <h3 className="text-lg font-semibold text-[var(--gray-900)]">
-                עוד לא סיפרת לנו כלום 🙂
-              </h3>
-              <p className="mt-1.5 max-w-[58ch] text-sm text-[var(--gray-600)]">
-                התאמה אישית תגיע בגרסה הבאה. היא תהיה אופציונלית, בלי חשבון,
-                ותמיד תשאיר את כל הצעדים גלויים.
-              </p>
-            </div>
-            <Pill>בקרוב: מסלול אישי</Pill>
-          </Card>
+          <ProfilePrompt />
         </Container>
       </section>
 

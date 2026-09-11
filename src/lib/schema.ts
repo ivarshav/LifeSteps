@@ -92,6 +92,25 @@ export const MatchSchema = z
   })
   .strict();
 
+const RecommendationEligibilitySchema = z
+  .object({
+    kind: z.enum(["profile", "explicit-event"]),
+  })
+  .strict();
+
+const RecommendationSequenceSchema = z
+  .object({
+    after: z.array(KebabCaseSchema).optional(),
+    sequence: z
+      .object({
+        id: NonEmptyStringSchema,
+        order: z.number().int().positive(),
+      })
+      .strict()
+      .optional(),
+  })
+  .strict();
+
 export const TaskSchema = z
   .object({
     id: KebabCaseSchema,
@@ -129,6 +148,10 @@ export const StepSchema = z
     summary: NonEmptyStringSchema,
     emoji: NonEmptyStringSchema,
     keywords: z.array(NonEmptyStringSchema),
+    recommendationEligibility: RecommendationEligibilitySchema.default({
+      kind: "profile",
+    }),
+    recommendationSequence: RecommendationSequenceSchema.optional(),
     estimatedDuration: NonEmptyStringSchema.optional(),
     estimatedCost: MoneySchema.optional(),
     difficulty: z.union([z.literal(1), z.literal(2), z.literal(3)]).optional(),

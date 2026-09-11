@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 import categories from "../../content/categories.json";
-import profileOptions from "../../content/profile-options.json";
+import profileOptions from "../../profile-options.json";
 
 import { ProfileKeySchema, type ProfileKey } from "./schema";
 

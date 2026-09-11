@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { ToastProvider } from "@/components/ui/ToastProvider";
 import { absoluteUrl, SITE_DESCRIPTION, SITE_NAME } from "@/lib/seo";
 
 import "@/styles/globals.css";
@@ -48,17 +49,19 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
       </head>
       <body className="overflow-x-clip" suppressHydrationWarning>
-        <a
-          className="focus:top-2 focus:start-2 sr-only focus:not-sr-only focus:fixed focus:z-[200] focus:rounded-lg focus:bg-[var(--surface)] focus:px-4 focus:py-2"
-          href="#main-content"
-        >
-          דילוג לתוכן הראשי
-        </a>
-        <Header />
-        <main id="main-content" tabIndex={-1}>
-          {children}
-        </main>
-        <Footer />
+        <ToastProvider>
+          <a
+            className="focus:top-2 focus:start-2 sr-only focus:not-sr-only focus:fixed focus:z-[200] focus:rounded-lg focus:bg-[var(--surface)] focus:px-4 focus:py-2"
+            href="#main-content"
+          >
+            דילוג לתוכן הראשי
+          </a>
+          <Header />
+          <main id="main-content" tabIndex={-1}>
+            {children}
+          </main>
+          <Footer />
+        </ToastProvider>
         <Analytics />
         <SpeedInsights />
       </body>
