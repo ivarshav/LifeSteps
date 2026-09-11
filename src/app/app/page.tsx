@@ -6,9 +6,7 @@ import { Container } from "@/components/layout/Container";
 import { Card } from "@/components/ui/Card";
 import { Pill } from "@/components/ui/Pill";
 import {
-  countTasks,
   getAllCategories,
-  getHomepageDiscovery,
   getPublishedSteps,
   getStepsByCategory,
 } from "@/lib/content";
@@ -24,7 +22,6 @@ export const metadata: Metadata = pageMetadata({
 export default function HomePage() {
   const categories = getAllCategories();
   const published = getPublishedSteps();
-  const discovery = getHomepageDiscovery();
 
   return (
     <>
@@ -66,43 +63,6 @@ export default function HomePage() {
               <span>✓ חינם לגמרי</span>
             </div>
           </div>
-          {discovery[0]?.type === "step" ? (
-            <Card
-              aria-hidden="true"
-              className="hidden p-5 shadow-[var(--shadow-lg)] sm:block"
-            >
-              <div className="mb-3 flex items-center justify-between gap-3">
-                <strong>{discovery[0].item.title}</strong>
-                <Pill>{countTasks(discovery[0].item)} משימות</Pill>
-              </div>
-              {discovery[0].item.sections
-                .flatMap((section) => section.tasks)
-                .slice(0, 6)
-                .map((task, index) => (
-                  <div
-                    className="border-block-start flex items-center gap-3 border-[var(--gray-100)] py-2.5 text-sm"
-                    key={task.id}
-                  >
-                    <span
-                      className={`grid size-5 place-items-center rounded-md border ${
-                        index < 3
-                          ? "border-[var(--accent-500)] bg-[var(--accent-500)] text-white"
-                          : "border-[var(--gray-300)]"
-                      }`}
-                    >
-                      {index < 3 ? "✓" : ""}
-                    </span>
-                    <span
-                      className={
-                        index < 3 ? "text-[var(--gray-500)] line-through" : ""
-                      }
-                    >
-                      {task.title}
-                    </span>
-                  </div>
-                ))}
-            </Card>
-          ) : null}
         </Container>
       </section>
 
@@ -150,41 +110,6 @@ export default function HomePage() {
                 stepCount={getStepsByCategory(category.id).length}
               />
             ))}
-          </div>
-        </Container>
-      </section>
-
-      <section aria-labelledby="discovery-heading" className="py-10">
-        <Container>
-          <div className="mb-5">
-            <h2
-              className="text-2xl font-semibold text-[var(--gray-900)]"
-              id="discovery-heading"
-            >
-              לגלות באתר
-            </h2>
-            <p className="mt-1 text-[var(--gray-500)]">
-              מבחר שנערך על ידי צוות התוכן כדי לעזור להתחיל לעיין.
-            </p>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {discovery.map((entry) =>
-              entry.type === "step" ? (
-                <StepCard
-                  category={categories.find(
-                    (category) => category.id === entry.item.categoryId,
-                  )}
-                  key={`step-${entry.item.id}`}
-                  step={entry.item}
-                />
-              ) : (
-                <CategoryCard
-                  category={entry.item}
-                  key={`category-${entry.item.id}`}
-                  stepCount={getStepsByCategory(entry.item.id).length}
-                />
-              ),
-            )}
           </div>
         </Container>
       </section>
