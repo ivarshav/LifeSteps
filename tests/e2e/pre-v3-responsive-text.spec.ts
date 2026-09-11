@@ -20,12 +20,14 @@ for (const width of viewports) {
 
     await page.goto("/");
     await expectNoPageOverflow(page);
-    if (width < 640) {
+    if (width < 1024) {
       await expect(
         page.locator('summary[aria-label="פתיחת תפריט"]'),
       ).toBeVisible();
     } else {
-      await expect(page.getByRole("navigation", { name: "ניווט ראשי" })).toBeVisible();
+      await expect(
+        page.getByRole("navigation", { name: "ניווט ראשי" }),
+      ).toBeVisible();
     }
 
     await page.goto("/categories/housing/");
@@ -36,14 +38,24 @@ for (const width of viewports) {
     ).toHaveCount(0);
     await expect(filters.getByRole("button", { name: "בקרוב" })).toHaveCount(0);
     await filters.getByRole("button", { name: "עד 20 משימות" }).focus();
-    await expect(filters.getByRole("button", { name: "עד 20 משימות" })).toBeFocused();
+    await expect(
+      filters.getByRole("button", { name: "עד 20 משימות" }),
+    ).toBeFocused();
     await expectNoPageOverflow(page);
 
     await page.goto("/steps/rent-apartment/");
-    await expect(page.getByText("בדרך כלל אלפי שקלים", { exact: true })).toBeVisible();
-    const insuranceTask = page.locator('[data-task-id="arrange-renters-insurance"]');
-    await expect(insuranceTask.getByText("רשות", { exact: true })).toHaveCount(0);
-    await expect(insuranceTask.getByText("חשוב", { exact: true })).toHaveCount(0);
+    await expect(
+      page.getByText("בדרך כלל אלפי שקלים", { exact: true }),
+    ).toBeVisible();
+    const insuranceTask = page.locator(
+      '[data-task-id="arrange-renters-insurance"]',
+    );
+    await expect(insuranceTask.getByText("רשות", { exact: true })).toHaveCount(
+      0,
+    );
+    await expect(insuranceTask.getByText("חשוב", { exact: true })).toHaveCount(
+      0,
+    );
     await insuranceTask
       .locator('summary[aria-label*="פרטים נוספים"]')
       .press("Enter");
