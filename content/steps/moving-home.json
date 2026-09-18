@@ -198,6 +198,10 @@
               "label": "רשות האוכלוסין — בקשה לשינוי כתובת",
               "url": "https://www.gov.il/he/service/changing_address",
               "official": true
+            },
+            {
+              "label": "מדלן — מידע על כתובות ושכונות",
+              "url": "https://www.madlan.co.il/explore"
             }
           ]
         },
@@ -212,6 +216,10 @@
               "label": "רשות האוכלוסין — שינוי כתובת למשלוח דואר",
               "url": "https://www.gov.il/he/service/changing_mail_address",
               "official": true
+            },
+            {
+              "label": "מדלן — דירות להשכרה",
+              "url": "https://www.madlan.co.il/for-rent/%D7%99%D7%A9%D7%A8%D7%90%D7%9C"
             }
           ]
         },
@@ -233,6 +241,10 @@
               "label": "חברת החשמל — כניסה כצרכן בנכס",
               "url": "https://www.iec.co.il/tenant",
               "official": true
+            },
+            {
+              "label": "מדלן — מידע על כתובות ושכונות",
+              "url": "https://www.madlan.co.il/explore"
             }
           ]
         },

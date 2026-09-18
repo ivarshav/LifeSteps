@@ -106,6 +106,10 @@
               "label": "מינהל התכנון — מדריך לעבודות הפטורות מהיתר",
               "url": "https://www.gov.il/he/pages/guide_report_building_exempt_from_permit",
               "official": true
+            },
+            {
+              "label": "מדלן — מאמרים על נדלן",
+              "url": "https://www.madlan.co.il/blog/"
             }
           ]
         },
@@ -132,6 +136,10 @@
               "label": "משרד הבינוי והשיכון — פנקס הקבלנים",
               "url": "https://www.gov.il/apps/moch/rasham/home",
               "official": true
+            },
+            {
+              "label": "מדלן — יזמים ומפתחים",
+              "url": "https://www.madlan.co.il/developers"
             }
           ]
         },

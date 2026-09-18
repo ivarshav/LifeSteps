@@ -33,7 +33,7 @@
           "links": [
             {
               "label": "הנחיות לעריכת צוואה — משרד המשפטים",
-              "url": "https://www.gov.il/he/legal-will-guidance",
+               "url": "https://www.gov.il/he/pages/editing_depositing_will",
               "official": true
             }
           ]
@@ -47,7 +47,20 @@
           "links": [
             {
               "label": "ייפוי כוח מתמשך — הנחיות וטפסים",
-              "url": "https://www.gov.il/he/permanent-power-of-attorney",
+               "url": "https://www.gov.il/he/service/edit_and_deposit_continuous_power_of_attorney?trigger=sugg",
+              "official": true
+            }
+          ]
+        },
+        {
+          "id": "deposit-will-and-witnesses",
+          "nid": 7,
+          "title": "בחירת עדים והפקדת המסמכים כדין",
+          "details": "איתור עדים כשרים לחתימה, בחירת מיקום הפקדה (רשם הירושות או כספת אישית) ויידוע בני המשפחה על מיקום המסמכים. שמירת עותק חתום במקום נגיש ליורשים.",
+          "links": [
+            {
+              "label": "הפקדת צוואה — רשם הירושות",
+              "url": "https://www.gov.il/he/service/will_deposit",
               "official": true
             }
           ]
@@ -69,7 +82,7 @@
           "links": [
             {
               "label": "הנחיות רפואיות מקדימות — משרד הבריאות",
-              "url": "https://www.gov.il/he/premedical-directives",
+               "url": "https://www.gov.il/he/service/dying-patient-request",
               "official": true
             }
           ]
@@ -83,6 +96,19 @@
             {
               "label": "ארגון עניינים כספיים — מידע למשפחות",
               "url": "https://www.gov.il/he/financial-affairs-guide",
+              "official": true
+            }
+          ]
+        },
+        {
+          "id": "organize-medical-financial-docs",
+          "nid": 8,
+          "title": "ארגון תיק מסמכים רפואיים וכספיים",
+          "details": "ריכוז מסמכים חיוניים בתיק אחד נגיש — תעודות רפואיות, פוליסות ביטוח, פרטי חשבונות בנק, וייפוי כוח רפואי. עדכון הרשימה אחת לשנה ושיתופה עם האדם המיופה.",
+          "links": [
+            {
+              "label": "הפקדת צוואה — רשם הירושות",
+              "url": "https://www.gov.il/he/service/will_deposit",
               "official": true
             }
           ]
@@ -104,7 +130,7 @@
           "links": [
             {
               "label": "הוצאת תעודת פטירה — הנחיות",
-              "url": "https://www.gov.il/he/obtain-death-certificate",
+               "url": "https://www.gov.il/he/service/death_certificate",
               "official": true
             }
           ]
@@ -117,10 +143,16 @@
           "links": [
             {
               "label": "רשימת גורמים להודעה לאחר פטירה",
-              "url": "https://www.gov.il/he/list-authorities-after-death",
+               "url": "https://www.gov.il/he/life-events/end-of-life-life-event/death",
               "official": true
             }
           ]
+        },
+        {
+          "id": "prepare-contacts-and-access-list",
+          "nid": 9,
+          "title": "הכנת רשימת אנשי קשר ומפתחות גישה",
+          "details": "יצירת רשימה מעודכנת של אנשי קשר חיוניים — עורך דין, רופא משפחה, סוכן ביטוח — וריכוז סיסמאות ומפתחות לכספות וחשבונות דיגיטליים במקום מאובטח וידוע למיופה הכוח."
         }
       ]
     }
@@ -129,13 +161,11 @@
   "faq": [
     {
       "q": "באיזה גיל מומלץ להתחיל בתכנון סוף חיים?",
-      "a": "מומלץ להתחיל מוקדם ככל האפשר, מיד עם בגרות חוקית לחתימת צוואה או ייפוי כוח. תכנון מוקדם מבטיח שרצונותיכם יכובדו ומפחית נטל על בני המשפחה בעתיד.",
-      "a": "מומלץ להתחיל מוקדם ככל האפשר, מיד עם בגרות חוקית לחתימת צוואה או ייפוי כוח."
+      "a": "מומלץ להתחיל מוקדם ככל האפשר, מיד עם בגרות חוקית לחתימת צוואה או ייפוי כוח. תכנון מוקדם מבטיח שרצונותיכם יכובדו ומפחית נטל על בני המשפחה בעתיד."
     },
     {
       "q": "מה ההבדל בין צוואה רגילה לייפוי כוח מתמשך?",
-      "a": "צוואה קובעת את חלוקת הרכוש לאחר פטירה, בעוד ייפוי כוח מתמשך קובע מי יטפל בעניינים האישיים, הרפואיים וכספיים אם תהפכו לבלתי כשירים בחייכם. שניהם נועדו להבטחת רצונותיכם, אך במועדים שונים.",
-      "a": "צוואה קובעת את חלוקת הרכוש לאחר פטירה, בעוד ייפוי כוח מתמשך קובע מי יטפל בעניינים האישיים, הרפואיים וכספיים אם תהפכו לבלתי כשירים בחייכם."
+      "a": "צוואה קובעת את חלוקת הרכוש לאחר פטירה, בעוד ייפוי כוח מתמשך קובע מי יטפל בעניינים האישיים, הרפואיים וכספיים אם תהפכו לבלתי כשירים בחייכם. שניהם נועדו להבטחת רצונותיכם, אך במועדים שונים."
     }
   ],
 
@@ -147,17 +177,17 @@
   "sources": [
     {
       "label": "משרד המשפטים — ייפוי כוח מתמשך",
-      "url": "https://www.gov.il/he/permanent-power-of-attorney",
+      "url": "https://www.gov.il/he/service/edit_and_deposit_continuous_power_of_attorney?trigger=sugg",
       "official": true
     },
     {
       "label": "משרד הבריאות — הנחיות רפואיות מקדימות",
-      "url": "https://www.gov.il/he/premedical-directives",
+      "url": "https://www.gov.il/he/service/dying-patient-request",
       "official": true
     },
     {
       "label": "רשות האוכלוסין וההגירה — תעודות פטירה",
-      "url": "https://www.gov.il/he/death-certificates",
+               "url": "https://www.gov.il/he/service/death_certificate",
       "official": true
     }
   ],

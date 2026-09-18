@@ -34,7 +34,7 @@
           "links": [
             {
               "label": "מדריך בדיקת בית — משרד השיכון",
-              "url": "https://www.gov.il/he/themes/guide-for-home-inspection",
+              "url": "https://reporto.co.il/blog/bedek-bayit-complete-guide-2026",
               "official": true
             }
           ]
@@ -47,7 +47,7 @@
           "links": [
             {
               "label": "מאגר מידע — לחץ מים בדירות",
-              "url": "https://www.gov.il/he/departments/water_pressure_guide",
+              "url": "https://www.midrag.co.il/Midragonim/Answer/15685",
               "official": true
             }
           ]
@@ -56,12 +56,12 @@
           "id": "check-fixtures-status",
           "nid": 3,
           "title": "בדיקת מצב ניאגרות וברזים",
-          "details": "בדיקה visible של מצב הניאגרה (הדחה תקינה, no נזילה סמויה) ובדיקת ברזים לכיור, מקלחת ומטבח. יש לבדוק שאין טפטוף מתמשך וכי כל הברזים ניתנים לסגירה מלאה.",
+          "details": "בדיקה גלויה של מצב הניאגרה (הדחה תקינה, אין נזילה סמויה) ובדיקת ברזים לכיור, מקלחת ומטבח. יש לבדוק שאין טפטוף מתמשך וכי כל הברזים ניתנים לסגירה מלאה.",
           "warning": "נזילה סמויה בניאגרה עלולה לגרום להפסד של מאות מטרים מעוקבים של מים בחודש מבלי שתתגלה.",
           "links": [
             {
               "label": "טיפול נזילה סמויה בניאגרה",
-              "url": "https://www.gov.il/he/content/occult-leak-toilet",
+              "url": "https://www.midrag.co.il/Content/Tip/5188",
               "official": true
  }
           ]
@@ -83,7 +83,7 @@
           "links": [
             {
               "label": "אתר תאגיד המים המקומי",
-              "url": "https://www.gov.il/he/departments/water_sewage_authority",
+              "url": "https://www.gov.il/he/pages/water_authority1",
               "official": true
             }
           ]
@@ -92,14 +92,68 @@
           "id": "obtain-maintenance-records",
           "nid": 5,
           "title": "קבלת תיעוד תחזוקת אינסטלציה",
-          "details": "בקשת דו\"חות תיקונים, החלפות ושיפוצים שבוצעו במערכת האינסטלציה במהלך השנים האחרונות. תיעוד מסודר מעיד על טיפול נאות ועשוי לגלות Patterns של בעיות חוזרות.",
+          "details": "בקשת דו\"חות תיקונים, החלפות ושיפוצים שבוצעו במערכת האינסטלציה במהלך השנים האחרונות. תיעוד מסודר מעיד על טיפול נאות ועשוי לגלות דפוסים של בעיות חוזרות.",
           "links": [
             {
               "label": "בקשת מידע מאתבע — חוק חופש המידע",
-              "url": "https://www.gov.il/he/units/information-request",
+              "url": "https://www.gov.il/he/service/freedom_of_information_submission",
               "official": true
             }
           ]
+        },
+        {
+          "id": "document-plumbing-findings",
+          "nid": 6,
+          "title": "תיעוד ממצאי הבדיקה בצילום וברשימה",
+          "details": "צילום כל ממצא חריג, רישום מיקום הנזילה או הקורוזיה וצירוף ההערות לדוח המסכם. תיעוד מסודר מסייע במשא ומתן ובהערכת עלויות תיקון.",
+          "links": [
+            {
+              "label": "מדריך תיעוד ליקויי בנייה — משרד השיכון",
+              "url": "https://reporto.co.il/blog/likuyei-bniya-complete-guide-2026",
+              "official": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "summary-and-negotiation",
+      "nid": 3,
+      "title": "סיכום והחלטה",
+      "description": "ריכוז הממצאים, הערכת עלויות והחלטה על המשך המשא ומתן מול המוכר.",
+      "tasks": [
+        {
+          "id": "estimate-repair-costs",
+          "nid": 7,
+          "title": "הערכת עלויות תיקון צפויות",
+          "details": "ריכוז כל הליקויים שאותרו ותרגומם לאומדן עלויות תיקון על סמך הצעות מחיר מבעלי מקצוע. כולל החלפת צנרת, תיקון נזילות ואיטום.",
+          "links": [
+            {
+              "label": "מחירון שיפוצים — משרד השיכון",
+              "url": "https://www.midrag.co.il/Content/Price/7209",
+              "official": true
+            }
+          ]
+        },
+        {
+          "id": "consult-additional-expert",
+          "nid": 8,
+          "title": "התייעצות עם בעל מקצוע נוסף במידת הצורך",
+          "details": "במקרה של ממצאים מורכבים או סותרים, פנייה לחוות דעת שנייה מאינסטלטור מוסמך או מהנדס בניין לפני קבלת החלטה.",
+          "links": [
+            {
+              "label": "איתור בעל מקצוע מוסמך — רשם הקבלנים",
+              "url": "https://www.gov.il/apps/moch/rasham/home",
+              "official": true
+            }
+          ]
+        },
+        {
+          "id": "decide-on-negotiation",
+          "nid": 9,
+          "title": "קבלת החלטה על המשך המשא ומתן",
+          "details": "השוואת עלות התיקונים למחיר הדירה המוצע והחלטה האם לבקש הפחתת מחיר, דרישת תיקון על ידי המוכר או ויתור על העסקה.",
+          "warning": "אין לחתום על חוזה לפני שהוסכם בכתב מי נושא בעלות התיקונים שאותרו בבדיקה."
         }
       ]
     }
@@ -108,13 +162,11 @@
   "faq": [
     {
       "q": "האם בדיקת אינסטלציה הכרחית ברכישת דירה?",
-      "a": "בדיקה הכרחית להערכת מצב המערכת ומניעת עלויות תיקון בלתי צפויות לאחר המעבר. נזילות סמויות עלולות לגרום לנזקים משמעותיים לאורך זמן.",
       "a": "בדיקה הכרחית להערכת מצב המערכת ומניעת עלויות תיקון בלתי צפויות לאחר המעבר. נזילות סמויות עלולות לגרום לנזקים משמעותיים לאורך זמן."
     },
     {
       "q": "מה העלות המשוערת של בדיקת אינסטלציה?",
-      "a": "בדיקת אינסטלציה מקצועית עולה typically בין 500-1,500 ש\"ח, בהתאם לגודל הנכס והיקף הבדיקה. סכום זה משתלם ביחס לעלות תיקונים אפשריים בעתיד.",
-      "a": "בדיקה מקצועית עולה typically בין 500-1,500 ש\"ח, בהתאם לגודל הנכס והיקף הבדיקה."
+      "a": "בדיקת אינסטלציה מקצועית עולה בדרך כלל בין 500-1,500 ש\"ח, בהתאם לגודל הנכס והיקף הבדיקה. סכום זה משתלם ביחס לעלות תיקונים אפשריים בעתיד."
     }
   ],
 
@@ -126,12 +178,12 @@
   "sources": [
     {
       "label": "משרד השיכון — מדריך בדיקת בית",
-      "url": "https://www.gov.il/he/themes/guide-for-home-inspection",
+      "url": "https://reporto.co.il/blog/bedek-bayit-complete-guide-2026",
       "official": true
     },
     {
       "label": "תאגידי המים והביוב העירוניים",
-      "url": "https://www.gov.il/he/departments/water_authorities",
+      "url": "https://www.gov.il/he/services?subject=environment",
       "official": true
     }
   ],

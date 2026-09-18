@@ -32,7 +32,7 @@
           "links": [
             {
               "label": "ייעוץ דוד שמש — מומחה מוסמך",
-              "url": "https://www.gov.il/he/heating_systems_guidance",
+               "url": "https://www.midrag.co.il/Content/Tip/81",
               "official": true
             }
           ]
@@ -46,7 +46,20 @@
           "links": [
             {
               "label": "איטום גגות — הנחיות",
-              "url": "https://www.gov.il/he/roof-waterproofing",
+               "url": "https://www.midrag.co.il/Content/Tip/28",
+              "official": true
+            }
+          ]
+        },
+        {
+          "id": "coordinate-warranty-expectations",
+          "nid": 8,
+          "title": "תיאום ציפיות לגבי אחריות ועלויות נלוות",
+          "details": "בירור משך האחריות על הדוד והקולטנים, כיסוי עבודת ההתקנה ועלויות הובלה ופינוי. בקשת הצעת מחיר מפורטת בכתב לפני התחייבות.",
+          "links": [
+            {
+              "label": "זכויות צרכן — אחריות והתקנה",
+              "url": "https://www.gov.il/he/service/consumer_protection",
               "official": true
             }
           ]
@@ -68,7 +81,7 @@
           "links": [
             {
               "label": "מידע על פינוי פסולת בנייה",
-              "url": "https://www.gov.il/he/construction-waste-disposal",
+               "url": "https://www.gov.il/he/pages/construction-waste",
               "official": true
             }
           ]
@@ -134,6 +147,19 @@
               "official": true
             }
           ]
+        },
+        {
+          "id": "document-warranty",
+          "nid": 9,
+          "title": "תיעוד אחריות ושמירת מסמכים",
+          "details": "קבלת תעודת אחריות חתומה, חשבונית מס ושמירת הוראות תחזוקה במקום נגיש. צילום המסמכים ושיתופם עם כל דיירי הבית.",
+          "links": [
+            {
+              "label": "שמירת מסמכי אחריות — מדריך צרכנות",
+              "url": "https://www.gov.il/he/service/consumer_documents",
+              "official": true
+            }
+          ]
         }
       ]
     }
@@ -142,13 +168,11 @@
   "faq": [
     {
       "q": "מתי נדרשת החלפת דוד שמש?",
-      "a": "דוד שמש מחזיק מעמד 10-15 שנים. סימנים לכך כוללים ירידה ביעילות החימום, נזילות תכופות, נזקים גלויים בקולטנים או מאגר, או תיקונים חוזרים ונשנים.",
       "a": "דוד שמש מחזיק מעמד 10-15 שנים. סימנים לכך כוללים ירידה ביעילות החימום, נזילות תכופות, נזקים גלויים בקולטנים או מאגר, או תיקונים חוזרים ונשנים."
     },
     {
       "q": "האם אפשר להחליף דוד לבד?",
-      "a": "החלפה עצמית אינה מומלצת בשל המשקל, הגובה והצורך בהתאמה מדויקת של המערכת. התקנה לא נכונה עלולה לגרום לנזילות ולביטול האחריות.",
-      "a": "לא מומלצת בשל המשקל, הגובה והצורך בהתאמה מדויקת של המערכת. התקנה לא נכונה עלולה לגרום לנזילות ולביטול האחריות."
+      "a": "החלפה עצמית אינה מומלצת בשל המשקל, הגובה והצורך בהתאמה מדויקת של המערכת. התקנה לא נכונה עלולה לגרום לנזילות ולביטול האחריות."
     }
   ],
 
@@ -160,12 +184,12 @@
   "sources": [
     {
       "label": "משרד האנרגיה — הנחיות לדוד שמש",
-      "url": "https://www.gov.il/he/heating_systems_guidance",
+      "url": "https://www.midrag.co.il/Content/Tip/81",
       "official": true
     },
     {
       "label": "איגוד התעשייה הסולארית הישראלית",
-      "url": "https://www.isa.org.il/solar-water-heating",
+      "url": "https://www.isa.org.il/",
       "official": true
     }
   ],

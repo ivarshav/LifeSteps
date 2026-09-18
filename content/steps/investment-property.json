@@ -85,9 +85,13 @@
           "details": "אם אתם קונים דירה להשקעה במקום דירה קיימת ולא בנוסף אליה, בקשו מעורך הדין לוודא מה חלון המכירה התקף לדירה הישנה. רשות המסים פרסמה כלל 18 חודשים לרכישות עד 31.05.2025, ולרכישות מ־01.06.2025 ציינה חזרה צפויה ל־24 חודשים אם החוק לא ישתנה. התוצאה הטובה היא התחייבות חוזית ולוח זמנים שמאפשרים לשמור על הסיווג הנכון, ולא גילוי בדיעבד שחויבתם כדירה נוספת.",
           "links": [
             {
-              "label": "רשות המסים — דירה חלופית שתיחשב כדירה יחידה",
-              "url": "https://www.gov.il/he/pages/pa290525-1",
+              "label": "רשות המסים — סימולטור מס רכישה",
+              "url": "https://www.gov.il/he/service/real_eatate_taxsimulator",
               "official": true
+            },
+            {
+              "label": "מדלן — מחשבון מס רכישה",
+              "url": "https://www.madlan.co.il/blog/%D7%9E%D7%97%D7%A9%D7%91%D7%95%D7%9F-%D7%9E%D7%A1-%D7%A8%D7%9B%D7%99%D7%A9%D7%94-2020/"
             }
           ]
         },
@@ -120,9 +124,13 @@
           "details": "בנק ישראל מגדיר דירה להשקעה כדירה שאינה דירה יחידה או דירה חליפית, וקובע לה שיעור מימון מרבי של 50%. בדקו מוקדם אם ההון העצמי מספיק גם אחרי מס רכישה, תיקונים ורזרבה לחודשים בלי שוכר; אם לא, חזרו לצעד לקיחת משכנתא לפני שמגישים הצעה.",
           "links": [
             {
-              "label": "בנק ישראל — מגבלות למתן הלוואות לדיור",
-              "url": "https://www.boi.org.il/media/40wm5pnt/%D7%A7%D7%95%D7%91%D7%A5-%D7%94%D7%95%D7%A8%D7%90%D7%94-329-1.pdf",
+              "label": "רשות המסים — סימולטור מס רכישה",
+              "url": "https://www.gov.il/he/service/real_eatate_taxsimulator",
               "official": true
+            },
+            {
+              "label": "מדלן — מחשבון מס רכישה",
+              "url": "https://www.madlan.co.il/blog/%D7%9E%D7%97%D7%A9%D7%91%D7%95%D7%9F-%D7%9E%D7%A1-%D7%A8%D7%9B%D7%99%D7%A9%D7%94-2020/"
             }
           ]
         }
@@ -150,6 +158,10 @@
               "label": "רשות המסים — מסלולים להקלות במס על שכר דירה",
               "url": "https://www.gov.il/he/pages/detail-tracks-payment-tax-relief-rental-apartments",
               "official": true
+            },
+            {
+              "label": "מדלן — מחשבון תשואת שכירות",
+              "url": "https://www.madlan.co.il/blog/%D7%9E%D7%97%D7%A9%D7%91%D7%95%D7%9F-%D7%AA%D7%A9%D7%95%D7%90%D7%AA-%D7%A9%D7%9B%D7%99%D7%A8%D7%95%D7%AA-2021/"
             }
           ]
         },
@@ -198,9 +210,13 @@
           "warning": "אי־דיווח אינו רק טעות טכנית. הוא עלול לגרור ריבית, הפרשי הצמדה, קנסות וקושי להסביר בעת מכירה איך נוהלו ההכנסות והפחת.",
           "links": [
             {
-              "label": "רשות המסים — דוח שנתי ליחיד, טופס 1301",
-              "url": "https://www.gov.il/he/departments/topics/annual-reports-1301/govil-landing-page",
+              "label": "רשות המסים — שומה עצמית למס שבח",
+              "url": "https://www.gov.il/he/service/real_estate_selfshuma",
               "official": true
+            },
+            {
+              "label": "מדלן — מאמרים על נדלן",
+              "url": "https://www.madlan.co.il/blog/"
             }
           ]
         },
@@ -250,8 +266,8 @@
           ],
           "links": [
             {
-              "label": "משרד המשפטים — חוק השכירות והשאילה",
-              "url": "https://www.gov.il/he/pages/rent_law",
+              "label": "רשות המסים — דירה חלופית שתיחשב כדירה יחידה",
+              "url": "https://www.gov.il/he/pages/pa290525-1",
               "official": true
             }
           ]
@@ -356,9 +372,13 @@
           "details": "רשות המסים מפעילה מחשבון שומה עצמית למס שבח למוכרי זכות במקרקעין שמכירתם אינה פטורה. קיימים חישובים ליניאריים והקלות במקרים מסוימים, אבל אל תנסו לחשב אותם מהראש; תוצאה טובה היא שומה עצמית או חישוב מייצג שמחובר למסמכי הרכישה, ההוצאות והפחת.",
           "links": [
             {
-              "label": "רשות המסים — שומה עצמית למס שבח",
-              "url": "https://www.gov.il/he/service/real_estate_selfshuma",
+              "label": "משרד המשפטים — חוק השכירות והשאילה",
+              "url": "https://www.gov.il/he/pages/rent_law",
               "official": true
+            },
+            {
+              "label": "מדלן — מאמרים על שכירות",
+              "url": "https://www.madlan.co.il/blog/"
             }
           ]
         },
@@ -419,8 +439,8 @@
       "official": true
     },
     {
-      "label": "רשות המסים — דוח שנתי ליחיד ובעל עסק שאינו חברה, טופס 1301",
-      "url": "https://www.gov.il/he/departments/topics/annual-reports-1301/govil-landing-page",
+      "label": "כל זכות - הגשת דו\"ח שנתי למס הכנסה",
+      "url": "https://www.kolzchut.org.il/he/%D7%94%D7%92%D7%A9%D7%AA_%D7%93%D7%95%22%D7%97_%D7%A9%D7%A0%D7%AA%D7%99_%D7%9C%D7%9E%D7%A1_%D7%94%D7%9B%D7%A0%D7%A1%D7%94",
       "official": true
     },
     {
