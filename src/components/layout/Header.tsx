@@ -49,22 +49,22 @@ export function Header() {
           <label className="sr-only" htmlFor="header-search">
             חיפוש צעדים
           </label>
-          <svg
-            aria-hidden="true"
-            className="top-1/2 end-3 absolute -translate-y-1/2 text-[var(--gray-500)]"
-            fill="none"
-            height="16"
-            viewBox="0 0 20 20"
-            width="16"
-          >
-            <circle cx="9" cy="9" r="6" stroke="currentColor" strokeWidth="2" />
-            <path
-              d="m13.5 13.5 3.5 3.5"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeWidth="2"
-            />
-          </svg>
+<svg
+             aria-hidden="true"
+             className="top-1/2 end-3 absolute -translate-y-1/2 text-[var(--gray-500)]"
+             fill="none"
+             height="16"
+             viewBox="0 0 20 20"
+             width="16"
+           >
+             <circle cx="9" cy="9" r="6" stroke="currentColor" strokeWidth="1.5" />
+             <path
+               d="m13.5 13.5 3.5 3.5"
+               stroke="currentColor"
+               strokeLinecap="round"
+               strokeWidth="1.5"
+             />
+           </svg>
           <input
             className="w-full rounded-[var(--radius-pill)] border border-[var(--gray-200)] bg-[var(--gray-50)] py-2 ps-3.5 pe-9 text-sm text-[var(--gray-800)]"
             id="header-search"

@@ -132,7 +132,7 @@ export function Modal({
           </h2>
           <button
             aria-label={closeLabel}
-            className="absolute end-4 top-4 grid size-[34px] place-items-center rounded-[var(--radius-sm)] border-0 bg-[var(--gray-100)] text-[var(--gray-600)] hover:bg-[var(--gray-200)] hover:text-[var(--gray-900)]"
+            className="absolute end-4 top-4 grid size-11 place-items-center rounded-[var(--radius-sm)] border-0 bg-[var(--gray-100)] text-[var(--gray-600)] hover:bg-[var(--gray-200)] hover:text-[var(--gray-900)]"
             onClick={onClose}
             type="button"
           >

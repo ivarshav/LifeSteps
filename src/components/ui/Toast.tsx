@@ -29,7 +29,7 @@ export function Toast({
       <span>{children}</span>
       <button
         aria-label="סגירת הודעה"
-        className="grid size-5 place-items-center rounded-full border-0 bg-transparent p-0 text-current opacity-70 hover:opacity-100"
+        className="grid size-11 place-items-center rounded-full border-0 bg-transparent p-0 text-current opacity-70 hover:opacity-100"
         onClick={onDismiss}
         type="button"
       >

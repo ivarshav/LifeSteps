@@ -31,7 +31,7 @@ export function StepCard({
       <div className="flex min-w-0 items-start gap-3">
         <span
           aria-hidden="true"
-          className="grid size-[42px] shrink-0 place-items-center rounded-[var(--radius-md)] text-xl"
+          className="grid size-[42px] shrink-0 place-items-center rounded-none text-xl"
           style={{ backgroundColor: `${category?.color ?? "#3B6FF5"}1F` }}
         >
           {step.emoji}

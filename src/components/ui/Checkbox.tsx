@@ -45,7 +45,7 @@ export function Checkbox({
       aria-label={label}
       aria-labelledby={labelledBy}
       className={cn(
-        "grid shrink-0 place-items-center border-2 bg-[var(--surface)] transition-[background,border-color,transform,opacity] duration-200 ease-out hover:border-[var(--accent-500)] active:scale-90",
+        "grid shrink-0 place-items-center border-2 bg-[var(--surface)] transition-[background,border-color,transform,opacity] duration-200 ease-out hover:border-[var(--accent-500)] active:scale-[0.96]",
         size === "sm"
           ? "size-5 rounded-md"
           : "mt-0.5 size-11 rounded-[8px]",
@@ -61,10 +61,13 @@ export function Checkbox({
       role="checkbox"
       tabIndex={disabled ? -1 : 0}
     >
-      {checked === true ? (
+      <span className="relative">
         <svg
           aria-hidden="true"
-          className="animate-checkbox-in"
+          className={cn(
+            "absolute inset-0 size-full opacity-0 scale-95 transition-all duration-200 ease-out",
+            checked === true && "opacity-100 scale-100",
+          )}
           fill="none"
           height="15"
           viewBox="0 0 24 24"
@@ -78,11 +81,12 @@ export function Checkbox({
             strokeWidth="3.2"
           />
         </svg>
-      ) : null}
-      {checked === "mixed" ? (
         <svg
           aria-hidden="true"
-          className="animate-checkbox-in"
+          className={cn(
+            "absolute inset-0 size-full opacity-0 scale-95 transition-all duration-200 ease-out",
+            checked === "mixed" && "opacity-100 scale-100",
+          )}
           fill="none"
           height="14"
           viewBox="0 0 24 24"
@@ -95,7 +99,7 @@ export function Checkbox({
             strokeWidth="3.4"
           />
         </svg>
-      ) : null}
+      </span>
     </span>
   );
 }

@@ -16,12 +16,12 @@ export function StickyProgress({}: Record<string, never>) {
     <>
       <div className="top-[var(--hdr-h)] sticky z-50 mb-6 rounded-[var(--radius-md)] border border-[var(--gray-200)] bg-[var(--surface)] p-4 shadow-[var(--shadow-sm)]">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <strong aria-live="polite">
+          <strong aria-live="polite" className="tabular-nums">
             השלמת {done.toLocaleString("he-IL")} מתוך{" "}
             {total.toLocaleString("he-IL")} משימות
           </strong>
           <div className="flex flex-wrap items-center gap-2">
-            <Pill className="bg-[var(--accent-50)] text-[var(--accent-500)]">
+            <Pill className="tabular-nums bg-[var(--accent-50)] text-[var(--accent-500)]">
               {pct}%
             </Pill>
             <Button

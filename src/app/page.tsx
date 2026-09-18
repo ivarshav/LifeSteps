@@ -33,7 +33,7 @@ export default function HomePage() {
             <Pill className="bg-[var(--brand-100)] text-[var(--brand-700)]">
               🇮🇱 מותאם לחיים בישראל
             </Pill>
-            <h1 className="mt-3 text-[2rem] leading-[1.15] font-bold tracking-[-.02em] text-[var(--gray-900)] sm:text-[2.75rem]">
+            <h1 className="mt-3 text-[2rem] leading-[1.15] font-bold tracking-[-.02em] text-[var(--gray-900)] sm:text-[2.75rem] text-wrap:balance">
               כל צעד בחיים,
               <br />
               עם רשימה שאפשר לסמן

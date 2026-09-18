@@ -72,7 +72,7 @@ function getClasses({
   variant = "primary",
 }: ButtonVisualProps & { className?: string }) {
   return cn(
-    "inline-flex items-center justify-center gap-2 whitespace-nowrap border font-semibold no-underline transition-[background,color,border-color,box-shadow,transform,filter] duration-200 ease-out hover:-translate-y-px hover:no-underline active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0 aria-disabled:cursor-not-allowed aria-disabled:opacity-50 aria-disabled:hover:translate-y-0",
+        "inline-flex items-center justify-center gap-2 whitespace-nowrap border font-semibold no-underline transition-[background,color,border-color,box-shadow,transform,filter] duration-200 ease-out hover:-translate-y-px hover:no-underline active:translate-y-0 active:scale-[0.96] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0 aria-disabled:cursor-not-allowed aria-disabled:opacity-50 aria-disabled:hover:translate-y-0",
     variants[variant],
     sizes[size],
     className,

@@ -56,7 +56,7 @@ export function ProgressRing({
           strokeWidth="4"
         />
       </svg>
-      <b className="absolute text-[.625rem] font-bold text-[var(--gray-600)]">
+      <b className="absolute tabular-nums text-[.625rem] font-bold text-[var(--gray-600)]">
         {percentage}%
       </b>
     </span>

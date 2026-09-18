@@ -10,7 +10,7 @@ export function DocumentsCard({ documents }: { documents: string[] }) {
       <div className="flex flex-wrap gap-2">
         {documents.map((document) => (
           <span
-            className="rounded-lg border border-[var(--gray-200)] bg-[var(--gray-50)] px-2.5 py-1 text-sm text-[var(--gray-600)]"
+            className="rounded-none border border-[var(--gray-200)] bg-[var(--gray-50)] px-2.5 py-1 text-sm text-[var(--gray-600)]"
             key={document}
           >
             📄 {document}

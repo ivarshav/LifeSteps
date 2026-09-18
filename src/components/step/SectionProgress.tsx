@@ -9,7 +9,7 @@ export function SectionProgress({ taskIds }: { taskIds: string[] }) {
   const done = taskIds.filter((taskId) => completed.has(taskId)).length;
 
   return (
-    <Pill>
+    <Pill className="tabular-nums">
       {done.toLocaleString("he-IL")} מתוך{" "}
       {taskIds.length.toLocaleString("he-IL")} הושלמו
     </Pill>
