@@ -9,6 +9,8 @@
   --brand-700: #22449f;
   --accent-500: #0ea37a;
   --accent-50: #e7f7f1;
+  --accent-action: #08785a;
+  --accent-on-action: #ffffff;
   --warn-500: #d97706;
   --warn-50: #fef3e2;
   --danger-500: #dc2626;
@@ -60,6 +62,8 @@
   --brand-700: #b3c8ff;
   --accent-500: #2fd3a4;
   --accent-50: #0f2a22;
+  --accent-action: #2fd3a4;
+  --accent-on-action: #0b1220;
   --warn-500: #f0aa45;
   --warn-50: #2e220f;
   --danger-500: #f87171;
