@@ -1,8 +1,12 @@
+export function isKofiSupportEnabled(): boolean {
+  return process.env.NEXT_PUBLIC_SHOW_KOFI_SUPPORT === "true";
+}
+
 export function getKofiUrl(
   configuredUrl: string | undefined =
     process.env.NEXT_PUBLIC_KOFI_URL ?? "https://ko-fi.com/lifesteps",
 ): string | null {
-  if (!configuredUrl) return null;
+  if (!isKofiSupportEnabled() || !configuredUrl) return null;
 
   try {
     const url = new URL(configuredUrl);

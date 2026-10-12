@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Container } from "@/components/layout/Container";
 import { LinkWithExternalIcon } from "@/components/layout/LinkWithExternalIcon";
 import { pageMetadata } from "@/lib/seo";
+import { isKofiSupportEnabled } from "@/lib/support";
 
 export const metadata: Metadata = pageMetadata({
   title: "מדיניות פרטיות",
@@ -13,6 +14,8 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function PrivacyPage() {
+  const showKofiSupport = isKofiSupportEnabled();
+
   return (
     <Container className="max-w-3xl">
       <Breadcrumbs
@@ -67,24 +70,26 @@ export default function PrivacyPage() {
             </LinkWithExternalIcon>
           </p>
         </section>
-        <section>
-          <h2 className="text-xl font-semibold text-[var(--gray-900)]">
-            תמיכה דרך Ko-fi
-          </h2>
-          <p className="mt-2">
-            אם תבחרו לתמוך בפרויקט דרך קישור Ko-fi באתר, התשלום מתבצע מחוץ
-            לצעדי חיים, באמצעות Ko-fi וספק התשלום שתבחרו שם. האתר אינו מבקש או
-            מקבל פרטי כרטיס תשלום. Ko-fi או ספק התשלום עשויים להציג למפעיל
-            העמוד פרטים על התמיכה, בהתאם להגדרות ולמדיניות שלהם. מידע זה אינו
-            נשמר ברשימות ההתקדמות של צעדי חיים. לפני הפעלת הקישור יש לעיין גם
-            במדיניות הפרטיות של Ko-fi ושל ספק התשלום.
-          </p>
-          <p className="mt-2">
-            <LinkWithExternalIcon href="https://more.ko-fi.com/privacy">
-              מדיניות הפרטיות של Ko-fi
-            </LinkWithExternalIcon>
-          </p>
-        </section>
+        {showKofiSupport ? (
+          <section>
+            <h2 className="text-xl font-semibold text-[var(--gray-900)]">
+              תמיכה דרך Ko-fi
+            </h2>
+            <p className="mt-2">
+              אם תבחרו לתמוך בפרויקט דרך קישור Ko-fi באתר, התשלום מתבצע מחוץ
+              לצעדי חיים, באמצעות Ko-fi וספק התשלום שתבחרו שם. האתר אינו מבקש או
+              מקבל פרטי כרטיס תשלום. Ko-fi או ספק התשלום עשויים להציג למפעיל
+              העמוד פרטים על התמיכה, בהתאם להגדרות ולמדיניות שלהם. מידע זה אינו
+              נשמר ברשימות ההתקדמות של צעדי חיים. לפני הפעלת הקישור יש לעיין גם
+              במדיניות הפרטיות של Ko-fi ושל ספק התשלום.
+            </p>
+            <p className="mt-2">
+              <LinkWithExternalIcon href="https://more.ko-fi.com/privacy">
+                מדיניות הפרטיות של Ko-fi
+              </LinkWithExternalIcon>
+            </p>
+          </section>
+        ) : null}
         <section>
           <h2 className="text-xl font-semibold text-[var(--gray-900)]">
             מחיקה ושליטה

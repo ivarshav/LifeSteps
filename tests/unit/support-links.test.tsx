@@ -14,6 +14,7 @@ afterEach(() => {
 describe("Ko-fi support links", () => {
   it("hides support links until a valid creator profile is configured", () => {
     vi.stubEnv("NEXT_PUBLIC_KOFI_URL", "");
+    vi.stubEnv("NEXT_PUBLIC_SHOW_KOFI_SUPPORT", "true");
     render(
       <>
         <AboutPage />
@@ -31,6 +32,7 @@ describe("Ko-fi support links", () => {
 
   it("shows safe external support links on About and in the footer", () => {
     vi.stubEnv("NEXT_PUBLIC_KOFI_URL", "https://ko-fi.com/lifesteps");
+    vi.stubEnv("NEXT_PUBLIC_SHOW_KOFI_SUPPORT", "true");
     render(
       <>
         <AboutPage />
@@ -53,10 +55,38 @@ describe("Ko-fi support links", () => {
       }),
     ).toBeTruthy();
   });
+
+  it("hides support UI by default even when a creator profile is configured", () => {
+    vi.stubEnv("NEXT_PUBLIC_KOFI_URL", "https://ko-fi.com/lifesteps");
+    render(
+      <>
+        <AboutPage />
+        <Footer />
+        <PrivacyPage />
+        <TermsPage />
+      </>,
+    );
+
+    expect(
+      screen.queryByRole("link", { name: /תמיכה בצעדי חיים/ }),
+    ).toBeNull();
+    expect(
+      screen.queryByRole("link", { name: /להזמין לנו כוס קפה/ }),
+    ).toBeNull();
+    expect(
+      screen.queryByRole("heading", { name: "תמיכה דרך Ko-fi" }),
+    ).toBeNull();
+    expect(
+      screen.queryByRole("link", { name: /מדיניות הפרטיות של Ko-fi/ }),
+    ).toBeNull();
+    expect(screen.queryByText(/תמיכה חד־פעמית דרך Ko-fi/)).toBeNull();
+  });
 });
 
 describe("legal page disclosures", () => {
-  it("describes browser storage, analytics, and the external payment flow", () => {
+  it("describes browser storage, analytics, and the external payment flow when enabled", () => {
+    vi.stubEnv("NEXT_PUBLIC_KOFI_URL", "https://ko-fi.com/lifesteps");
+    vi.stubEnv("NEXT_PUBLIC_SHOW_KOFI_SUPPORT", "true");
     render(<PrivacyPage />);
 
     expect(
@@ -75,7 +105,9 @@ describe("legal page disclosures", () => {
     }
   });
 
-  it("states that support is optional and does not change free access", () => {
+  it("states that support is optional and does not change free access when enabled", () => {
+    vi.stubEnv("NEXT_PUBLIC_KOFI_URL", "https://ko-fi.com/lifesteps");
+    vi.stubEnv("NEXT_PUBLIC_SHOW_KOFI_SUPPORT", "true");
     render(<TermsPage />);
 
     expect(screen.getByRole("heading", { name: "תנאי שימוש" })).toBeTruthy();

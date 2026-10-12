@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Container } from "@/components/layout/Container";
 import { pageMetadata } from "@/lib/seo";
+import { isKofiSupportEnabled } from "@/lib/support";
 
 export const metadata: Metadata = pageMetadata({
   title: "תנאי שימוש",
@@ -12,6 +13,8 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function TermsPage() {
+  const showKofiSupport = isKofiSupportEnabled();
+
   return (
     <Container className="max-w-3xl">
       <Breadcrumbs
@@ -72,17 +75,19 @@ export default function TermsPage() {
             </p>
           </div>
         </section>
-        <section>
-          <h2 className="text-xl font-semibold text-[var(--gray-900)]">
-            3. שירותים חיצוניים
-          </h2>
-          <p className="mt-2">
-            תמיכה חד־פעמית דרך Ko-fi, כאשר קישור כזה מוצג, היא מרצון ואינה תנאי
-            לשימוש או מקנה תכונות או שירותים נוספים; השימוש באתר נשאר חינם.
-            התשלום מתבצע מחוץ לצעדי חיים באמצעות Ko-fi וספק התשלום; האתר אינו
-            מקבל פרטי תשלום ואינו קובע את תנאי העסקה.
-          </p>
-        </section>
+        {showKofiSupport ? (
+          <section>
+            <h2 className="text-xl font-semibold text-[var(--gray-900)]">
+              3. שירותים חיצוניים
+            </h2>
+            <p className="mt-2">
+              תמיכה חד־פעמית דרך Ko-fi, כאשר קישור כזה מוצג, היא מרצון ואינה
+              תנאי לשימוש או מקנה תכונות או שירותים נוספים; השימוש באתר נשאר
+              חינם. התשלום מתבצע מחוץ לצעדי חיים באמצעות Ko-fi וספק התשלום;
+              האתר אינו מקבל פרטי תשלום ואינו קובע את תנאי העסקה.
+            </p>
+          </section>
+        ) : null}
 		<section>
           <h2 className="text-xl font-semibold text-[var(--gray-900)]">
             4. בקשה להסרת תכנים או תיקון
