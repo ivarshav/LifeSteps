@@ -4,7 +4,7 @@ export const SITE_NAME = "צעדי חיים";
 export const SITE_DESCRIPTION =
   "צ'ק ליסטים מסודרים לאירועי החיים הגדולים בישראל — מה עושים, באיזה סדר, עם אילו מסמכים.";
 
-const FALLBACK_SITE_URL = "https://life-steps.herokuapp.com";
+const FALLBACK_SITE_URL = "https://lifestepsil.vercel.app/";
 
 export function siteUrl(): string {
   const configured = process.env.NEXT_PUBLIC_SITE_URL?.trim();

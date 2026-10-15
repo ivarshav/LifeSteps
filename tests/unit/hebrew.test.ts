@@ -26,9 +26,10 @@ describe("Hebrew normalization", () => {
     expect(normalize("בבית")).toBe("בבית");
   });
 
-  it("strips one Hebrew prefix particle per token only as an explicit fallback", () => {
+  it("strips only real prefix particles and preserves ordinary words", () => {
     expect(stripPrefixes("בבית")).toBe("בית");
-    expect(stripPrefixes("בית")).toBe("ית");
+    expect(stripPrefixes("בית")).toBe("בית");
+    expect(stripPrefixes("לשון")).toBe("שון");
   });
 
   it("finds inflected terms, task titles, niqqud, and prefixed queries", () => {

@@ -5,7 +5,8 @@
   "buildpacks": [{ "url": "heroku/nodejs" }],
   "env": {
     "NPM_CONFIG_PRODUCTION": { "value": "false" },
-    "NEXT_PUBLIC_SITE_URL": { "required": true }
+    "NEXT_PUBLIC_SITE_URL": { "required": true },
+    "NEXT_PUBLIC_SHOW_KOFI_SUPPORT": { "value": "false" }
   },
   "formation": { "web": { "quantity": 1, "size": "eco" } }
 }
