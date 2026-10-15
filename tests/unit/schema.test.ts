@@ -3,7 +3,12 @@ import { join } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import { CatalogSchema, CategorySchema, StepSchema } from "@/lib/schema";
+import {
+  CatalogSchema,
+  CategorySchema,
+  SourceProvidersSchema,
+  StepSchema,
+} from "@/lib/schema";
 
 const contentDirectory = join(process.cwd(), "content");
 
@@ -65,6 +70,33 @@ describe("content schemas", () => {
       StepSchema.safeParse({
         ...(fixture as object),
         sources: [{ label: "source", url: "http://example.com" }],
+      }).success,
+    ).toBe(false);
+  });
+
+  it("accepts provider attribution metadata and guards its editorial boundary", () => {
+    const providers = SourceProvidersSchema.parse(
+      readJson(join(contentDirectory, "source-providers.json")),
+    );
+
+    expect(
+      providers.providers.find((provider) => provider.id === "midrag"),
+    ).toMatchObject({
+      sourceType: "reviewed-supplementary",
+      approvalStatus: "proposed",
+      reviewStatus: "pending",
+      editorialReviewRequired: true,
+      contentUsage: "editorial-review-required",
+    });
+    expect(
+      SourceProvidersSchema.safeParse({
+        version: 1,
+        providers: [
+          {
+            ...providers.providers[0],
+            editorialReviewRequired: false,
+          },
+        ],
       }).success,
     ).toBe(false);
   });

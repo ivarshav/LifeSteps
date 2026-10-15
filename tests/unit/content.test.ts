@@ -30,9 +30,9 @@ describe("content loader", () => {
 
     expect(allSteps.length).toBeGreaterThan(0);
     expect(publishedSteps).toEqual(expectedPublished);
-    expect(
-      allSteps.reduce((total, step) => total + countTasks(step), 0),
-    ).toBe(expectedTaskCount);
+    expect(allSteps.reduce((total, step) => total + countTasks(step), 0)).toBe(
+      expectedTaskCount,
+    );
 
     const usedCar = getStep("buy-used-car");
     expect(usedCar?.nid).toBe(12);

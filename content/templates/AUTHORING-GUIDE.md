@@ -150,6 +150,33 @@ The build **warns at 12 months** and **fails at 18**. This is deliberately aggre
 Israeli fees, forms and procedures change often enough that an 18-month-old checklist is a
 liability.
 
+### 6.1 Trusted-provider attribution
+
+`content/source-providers.json` is the content-owned registry for providers that may be
+attributed in a source link. It distinguishes:
+
+- `official-primary` — the original authority for a rule, entitlement, procedure, or
+  public service. Prefer this for factual claims.
+- `reviewed-supplementary` — a useful additional perspective, never a replacement for an
+  official primary source when one exists.
+
+Every provider record must have an HTTPS `sourceUrl`, a reader-facing `attributionNote`,
+and a `reviewStatus`. Cite a provider from a step or task only after its record is both
+`"approvalStatus": "approved"` and `"reviewStatus": "reviewed"`:
+
+```jsonc
+{ "label": "ממשלת ישראל — השירות המדויק",
+  "url": "https://www.gov.il/...",
+  "official": true,
+  "providerId": "gov-il" }
+```
+
+**Do not copy, summarize automatically, or present a provider's material as LifeSteps'
+advice.** `editorialReviewRequired` is always `true`: an editor must verify the source,
+write original LifeSteps guidance, and approve the attribution before it is published.
+Proposed providers — including `midrag` — must not be cited in a step until that review is
+complete. See `SOURCE-ATTRIBUTION-GUIDE.md` for the full workflow.
+
 ## 7. Structure
 
 | Element | Guideline |
