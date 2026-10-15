@@ -4,16 +4,22 @@ import { SectionProgress } from "./SectionProgress";
 import { TaskRow } from "./TaskRow";
 
 export function SectionBlock({
+  domIdPrefix,
   index,
   section,
 }: {
+  domIdPrefix?: string;
   index: number;
   section: Section;
 }) {
   return (
     <section
       className="scroll-mt-36 py-5 [contain-intrinsic-size:auto_600px] [content-visibility:auto]"
-      id={`section-${section.id}`}
+      id={
+        domIdPrefix
+          ? `${domIdPrefix}-section-${section.id}`
+          : `section-${section.id}`
+      }
     >
       <div className="mb-2 flex flex-wrap items-center justify-between gap-3">
         <h2 className="flex items-center gap-2 text-xl font-semibold text-[var(--gray-900)]">
@@ -34,7 +40,7 @@ export function SectionBlock({
       ) : null}
       <div className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--gray-200)] shadow-[var(--shadow-sm)]">
         {section.tasks.map((task) => (
-          <TaskRow key={task.id} task={task} />
+          <TaskRow domIdPrefix={domIdPrefix} key={task.id} task={task} />
         ))}
       </div>
     </section>

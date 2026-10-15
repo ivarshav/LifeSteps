@@ -4,6 +4,7 @@ import type { Step } from "@/lib/schema";
 
 import { Disclaimer } from "./Disclaimer";
 import { DocumentsCard } from "./DocumentsCard";
+import { StepFeedback } from "./FeedbackControls";
 import { Faq } from "./Faq";
 import { ProgressProvider } from "./ProgressContext";
 import { RelatedSteps } from "./RelatedSteps";
@@ -48,8 +49,9 @@ export function StepExperience({
           <Faq items={step.faq ?? []} />
           <Disclaimer>{step.disclaimer}</Disclaimer>
           <Sources sources={step.sources} />
+          <StepFeedback stepId={step.id} stepTitle={step.title} />
         </div>
-        <aside className="top-[calc(var(--hdr-h)+100px)] sticky hidden lg:block">
+        <aside className="sticky top-[calc(var(--hdr-h)+100px)] hidden lg:block">
           {sidebar}
         </aside>
       </div>

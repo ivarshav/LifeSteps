@@ -46,7 +46,13 @@ function MarkdownDetails({ children }: { children: string }) {
   return <div className="space-y-2">{rendered}</div>;
 }
 
-export function TaskRow({ task }: { task: Task }) {
+export function TaskRow({
+  domIdPrefix,
+  task,
+}: {
+  domIdPrefix?: string;
+  task: Task;
+}) {
   const hasDetails = Boolean(
     task.details ||
     task.warning ||
@@ -58,10 +64,9 @@ export function TaskRow({ task }: { task: Task }) {
   return (
     <TaskInteraction
       badges={
-        <>
-          {task.timing ? <Badge variant="due">{task.timing}</Badge> : null}
-        </>
+        <>{task.timing ? <Badge variant="due">{task.timing}</Badge> : null}</>
       }
+      domIdPrefix={domIdPrefix}
       hasDetails={hasDetails}
       taskId={task.id}
       title={task.title}
