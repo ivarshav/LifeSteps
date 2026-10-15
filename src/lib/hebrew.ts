@@ -25,7 +25,7 @@ export function stripPrefixes(value: string): string {
         return token;
       }
 
-      const [, , remainder] = match;
+      const remainder = match[2] ?? "";
       return remainder.length >= 3 ? remainder : token;
     })
     .join(" ");
