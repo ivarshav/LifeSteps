@@ -201,7 +201,7 @@
           "links": [
             {
               "label": "רשות שוק ההון, ביטוח וחיסכון",
-              "url": "https://www.gov.il/he/departments/capital_market_authority/govil-landing-page",
+               "url": "https://www.gov.il/he/departments/units/department_cma",
               "official": true
             }
           ]
@@ -251,7 +251,7 @@
     },
     {
       "label": "רשות שוק ההון, ביטוח וחיסכון",
-      "url": "https://www.gov.il/he/departments/capital_market_authority/govil-landing-page",
+      "url": "https://www.gov.il/he/departments/units/department_cma",
       "official": true
     }
   ],

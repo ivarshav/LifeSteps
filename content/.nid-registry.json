@@ -27,6 +27,8 @@
     "25": "home-renovation",
     "26": "buy-from-developer",
     "27": "investment-property",
+    "28": "check-plumbing-inspection",
+    "29": "replace-water-heater-solar",
     "30": "getting-married",
     "31": "prenup-agreement",
     "32": "pregnancy",
@@ -57,6 +59,7 @@
     "62": "death-of-relative",
     "63": "guardianship",
     "64": "change-name",
+    "65": "end-of-life-planning",
     "70": "idf-enlistment",
     "71": "idf-discharge",
     "72": "academic-studies",
@@ -66,6 +69,7 @@
     "90": "retirement",
     "91": "elder-care",
     "1000": "career-development",
-    "1100": "leisure-activities"
+    "1100": "leisure-activities",
+    "1101": "install-water-filter-home"
   }
 }

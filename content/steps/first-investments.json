@@ -127,7 +127,7 @@
           "links": [
             {
               "label": "רשות שוק ההון — כלים לציבור",
-              "url": "https://www.gov.il/he/departments/capital_market_authority/govil-landing-page",
+               "url": "https://www.gov.il/he/services",
               "official": true
             }
           ]
@@ -532,7 +532,7 @@
     },
     {
       "label": "רשות שוק ההון — כלים לציבור",
-      "url": "https://www.gov.il/he/departments/capital_market_authority/govil-landing-page",
+      "url": "https://www.gov.il/he/services",
       "official": true
     },
     {

@@ -97,7 +97,7 @@
           "documents": ["מספר רישוי הרכב"],
           "links": [
             { "label": "מאגר כלי רכב — data.gov.il", "url": "https://data.gov.il/", "official": true },
-            { "label": "משרד התחבורה", "url": "https://www.gov.il/he/departments/ministry_of_transport", "official": true }
+            { "label": "משרד התחבורה", "url": "https://www.gov.il/he/services?subject=automotive_and_transportation", "official": true }
           ]
         },
         {
@@ -110,7 +110,7 @@
           "documents": ["מספר רישוי", "ת\"ז של המוכר"],
           "cost": { "min": 0, "max": 50, "currency": "ILS", "note": "אגרת עיון סמלית. לאימות." },
           "links": [
-            { "label": "רשם המשכונות — עיון מקוון", "url": "https://www.gov.il/he/departments/land_registration_and_settlement_of_rights", "official": true }
+            { "label": "רשם המשכונות — עיון מקוון", "url": "https://www.gov.il/he/service/pawn_perusal", "official": true }
           ]
         },
         {
@@ -206,7 +206,7 @@
           "details": "העברת הבעלות מבוצעת בנוכחות שני הצדדים, או עם ייפוי כוח מתאים. ודאו שהעברת הבעלות בוצעה בפועל ושקיבלתם אישור — לא רק הבטחה שהיא תבוצע מאוחר יותר.",
           "documents": ["תעודת זהות", "רישיון הרכב", "אישור תשלום האגרה"],
           "links": [
-            { "label": "משרד התחבורה — העברת בעלות", "url": "https://www.gov.il/he/departments/ministry_of_transport", "official": true }
+            { "label": "משרד התחבורה — העברת בעלות", "url": "https://www.gov.il/he/services?subject=automotive_and_transportation", "official": true }
           ]
         },
         {
@@ -302,19 +302,19 @@
   "sources": [
     {
       "label": "משרד התחבורה והבטיחות בדרכים",
-      "url": "https://www.gov.il/he/departments/ministry_of_transport",
-      "official": true
-    },
-    {
-      "label": "מאגר נתוני כלי רכב — data.gov.il",
-      "url": "https://data.gov.il/",
-      "official": true
-    },
-    {
-      "label": "רשם המשכונות",
-      "url": "https://www.gov.il/he/departments/land_registration_and_settlement_of_rights",
-      "official": true
-    }
-  ],
-  "status": "published"
+       "url": "https://www.gov.il/he/services?subject=automotive_and_transportation",
+       "official": true
+     },
+     {
+       "label": "מאגר נתוני כלי רכב — data.gov.il",
+       "url": "https://data.gov.il/",
+       "official": true
+     },
+     {
+       "label": "רשם המשכונות",
+       "url": "https://www.gov.il/he/services?subject=construction_and_housing",
+       "official": true
+     }
+   ],
+   "status": "published"
 }

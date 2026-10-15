@@ -220,7 +220,7 @@
           "links": [
             {
               "label": "משרד החינוך — הערכת תארים אקדמיים מחו״ל",
-              "url": "https://www.gov.il/he/service/degree_evaluation",
+               "url": "https://www.gov.il/he/pages/academic_degree_evaluation",
               "official": true
             }
           ]
@@ -390,7 +390,7 @@
     },
     {
       "label": "משרד החינוך — הערכת תארים אקדמיים מחו״ל",
-      "url": "https://www.gov.il/he/service/degree_evaluation",
+      "url": "https://www.gov.il/he/pages/academic_degree_evaluation",
       "official": true
     }
   ],

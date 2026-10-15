@@ -175,6 +175,28 @@
       ]
     },
     {
+      "id": "check-plumbing-inspection",
+      "nid": 28,
+      "categoryId": "housing",
+      "title": "בדיקת מערכת אינסטלציה לפני רכישת דירה",
+      "tier": 2,
+      "relatedStepIds": [
+        "rent-apartment",
+        "buy-apartment"
+      ]
+    },
+    {
+      "id": "replace-water-heater-solar",
+      "nid": 29,
+      "categoryId": "housing",
+      "title": "החלפת דוד שמש סולרי",
+      "tier": 2,
+      "relatedStepIds": [
+        "buy-apartment",
+        "rent-apartment"
+      ]
+    },
+    {
       "id": "getting-married",
       "nid": 30,
       "categoryId": "family",
@@ -522,6 +544,17 @@
       ]
     },
     {
+      "id": "end-of-life-planning",
+      "nid": 65,
+      "categoryId": "legal",
+      "title": "תכנון סוף חיים וטיפול בעניינים מעשיים",
+      "tier": 1,
+      "relatedStepIds": [
+        "write-will",
+        "lasting-power-of-attorney"
+      ]
+    },
+    {
       "id": "idf-enlistment",
       "nid": 70,
       "categoryId": "army-edu",
@@ -633,6 +666,17 @@
       "tier": 3,
       "relatedStepIds": [
         "register-child-school"
+      ]
+    },
+    {
+      "id": "install-water-filter-home",
+      "nid": 1200,
+      "categoryId": "housing",
+      "title": "התקנת מסנן מים ביתי",
+      "tier": 2,
+      "relatedStepIds": [
+        "rent-apartment",
+        "buy-apartment"
       ]
     }
   ]

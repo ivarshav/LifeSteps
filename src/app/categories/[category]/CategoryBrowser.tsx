@@ -15,6 +15,40 @@ function countTasks(step: Step): number {
   );
 }
 
+const HEBREW_NUM = new Map<string, number>([
+  ["חצי", 0.5],
+  ["אחד", 1], ["אחת", 1],
+  ["שניים", 2], ["שתי", 2], ["שני", 2],
+  ["שלושה", 3], ["שלוש", 3],
+  ["ארבעה", 4], ["ארבע", 4],
+  ["חמישה", 5], ["חמש", 5],
+  ["שישה", 6], ["שש", 6],
+  ["שבעה", 7], ["שבע", 7],
+  ["שמונה", 8],
+  ["תשעה", 9], ["תשע", 9],
+  ["עשרה", 10], ["עשר", 10],
+]);
+
+function durationHours(text: string): number {
+  if (!text) return Infinity;
+  let hours = 0;
+  const s = text.replace(/[^א-ת\s]/g, " ");
+  const tokens = s.split(/\s+/).filter(Boolean);
+  let multiplier = 1;
+  for (const t of tokens) {
+    const num = HEBREW_NUM.get(t); if (num !== undefined) { multiplier = num; continue; }
+    if (t === "שנייה" || t === "שניות") { hours += multiplier / 3600; multiplier = 1; }
+    else if (t === "דקה" || t === "דקות") { hours += multiplier / 60; multiplier = 1; }
+    else if (t === "שעה" || t === "שעות" || t === "שעתיים") { hours += multiplier * (t === "שעתיים" ? 2 : 1); multiplier = 1; }
+    else if (t === "יום" || t === "ימים" || t === "יומיים" || t === "יממה" || t === "יממות") { hours += multiplier * 24; multiplier = 1; }
+    else if (t === "שבוע" || t === "שבועות" || t === "שבועיים") { hours += multiplier * 168; multiplier = 1; }
+    else if (t === "חודש" || t === "חודשים" || t === "חודשיים") { hours += multiplier * 720; multiplier = 1; }
+    else if (t === "שנה" || t === "שנים" || t === "שנתיים") { hours += multiplier * 8760; multiplier = 1; }
+    else multiplier = 1;
+  }
+  return hours || Infinity;
+}
+
 export function CategoryBrowser({
   category,
   steps,
@@ -35,11 +69,10 @@ export function CategoryBrowser({
       return [...filtered].sort((a, b) => countTasks(a) - countTasks(b));
     }
     if (sort === "duration") {
-      return [...filtered].sort((a, b) =>
-        (a.estimatedDuration ?? "").localeCompare(
-          b.estimatedDuration ?? "",
-          "he",
-        ),
+      return [...filtered].sort(
+        (a, b) =>
+          durationHours(a.estimatedDuration ?? "") -
+          durationHours(b.estimatedDuration ?? ""),
       );
     }
     return filtered;

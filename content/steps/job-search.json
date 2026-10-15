@@ -59,7 +59,7 @@
           "links": [
             {
               "label": "רשות המסים — טופס 161",
-              "url": "https://www.gov.il/he/service/itc161",
+               "url": "https://www.gov.il/he/service/system-reporting-job-departures",
               "official": true
             }
           ]
@@ -244,7 +244,7 @@
             },
             {
               "label": "משרד החינוך — הערכת תארים אקדמיים מחו״ל",
-              "url": "https://www.gov.il/he/service/degree_evaluation",
+               "url": "https://www.gov.il/he/pages/academic_degree_evaluation",
               "official": true
             }
           ]
@@ -448,7 +448,7 @@
     },
     {
       "label": "רשות המסים — טופס 161",
-      "url": "https://www.gov.il/he/service/itc161",
+               "url": "https://www.gov.il/he/service/system-reporting-job-departures",
       "official": true
     }
   ],

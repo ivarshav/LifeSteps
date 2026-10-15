@@ -102,6 +102,10 @@
               "label": "משרד המשפטים — הפקת נסח טאבו",
               "url": "https://www.gov.il/he/service/land_registration_extract",
               "official": true
+            },
+            {
+              "label": "מדלן — מידע על כתובות ושכונות",
+              "url": "https://www.madlan.co.il/explore"
             }
           ]
         },
@@ -188,6 +192,10 @@
               "label": "רשות המסים — שומה עצמית למס שבח",
               "url": "https://www.gov.il/he/service/real_estate_selfshuma",
               "official": true
+            },
+            {
+              "label": "מדלן — מאמרים על נדלן",
+              "url": "https://www.madlan.co.il/blog/"
             }
           ]
         },
