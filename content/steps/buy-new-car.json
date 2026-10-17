@@ -59,8 +59,8 @@
           "details": "בדקו את המפרט הרשמי של הדגם: נפח מנוע או סוג הנעה, צריכת דלק או חשמל, נתוני WLTP, רמת אבזור ומידות. אל תסתפקו בשם מסחרי — אותו שם דגם יכול להגיע בכמה רמות גימור שונות.\n\nאם אתם משווים רכבים חשמליים, בדקו גם טווח, סוג טעינה, זמן טעינה משוער והאם יש לכם פתרון טעינה קבוע.",
           "links": [
             {
-              "label": "מאגר דגמי רכב WLTP — משרד התחבורה",
-              "url": "https://data.gov.il/api/3/action/package_show?id=degem-rechev-wltp",
+              "label": "מאגר דגמי רכב — משרד התחבורה",
+              "url": "https://www.gov.il/he/Departments/DynamicCollectors/car-models?skip=0",
               "official": true
             }
           ]
@@ -176,7 +176,7 @@
           "links": [
             {
               "label": "מאגר מספרי רישוי — משרד התחבורה",
-              "url": "https://data.gov.il/api/3/action/package_show?id=private-and-commercial-vehicles",
+              "url": "https://www.gov.il/he/departments/dynamiccollectors/private-and-commercial-vehicles",
               "official": true
             }
           ]
@@ -209,7 +209,7 @@
           "links": [
             {
               "label": "מאגר רכבים שלא ביצעו ריקול",
-              "url": "https://data.gov.il/api/3/action/package_show?id=hagbalat_recall",
+              "url": "https://www.gov.il/he/departments/dynamiccollectors/cars-recall?skip=0",
               "official": true
             }
           ]
@@ -262,7 +262,7 @@
           "links": [
             {
               "label": "מאגר מוסכים ומכוני רישוי — משרד התחבורה",
-              "url": "https://data.gov.il/api/3/action/package_show?id=musachim",
+              "url": "https://www.gov.il/he/Departments/DynamicCollectors/garages-and-licensing-institutes?skip=0",
               "official": true
             }
           ]
@@ -303,23 +303,23 @@
   "lastReviewed": "2026-09-07",
   "sources": [
     {
-      "label": "משרד התחבורה — מאגר דגמי רכב WLTP",
-      "url": "https://data.gov.il/api/3/action/package_show?id=degem-rechev-wltp",
+      "label": "משרד התחבורה — מאגר דגמי רכב",
+      "url": "https://www.gov.il/he/Departments/DynamicCollectors/car-models?skip=0",
       "official": true
     },
     {
       "label": "משרד התחבורה — מאגר מספרי רישוי של כלי רכב",
-      "url": "https://data.gov.il/api/3/action/package_show?id=private-and-commercial-vehicles",
+      "url": "https://www.gov.il/he/departments/dynamiccollectors/private-and-commercial-vehicles",
       "official": true
     },
     {
       "label": "משרד התחבורה — מאגר רכבים שלא ביצעו ריקול",
-      "url": "https://data.gov.il/api/3/action/package_show?id=hagbalat_recall",
+      "url": "https://www.gov.il/he/departments/dynamiccollectors/cars-recall?skip=0",
       "official": true
     },
     {
       "label": "משרד התחבורה — סחר, יבוא וייצור מוצרי תעבורה",
-      "url": "https://data.gov.il/api/3/action/package_show?id=batei-esek",
+      "url": "https://www.gov.il/he/departments/topics/imports_of_vehicles/govil-landing-page",
       "official": true
     }
   ],

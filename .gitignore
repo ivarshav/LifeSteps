@@ -12,7 +12,7 @@ test-results
 blob-report
 
 # env
-.env*.local
+.env*
 
 # os / ide
 .DS_Store
@@ -24,3 +24,5 @@ Thumbs.db
 plan
 .lighthouse-results
 content/research
+
+.github

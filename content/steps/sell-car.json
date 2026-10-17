@@ -42,7 +42,7 @@
           "links": [
             {
               "label": "מאגר מספרי רישוי של כלי רכב",
-              "url": "https://data.gov.il/api/3/action/package_show?id=private-and-commercial-vehicles",
+              "url": "https://www.gov.il/he/departments/dynamiccollectors/private-and-commercial-vehicles",
               "official": true
             }
           ]
@@ -57,7 +57,7 @@
           "links": [
             {
               "label": "מאגר רכבים שלא ביצעו ריקול",
-              "url": "https://data.gov.il/api/3/action/package_show?id=hagbalat_recall",
+              "url": "https://www.gov.il/he/departments/dynamiccollectors/cars-recall?skip=0",
               "official": true
             }
           ]
@@ -256,12 +256,12 @@
     },
     {
       "label": "משרד התחבורה — מאגר מספרי רישוי של כלי רכב",
-      "url": "https://data.gov.il/api/3/action/package_show?id=private-and-commercial-vehicles",
+      "url": "https://www.gov.il/he/departments/dynamiccollectors/private-and-commercial-vehicles",
       "official": true
     },
     {
       "label": "משרד התחבורה — מאגר רכבים שלא ביצעו ריקול",
-      "url": "https://data.gov.il/api/3/action/package_show?id=hagbalat_recall",
+      "url": "https://www.gov.il/he/departments/dynamiccollectors/cars-recall?skip=0",
       "official": true
     }
   ],

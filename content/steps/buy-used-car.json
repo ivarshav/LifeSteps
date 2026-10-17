@@ -96,7 +96,7 @@
           "warning": "רכב שסומן כ\"אובדן להלכה\" (טוטאלוס) שווה משמעותית פחות וקשה לבטח בביטוח מקיף. לא בהכרח פסול — אבל חייב להשפיע על המחיר.",
           "documents": ["מספר רישוי הרכב"],
           "links": [
-            { "label": "מאגר כלי רכב — data.gov.il", "url": "https://data.gov.il/", "official": true },
+            { "label": "מאגר כלי רכב — data.gov.il", "url": "https://www.gov.il/he/departments/dynamiccollectors/private-and-commercial-vehicles", "official": true },
             { "label": "משרד התחבורה", "url": "https://www.gov.il/he/services?subject=automotive_and_transportation", "official": true }
           ]
         },
@@ -214,7 +214,7 @@
           "nid": 17,
           "title": "תשלום אגרת העברת הבעלות",
           "details": "האגרה משולמת בעת ההעברה. סכומה מתעדכן מעת לעת — בדקו את הסכום המדויק באתר משרד התחבורה לפני ההגעה.",
-          "cost": { "min": 0, "max": 0, "currency": "ILS", "note": "לאימות — הסכום מתעדכן. ראו אתר משרד התחבורה." }
+          "cost": { "min": 200, "max": 260, "currency": "ILS", "note": "אגרת העברת בעלות לרכב פרטי/מסחרי (מתעדכנת מעת לעת באתר משרד התחבורה). לאימות." }
         },
         {
           "id": "collect-keys-and-docs",
@@ -302,19 +302,19 @@
   "sources": [
     {
       "label": "משרד התחבורה והבטיחות בדרכים",
-       "url": "https://www.gov.il/he/services?subject=automotive_and_transportation",
-       "official": true
-     },
-     {
-       "label": "מאגר נתוני כלי רכב — data.gov.il",
-       "url": "https://data.gov.il/",
-       "official": true
-     },
-     {
-       "label": "רשם המשכונות",
-       "url": "https://www.gov.il/he/services?subject=construction_and_housing",
-       "official": true
-     }
-   ],
+      "url": "https://www.gov.il/he/services?subject=automotive_and_transportation",
+      "official": true
+    },
+    {
+      "label": "מאגר נתוני כלי רכב — data.gov.il",
+      "url": "https://www.gov.il/he/departments/dynamiccollectors/private-and-commercial-vehicles",
+      "official": true
+    },
+    {
+      "label": "רשם המשכונות — עיון מקוון",
+      "url": "https://www.gov.il/he/service/pawn_perusal",
+      "official": true
+    }
+  ],
    "status": "published"
 }

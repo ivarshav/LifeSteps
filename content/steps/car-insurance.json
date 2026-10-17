@@ -241,7 +241,7 @@
     },
     {
       "label": "רשות שוק ההון — ביטוח־נט ב-data.gov.il",
-      "url": "https://data.gov.il/api/3/action/package_show?id=insurance",
+      "url": "https://bituachnet.cma.gov.il/",
       "official": true
     },
     {

@@ -107,7 +107,7 @@ const check = async (url) => {
  */
 const isChallenge = ({ status, server }) =>
   (status === 403 || status === 503) &&
-  /cloudflare|akamai|rdwr|incapsula/i.test(server ?? "");
+  /cloudflare|akamai|rdwr|incapsula|imperva|cloudfront|aws/i.test(server ?? "");
 
 const entries = [...links.entries()];
 const dead = [];
