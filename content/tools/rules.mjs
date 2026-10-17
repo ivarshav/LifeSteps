@@ -299,7 +299,7 @@ export function syncRegistry(store) {
   };
 }
 
-function checkLinks(links, where, err, providersById) {
+function checkLinks(links, where, err, warn, providersById) {
   if (links === undefined) return;
   if (!Array.isArray(links)) return err(`${where} must be an array`);
   links.forEach((l, i) => {
@@ -309,6 +309,28 @@ function checkLinks(links, where, err, providersById) {
       err(
         `${where}[${i}].url must be an absolute https:// URL, received ${JSON.stringify(l?.url)}`,
       );
+    } else {
+      if (l.url.includes("/api/3/action/") || /[?&]format=json\b/i.test(l.url)) {
+        warn?.(
+          `${where}[${i}].url points to a raw API endpoint (${l.url}) — link to the human-facing dataset or portal page instead`,
+        );
+      }
+      if (l.url === "https://data.gov.il/" || l.url === "https://data.gov.il") {
+        warn?.(
+          `${where}[${i}].url points to the root data.gov.il catalog — link to the specific dataset URL instead`,
+        );
+      }
+      if (
+        l.url.includes("/en/english/") ||
+        l.url.startsWith("https://thekotel.org/en/")
+      ) {
+        warn?.(
+          `${where}[${i}].url points to an English URL (${l.url}) in a Hebrew checklist — prefer the Hebrew equivalent`,
+        );
+      }
+    }
+    if (l?.official !== undefined && typeof l.official !== "boolean") {
+      err(`${where}[${i}].official must be a boolean when present`);
     }
     if (l?.providerId !== undefined) {
       const provider = providersById.get(l.providerId);
@@ -327,6 +349,7 @@ function checkLinks(links, where, err, providersById) {
     }
   });
 }
+
 
 function checkMatch(rule, where, err, codes) {
   if (rule === undefined) return;
@@ -872,7 +895,13 @@ export function validateStore(store) {
         "at least one source is required (plan/docs/02 §6 rule 5)",
       );
     } else {
-      checkLinks(data.sources, "sources", e("sources"), providersById);
+      checkLinks(
+        data.sources,
+        "sources",
+        e("sources"),
+        (m) => warn("sources", m),
+        providersById,
+      );
       if (!data.sources.some((s) => s.official)) {
         warn(
           "sources",
@@ -893,18 +922,15 @@ export function validateStore(store) {
         err(`relatedStepIds[${i}]`, "a step cannot be related to itself");
     }
 
-    if (
-      data.estimatedCost !== undefined &&
-      typeof data.estimatedCost !== "string"
-    ) {
+    if (typeof data.estimatedCost === "string") {
+      warn(
+        "estimatedCost",
+        `is a plain string ("${data.estimatedCost}") — quote a structured { min, max, currency: "ILS", note } range (AUTHORING-GUIDE §5)`,
+      );
+    } else if (data.estimatedCost !== undefined) {
       checkMoney(data.estimatedCost, "estimatedCost", e("estimatedCost"), (m) =>
         warn("estimatedCost", m),
       );
-    } else if (
-      typeof data.estimatedCost === "string" &&
-      !data.estimatedCost.trim()
-    ) {
-      err("estimatedCost", "must be a non-empty string when it is not a range");
     }
     checkMatch(data.audience, "audience", e("audience"), codes);
 
@@ -994,7 +1020,13 @@ export function validateStore(store) {
         checkMoney(task.cost, `${tp}.cost`, e(`${tp}.cost`), (m) =>
           warn(`${tp}.cost`, m),
         );
-        checkLinks(task.links, `${tp}.links`, e(`${tp}.links`), providersById);
+        checkLinks(
+          task.links,
+          `${tp}.links`,
+          e(`${tp}.links`),
+          (m) => warn(`${tp}.links`, m),
+          providersById,
+        );
         checkMatch(task.audience, `${tp}.audience`, e(`${tp}.audience`), codes);
       }
 
@@ -1033,12 +1065,6 @@ export function validateStore(store) {
     // ── mentor depth ────────────────────────────────────────────────
     // "Life Steps is not only a bureaucracy helper. It is a mentor for life."
     // (plan/docs/00 §2.1.) A step can enumerate every correct form and still fail that bar.
-    //
-    // These are notices, not warnings: depth is a judgement no rule can settle. The
-    // thresholds sit just under the floor the authored store actually holds today —
-    // 100% of tasks carry details, every step has 4+ faq entries, 1+ warning and 4+
-    // described sections. So none of these fire on current content by design: they are a
-    // regression guard for the next step somebody writes in a hurry, not a rubber stamp.
     if (!comingSoon && Array.isArray(sections) && sections.length) {
       const allTasks = sections.flatMap((s) => s.tasks ?? []);
       const withDetails = allTasks.filter(
@@ -1058,15 +1084,15 @@ export function validateStore(store) {
         );
       }
       if (!Array.isArray(data.faq) || data.faq.length < 3) {
-        notice(
+        warn(
           "faq",
-          `${(data.faq ?? []).length} faq entries. The questions people actually ask out loud are where a checklist stops being a form list — every other published step carries at least four (plan/docs/00 §2.1)`,
+          `${(data.faq ?? []).length} faq entries; minimum 3 FAQs required for published steps (AUTHORING-GUIDE §8, plan/docs/00 §2.1)`,
         );
       }
       if (withWarning === 0) {
-        notice(
+        warn(
           "sections",
-          `no task carries a "warning". Almost every Israeli process has a trap that costs money or time when missed — if this one genuinely has none, ignore this (plan/docs/00 §2.1)`,
+          `no task carries a "warning". Almost every Israeli process has a trap that costs money or time when missed — add at least one warning (plan/docs/00 §2.1)`,
         );
       }
       if (describedSections < 2) {
@@ -1076,6 +1102,7 @@ export function validateStore(store) {
         );
       }
     }
+
   }
 
   // ── cross-link reciprocity ────────────────────────────────────────

@@ -18,9 +18,12 @@
     "משכנתא",
     "חוזה מכר"
   ],
-  "estimatedDuration": "חודש עד שלושה חודשים",
-  "estimatedCost": "משתנה בין אזורים גיאוגרפיים",
-  "difficulty": 3,
+  "estimatedCost": {
+    "min": 15000,
+    "max": 60000,
+    "currency": "ILS",
+    "note": "עלויות נלוות בלבד (שכר טרחת עו״ד, שמאות, רישום, מדדים) — לא כולל מחיר הדירה ומס רכישה. לאימות."
+  },
   "audience": {
     "any": [
       {
@@ -141,6 +144,11 @@
           "important": true,
           "details": "ודאו מי רשום כבעל הזכויות, מה תיאור הנכס, האם יש הצמדות כמו חניה או מחסן, והאם קיימות הערות, שעבודים, עיקולים או זכויות צד שלישי. אם הדירה אינה רשומה בטאבו, בקשו אישור זכויות עדכני מהגורם המנהל.",
           "links": [
+            {
+              "label": "משרד המשפטים — הפקת נסח טאבו מקוון",
+              "url": "https://www.gov.il/he/service/land_registration_extract",
+              "official": true
+            },
             {
               "label": "מדלן — מידע על כתובות ושכונות",
               "url": "https://www.madlan.co.il/explore"
@@ -384,6 +392,11 @@
   "disclaimer": "המידע כללי ואינו ייעוץ משפטי, מס או משכנתאות. בקניית דירה יש השלכות כספיות כבדות — אמתו כל סכום, מועד וזכאות מול עורך דין, רשות המסים והבנק לפני חתימה.",
   "lastReviewed": "2026-09-07",
   "sources": [
+    {
+      "label": "משרד המשפטים — הרשות לרישום והסדר זכויות מקרקעין (טאבו)",
+      "url": "https://www.gov.il/he/service/land_registration_extract",
+      "official": true
+    },
     {
       "label": "רשות המסים — סימולטור מס רכישה",
       "url": "https://www.misim.gov.il/svsimurechisha/FrmFirstPage.aspx",

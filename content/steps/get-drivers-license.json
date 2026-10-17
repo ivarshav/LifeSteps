@@ -41,7 +41,7 @@
           "links": [
             {
               "label": "מאגר דרגות והיתרי רישיון נהיגה",
-              "url": "https://data.gov.il/api/3/action/package_show?id=driving_license_ranks",
+              "url": "https://www.gov.il/he/pages/driving_licence_categories",
               "official": true
             }
           ]
@@ -209,7 +209,7 @@
           "links": [
             {
               "label": "רשות שוק ההון — ביטוח־נט",
-              "url": "https://data.gov.il/api/3/action/package_show?id=insurance",
+              "url": "https://bituachnet.cma.gov.il/",
               "official": true
             }
           ]
@@ -250,7 +250,7 @@
   "sources": [
     {
       "label": "משרד התחבורה — דרגות והיתרי רישיון נהיגה",
-      "url": "https://data.gov.il/api/3/action/package_show?id=driving_license_ranks",
+      "url": "https://www.gov.il/he/pages/driving_licence_categories",
       "official": true
     },
     {

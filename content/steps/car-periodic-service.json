@@ -19,10 +19,10 @@
   ],
   "estimatedDuration": "יום עד שבוע בדרך כלל — יותר אם יש ליקויים או חלקים חסרים",
   "estimatedCost": {
-    "min": 0,
-    "max": 0,
+    "min": 600,
+    "max": 2500,
     "currency": "ILS",
-    "note": "לאימות — אגרת הרישוי, מבחן הרישוי, טיפול וחלקים משתנים לפי רכב, מוסך וליקויים. בדקו לפני התשלום."
+    "note": "עלות טיפול תקופתי ומבחן רישוי שנתי (לא כולל תיקוני תקלות מיוחדות או החלפת צמיגים). לאימות."
   },
   "difficulty": 2,
   "requiredDocuments": [
@@ -71,7 +71,7 @@
           "links": [
             {
               "label": "מאגר מוסכים ומכוני רישוי — משרד התחבורה",
-              "url": "https://data.gov.il/api/3/action/package_show?id=musachim",
+              "url": "https://www.gov.il/he/Departments/DynamicCollectors/garages-and-licensing-institutes",
               "official": true
             }
           ]
@@ -152,7 +152,7 @@
           "links": [
             {
               "label": "מאגר רכבים שלא ביצעו ריקול",
-              "url": "https://data.gov.il/api/3/action/package_show?id=hagbalat_recall",
+              "url": "https://www.gov.il/he/Departments/DynamicCollectors/cars-recall?skip=0",
               "official": true
             }
           ]
@@ -275,22 +275,22 @@
   "sources": [
     {
       "label": "משרד התחבורה — מאגר מוסכים ומכוני רישוי",
-      "url": "https://data.gov.il/api/3/action/package_show?id=musachim",
+      "url": "https://www.gov.il/he/Departments/DynamicCollectors/garages-and-licensing-institutes",
       "official": true
     },
     {
       "label": "משרד התחבורה — מאגר מספרי רישוי של כלי רכב",
-      "url": "https://data.gov.il/api/3/action/package_show?id=private-and-commercial-vehicles",
+      "url": "https://www.gov.il/he/Departments/DynamicCollectors/private-and-commercial-vehicles",
       "official": true
     },
     {
       "label": "משרד התחבורה — מאגר רכבים שלא ביצעו ריקול",
-      "url": "https://data.gov.il/api/3/action/package_show?id=hagbalat_recall",
+      "url": "https://www.gov.il/he/Departments/DynamicCollectors/cars-recall?skip=0",
       "official": true
     },
     {
-      "label": "משרד התחבורה — מאגר דגמי רכב WLTP",
-      "url": "https://data.gov.il/api/3/action/package_show?id=degem-rechev-wltp",
+      "label": "משרד התחבורה — מאגר דגמי רכב",
+      "url": "https://www.gov.il/he/Departments/DynamicCollectors/car-models?skip=0",
       "official": true
     }
   ],
