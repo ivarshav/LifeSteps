@@ -49,6 +49,11 @@ for (const width of [360, 768, 1280]) {
     const taskFeedback = task.getByRole("button", { name: "כן" });
     await taskFeedback.click();
     await expect(taskFeedback).toHaveAttribute("aria-pressed", "true");
+    await expect(
+      task.getByText(
+        "הבחירה נשלחת ל-Vercel Analytics ללא טקסט חופשי, כדי לשפר את התוכן.",
+      ),
+    ).toBeVisible();
     await expectNoPageOverflow(page);
   });
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { track } from "@vercel/analytics";
 import { useEffect, useId, useState } from "react";
 
 import {
@@ -35,6 +36,11 @@ export function TaskFeedbackControls({ taskId }: { taskId: string }) {
     saveTaskFeedback(stepId, taskId, nextValue);
     setValue(nextValue);
     logTaskClarity({ stepId, taskId, value: nextValue });
+    track("task_clarity", {
+      stepId,
+      taskId,
+      value: nextValue,
+    });
   };
 
   return (
@@ -56,6 +62,9 @@ export function TaskFeedbackControls({ taskId }: { taskId: string }) {
       >
         לא
       </button>
+      <span className="basis-full">
+        הבחירה נשלחת ל-Vercel Analytics ללא טקסט חופשי, כדי לשפר את התוכן.
+      </span>
     </div>
   );
 }
