@@ -63,10 +63,21 @@ export default function PrivacyPage() {
               פרסום ואין שירותי צד שלישי למטרות שיווק בגרסה זו. אפשר לחסום
               עוגיות דרך הגדרות הדפדפן, אך העדפת מצב התצוגה עלולה שלא להישמר.
             </p>
+            <p>
+              כשמסמנים אם משימה הייתה ברורה (כן/לא), נשלח אירוע אנונימי ל־
+              <bdi>Axiom</bdi> הכולל את מזהה הצעד, מזהה המשימה והתשובה בלבד —
+              ללא טקסט חופשי וללא פרטים מזהים — כדי לזהות צעדים שאינם ברורים
+              ולשפר אותם. סימון ההתקדמות עצמו אינו נשלח.
+            </p>
           </div>
           <p className="mt-2">
             <LinkWithExternalIcon href="https://vercel.com/legal/privacy-policy">
               מדיניות הפרטיות של Vercel
+            </LinkWithExternalIcon>
+          </p>
+          <p className="mt-2">
+            <LinkWithExternalIcon href="https://axiom.co/docs/legal/privacy-policy">
+              מדיניות הפרטיות של Axiom
             </LinkWithExternalIcon>
           </p>
         </section>
