@@ -12,6 +12,7 @@ import {
   saveTaskFeedback,
   type TaskFeedback,
 } from "@/lib/feedback";
+import { logTaskClarity } from "@/lib/feedbackLog";
 
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -33,6 +34,7 @@ export function TaskFeedbackControls({ taskId }: { taskId: string }) {
   const selectFeedback = (nextValue: TaskFeedback) => {
     saveTaskFeedback(stepId, taskId, nextValue);
     setValue(nextValue);
+    logTaskClarity({ stepId, taskId, value: nextValue });
   };
 
   return (
