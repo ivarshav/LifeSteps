@@ -53,7 +53,7 @@ export default async function CategoryPage({ params }: Props) {
           {category.emoji}
         </span>
         <div className="min-w-56 flex-1">
-          <h1 className="text-3xl font-bold text-[var(--gray-900)]">
+          <h1 className="text-3xl leading-tight font-semibold tracking-tight text-[var(--gray-900)] sm:text-4xl">
             {category.title}
           </h1>
           <p className="mt-1 text-[var(--gray-500)]">{category.description}</p>
@@ -63,7 +63,7 @@ export default async function CategoryPage({ params }: Props) {
           <Pill>{publishedCount.toLocaleString("he-IL")} זמינים עכשיו</Pill>
         </div>
       </Card>
-      <section className="py-8">
+      <section className="scroll-mt-24 py-8">
         <h2 className="sr-only">צעדים בקטגוריה</h2>
         <CategoryBrowser category={category} steps={steps} />
         <p className="mt-5 text-sm text-[var(--gray-500)]">

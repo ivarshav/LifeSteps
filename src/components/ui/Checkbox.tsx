@@ -46,12 +46,11 @@ export function Checkbox({
       aria-labelledby={labelledBy}
       className={cn(
         "grid shrink-0 place-items-center border-2 bg-[var(--surface)] transition-[background,border-color,transform,opacity] duration-200 ease-out hover:border-[var(--accent-500)] active:scale-90",
-        size === "sm"
-          ? "size-5 rounded-md"
-          : "mt-0.5 size-11 rounded-[8px]",
-        checked === true && "border-[var(--accent-500)] bg-[var(--accent-500)]",
+        size === "sm" ? "size-5 rounded-md" : "mt-0.5 size-11 rounded-[8px]",
+        checked === true &&
+          "border-[var(--accent-action)] bg-[var(--accent-action)]",
         checked === "mixed" &&
-          "border-[var(--brand-500)] bg-[var(--brand-500)]",
+          "border-[var(--brand-action)] bg-[var(--brand-action)]",
         disabled &&
           "cursor-not-allowed opacity-50 hover:border-[var(--gray-300)] active:scale-100",
         className,
@@ -72,7 +71,7 @@ export function Checkbox({
         >
           <path
             d="m5 12.5 4.6 4.6L19 7"
-            stroke="#fff"
+            stroke="var(--accent-on-action)"
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth="3.2"
@@ -90,7 +89,7 @@ export function Checkbox({
         >
           <path
             d="M6 12h12"
-            stroke="#fff"
+            stroke="var(--brand-on-action)"
             strokeLinecap="round"
             strokeWidth="3.4"
           />

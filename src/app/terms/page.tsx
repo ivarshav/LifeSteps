@@ -16,38 +16,37 @@ export default function TermsPage() {
   const showKofiSupport = isKofiSupportEnabled();
 
   return (
-    <Container className="max-w-3xl">
+    <Container measure="reading">
       <Breadcrumbs
         items={[{ href: "/", label: "בית" }, { label: "תנאי שימוש" }]}
       />
-      <article className="space-y-5 py-4 text-[var(--gray-600)]">
-        <h1 className="text-3xl font-bold text-[var(--gray-900)]">
+      <article className="space-y-7 py-6 text-[var(--gray-600)] sm:py-8">
+        <h1 className="text-3xl leading-tight font-semibold tracking-tight text-balance text-[var(--gray-900)] sm:text-4xl">
           תנאי שימוש
         </h1>
-        <p>
+        <p className="text-lg leading-relaxed">
           תנאים אלה חלים על השימוש באתר צעדי חיים. השימוש באתר מהווה הסכמה
           לתנאים אלה; אם אינכם מסכימים להם, הימנעו משימוש באתר. מדיניות הפרטיות
           היא חלק מתנאים אלה.
         </p>
-        <section>
-          <h2 className="text-xl font-semibold text-[var(--gray-900)]">
+        <section className="border-t border-[var(--gray-200)] pt-5">
+          <h2 className="text-xl leading-snug font-semibold text-[var(--gray-900)]">
             1. מהות האתר והמידע
           </h2>
           <p className="mt-2">
-              צעדי חיים הוא אתר ללא כוונת רווח שנועד לסדר ולהסביר תהליכים
-              באירועי החיים הגדולים בישראל. התוכן ניתן ללא תמורה, אינו מתיימר
-              להיות מקיף, ואינו מהווה ייעוץ משפטי, רפואי או פיננסי המותאם למקרה
-              אישי.
+            צעדי חיים הוא אתר ללא כוונת רווח שנועד לסדר ולהסביר תהליכים באירועי
+            החיים הגדולים בישראל. התוכן ניתן ללא תמורה, אינו מתיימר להיות מקיף,
+            ואינו מהווה ייעוץ משפטי, רפואי או פיננסי המותאם למקרה אישי.
           </p>
           <p className="mt-2">
-            המידע עשוי להיות חלקי או לכלול אי־דיוקים.
-            נהלים, אגרות, סכומים ומועדים עשויים להשתנות; בכל צעד מופיעים תאריך
-            בדיקה וקישורים למקורות, ויש לאמת פרטים מחייבים מול הגוף הרשמי לפני
-            פעולה. איננו מתחייבים לעדכן כל שינוי או להבטיח תוצאה בתהליך כלשהו.
+            המידע עשוי להיות חלקי או לכלול אי־דיוקים. נהלים, אגרות, סכומים
+            ומועדים עשויים להשתנות; בכל צעד מופיעים תאריך בדיקה וקישורים
+            למקורות, ויש לאמת פרטים מחייבים מול הגוף הרשמי לפני פעולה. איננו
+            מתחייבים לעדכן כל שינוי או להבטיח תוצאה בתהליך כלשהו.
           </p>
         </section>
-        <section>
-          <h2 className="text-xl font-semibold text-[var(--gray-900)]">
+        <section className="border-t border-[var(--gray-200)] pt-5">
+          <h2 className="text-xl leading-snug font-semibold text-[var(--gray-900)]">
             2. ניהול האתר ושימוש הוגן
           </h2>
           <div className="mt-2 space-y-2">
@@ -57,7 +56,9 @@ export default function TermsPage() {
               מכבד והוגן בלבד.
             </p>
             <ul className="list-disc space-y-1 ps-5">
-              <li>אין להתערב בפעולת האתר, ליצור עומס או לפגוע במשתמשים אחרים.</li>
+              <li>
+                אין להתערב בפעולת האתר, ליצור עומס או לפגוע במשתמשים אחרים.
+              </li>
               <li>
                 אין לעשות שימוש מסחרי, פרסום, דיג נתונים או מחקר אוטומטי החורגים
                 ממטרות האתר.
@@ -69,27 +70,27 @@ export default function TermsPage() {
               <li>הורדת תכנים או הסתמכות עליהם היא באחריות המשתמשים בלבד.</li>
             </ul>
             <p>
-              האתר עשוי לכלול קישורים לאתרים חיצוניים, לרבות אתרים ממשלתיים.
-              אין בהצבתם משום המלצה או נטילת אחריות, והאחריות לתוכנם ולזמינותם
-              היא של מפעיליהם.
+              האתר עשוי לכלול קישורים לאתרים חיצוניים, לרבות אתרים ממשלתיים. אין
+              בהצבתם משום המלצה או נטילת אחריות, והאחריות לתוכנם ולזמינותם היא
+              של מפעיליהם.
             </p>
           </div>
         </section>
         {showKofiSupport ? (
-          <section>
-            <h2 className="text-xl font-semibold text-[var(--gray-900)]">
+          <section className="border-t border-[var(--gray-200)] pt-5">
+            <h2 className="text-xl leading-snug font-semibold text-[var(--gray-900)]">
               3. שירותים חיצוניים
             </h2>
             <p className="mt-2">
               תמיכה חד־פעמית דרך Ko-fi, כאשר קישור כזה מוצג, היא מרצון ואינה
               תנאי לשימוש או מקנה תכונות או שירותים נוספים; השימוש באתר נשאר
-              חינם. התשלום מתבצע מחוץ לצעדי חיים באמצעות Ko-fi וספק התשלום;
-              האתר אינו מקבל פרטי תשלום ואינו קובע את תנאי העסקה.
+              חינם. התשלום מתבצע מחוץ לצעדי חיים באמצעות Ko-fi וספק התשלום; האתר
+              אינו מקבל פרטי תשלום ואינו קובע את תנאי העסקה.
             </p>
           </section>
         ) : null}
-		<section>
-          <h2 className="text-xl font-semibold text-[var(--gray-900)]">
+        <section className="border-t border-[var(--gray-200)] pt-5">
+          <h2 className="text-xl leading-snug font-semibold text-[var(--gray-900)]">
             4. בקשה להסרת תכנים או תיקון
           </h2>
           <div className="mt-2 space-y-2">
@@ -105,29 +106,29 @@ export default function TermsPage() {
             </p>
           </div>
         </section>
-        <section>
-          <h2 className="text-xl font-semibold text-[var(--gray-900)]">
+        <section className="border-t border-[var(--gray-200)] pt-5">
+          <h2 className="text-xl leading-snug font-semibold text-[var(--gray-900)]">
             5. קניין רוחני
           </h2>
           <div className="mt-2 space-y-2">
             <p>
               זכויות היוצרים בתכנים, בעיצוב, בסידור ובעריכה שייכות לנו או למי
               שהתיר לנו להשתמש בהם. קוד המקור של האתר מופץ ברישיון פתוח{" "}
-              <bdi>MPL-2.0</bdi> בהתאם לקובץ הרישיון במאגר, אך אין בכך כדי
-              להתיר העתקה או שימוש מסחרי בתכנים עצמם ללא אישור מפורש בכתב.
+              <bdi>MPL-2.0</bdi> בהתאם לקובץ הרישיון במאגר, אך אין בכך כדי להתיר
+              העתקה או שימוש מסחרי בתכנים עצמם ללא אישור מפורש בכתב.
             </p>
             <p>
               אין לבצע מסגור או הטמעה של תכני האתר באתר אחר. מותר לקשר לאתר
-              למטרת לימוד ושיתוף לא מסחרי, באופן מכבד שאינו מטעה ואינו מפר
-              תנאים אלו.
+              למטרת לימוד ושיתוף לא מסחרי, באופן מכבד שאינו מטעה ואינו מפר תנאים
+              אלו.
             </p>
           </div>
         </section>
-        <section>
-          <h2 className="text-xl font-semibold text-[var(--gray-900)]">
+        <section className="border-t border-[var(--gray-200)] pt-5">
+          <h2 className="text-xl leading-snug font-semibold text-[var(--gray-900)]">
             6. זמינות ואחריות
           </h2>
-           <div className="mt-2 space-y-2">
+          <div className="mt-2 space-y-2">
             <p>
               האתר, תכונותיו ותכניו ניתנים כפי שהם, ללא אחריות לזמינות מלאה,
               לתפקוד תקין, להיעדר תקלות או לדיוק המידע. השימוש באתר הוא
@@ -135,14 +136,14 @@ export default function TermsPage() {
             </p>
             <p>
               במידה המרבית המותרת על פי דין, לא נהיה אחראים לנזקים ישירים,
-              עקיפים, תוצאתיים או עונשיים הנובעים משימוש באתר, מהסתמכות על
-              תכניו או משימוש בתכנים ובשירותים של צדדים שלישיים. מלוא הסיכון
-              הנובע מן השימוש חל עליכם.
+              עקיפים, תוצאתיים או עונשיים הנובעים משימוש באתר, מהסתמכות על תכניו
+              או משימוש בתכנים ובשירותים של צדדים שלישיים. מלוא הסיכון הנובע מן
+              השימוש חל עליכם.
             </p>
           </div>
         </section>
-        <section>
-          <h2 className="text-xl font-semibold text-[var(--gray-900)]">
+        <section className="border-t border-[var(--gray-200)] pt-5">
+          <h2 className="text-xl leading-snug font-semibold text-[var(--gray-900)]">
             6. עדכונים ודין חל
           </h2>
           <p className="mt-2">

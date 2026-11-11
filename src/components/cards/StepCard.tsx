@@ -23,7 +23,7 @@ export function StepCard({
     <a
       className={cn(
         "flex min-w-0 flex-col gap-3 rounded-[var(--radius-lg)] border border-[var(--gray-200)] bg-[var(--surface)] p-4 text-start text-inherit no-underline shadow-[var(--shadow-sm)] transition-[box-shadow,transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--gray-300)] hover:no-underline hover:shadow-[var(--shadow-md)]",
-        comingSoon && "opacity-65 saturate-50",
+        comingSoon && "bg-[var(--gray-50)]",
         className,
       )}
       href={`/steps/${step.id}`}
@@ -37,21 +37,18 @@ export function StepCard({
           {step.emoji}
         </span>
         <div className="min-w-0 flex-1">
-          <h3 className="break-words font-semibold text-[var(--gray-900)]">
+          <h3 className="font-semibold break-words text-[var(--gray-900)]">
             {step.title}
           </h3>
           {showCategory && category ? (
-            <div
-              className="text-xs font-semibold"
-              style={{ color: category.color }}
-            >
+            <div className="text-xs font-semibold text-[var(--gray-600)]">
               {category.title}
             </div>
           ) : null}
         </div>
         {comingSoon ? <Pill>בקרוב</Pill> : null}
       </div>
-      <p className="min-w-0 break-words text-sm leading-[1.5] text-[var(--gray-500)]">
+      <p className="min-w-0 text-sm leading-[1.5] break-words text-[var(--gray-500)]">
         {step.summary}
       </p>
       <div className="mt-auto flex min-w-0 flex-wrap items-start gap-1.5 pt-2">

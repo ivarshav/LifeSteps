@@ -1,49 +1,96 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { getSavedLists, removeSavedList, type SavedList } from "@/lib/saved-lists";
+import {
+  getSavedListsResult,
+  removeSavedList,
+  type SavedList,
+} from "@/lib/saved-lists";
 
 export function SavedLists() {
   const [lists, setLists] = useState<SavedList[]>([]);
   const [ready, setReady] = useState(false);
+  const [loadError, setLoadError] = useState(false);
   const [storageError, setStorageError] = useState("");
+  const [status, setStatus] = useState("");
+
+  const load = useCallback(() => {
+    const result = getSavedListsResult();
+    setLists(result.lists);
+    setLoadError(result.error);
+    setReady(true);
+  }, []);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
-      setLists(getSavedLists());
-      setReady(true);
+      load();
     }, 0);
     return () => window.clearTimeout(timer);
-  }, []);
+  }, [load]);
 
   const remove = (id: string) => {
     if (!removeSavedList(id)) {
-      setStorageError("לא הצלחנו להסיר את הרשימה מהדפדפן. כדאי לבדוק שהאחסון המקומי זמין ולנסות שוב.");
+      setStorageError(
+        "לא הצלחנו להסיר את הרשימה מהדפדפן. כדאי לבדוק שהאחסון המקומי זמין ולנסות שוב.",
+      );
       return;
     }
     setStorageError("");
+    setStatus("הרשימה הוסרה.");
     setLists((current) => current.filter((list) => list.id !== id));
   };
 
   return (
     <div className="mx-auto max-w-3xl py-6">
-      <h1 className="text-3xl font-bold text-[var(--gray-900)]">הרשימות ששמרתי</h1>
-      <p className="mt-3 text-[var(--gray-600)]">
+      <h1 className="text-3xl leading-tight font-semibold tracking-tight text-[var(--gray-900)] sm:text-4xl">
+        הרשימות ששמרתי
+      </h1>
+      <p className="mt-3 text-lg leading-relaxed text-[var(--gray-600)]">
         הרשימות נשמרות רק בדפדפן ובמכשיר הזה.
       </p>
+      {loadError ? (
+        <div className="mt-6 space-y-3">
+          <p
+            className="text-sm font-medium text-[var(--danger-500)]"
+            role="alert"
+          >
+            לא הצלחנו לטעון את הרשימות מהדפדפן. בדקו שהאחסון המקומי זמין ונסו
+            שוב.
+          </p>
+          <Button onClick={load} size="sm" variant="secondary">
+            לנסות שוב
+          </Button>
+        </div>
+      ) : null}
       {storageError ? (
-        <p className="mt-4 text-sm font-medium text-[var(--danger-500)]" role="alert">
+        <p
+          className="mt-4 text-sm font-medium text-[var(--danger-500)]"
+          role="alert"
+        >
           {storageError}
         </p>
       ) : null}
-      {!ready ? <p className="mt-6 text-[var(--gray-600)]">טוענים רשימות…</p> : null}
-      {ready && lists.length === 0 ? (
+      <p aria-live="polite" className="sr-only" role="status">
+        {status}
+      </p>
+      {!ready ? (
+        <p
+          aria-live="polite"
+          className="mt-6 text-[var(--gray-600)]"
+          role="status"
+        >
+          טוענים רשימות…
+        </p>
+      ) : null}
+      {ready && !loadError && lists.length === 0 ? (
         <Card className="mt-6 p-6">
-          <h2 className="text-xl font-semibold text-[var(--gray-900)]">עדיין לא נשמרו רשימות</h2>
+          <h2 className="text-xl font-semibold text-[var(--gray-900)]">
+            עדיין לא נשמרו רשימות
+          </h2>
           <p className="mt-2 text-[var(--gray-600)]">
             פתחו רשימה ששיתפו איתכם ובחרו ״שמור את הרשימה אצלי״.
           </p>
@@ -54,7 +101,10 @@ export function SavedLists() {
       ) : null}
       <div className="mt-6 space-y-3">
         {lists.map((list) => (
-          <Card className="flex flex-wrap items-center justify-between gap-3 p-5" key={list.id}>
+          <Card
+            className="flex flex-wrap items-center justify-between gap-3 p-5"
+            key={list.id}
+          >
             <div>
               <h2 className="font-semibold text-[var(--gray-900)]">
                 {list.selection.t || "רשימת צעדים"}

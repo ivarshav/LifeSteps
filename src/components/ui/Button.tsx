@@ -44,7 +44,7 @@ type ButtonProps = NativeButtonProps | SlottedButtonProps;
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "ui-button-primary border-transparent bg-[var(--brand-500)] shadow-[var(--shadow-sm)] hover:bg-[var(--brand-600)]",
+    "ui-button-primary border-transparent bg-[var(--brand-action)] shadow-[var(--shadow-sm)] hover:bg-[var(--brand-700)]",
   secondary:
     "border-[var(--gray-200)] bg-[var(--surface)] text-[var(--brand-600)] shadow-[var(--shadow-sm)] hover:border-[var(--brand-200)] hover:bg-[var(--brand-50)]",
   ghost:
@@ -54,7 +54,7 @@ const variants: Record<ButtonVariant, string> = {
 };
 
 const sizes: Record<ButtonSize, string> = {
-  sm: "rounded-[var(--radius-sm)] px-3 py-1.5 text-[.8125rem]",
+  sm: "min-h-11 rounded-[var(--radius-sm)] px-3 py-1.5 text-[.8125rem]",
   md: "rounded-[var(--radius-md)] px-[18px] py-2.5 text-[.9375rem]",
 };
 

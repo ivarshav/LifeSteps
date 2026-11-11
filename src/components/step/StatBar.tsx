@@ -32,13 +32,13 @@ export function StatBar({ step }: { step: Step }) {
     <dl className="my-5 grid grid-cols-2 gap-3 lg:grid-cols-4">
       {stats.map(([label, value]) => (
         <div
-          className="rounded-[var(--radius-md)] border border-[var(--gray-200)] bg-[var(--surface)] p-4"
+          className="min-w-0 rounded-[var(--radius-md)] border border-[var(--gray-200)] bg-[var(--surface)] p-4"
           key={label}
         >
           <dt className="text-xs font-semibold text-[var(--gray-500)]">
             {label}
           </dt>
-          <dd className="mt-0.5 text-base font-bold text-[var(--gray-900)]">
+          <dd className="mt-0.5 text-base font-bold break-words text-[var(--gray-900)] tabular-nums">
             {value}
           </dd>
         </div>

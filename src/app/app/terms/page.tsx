@@ -12,20 +12,20 @@ export const metadata: Metadata = pageMetadata({
 
 export default function TermsPage() {
   return (
-    <Container className="max-w-3xl">
+    <Container measure="reading">
       <Breadcrumbs
         items={[{ href: "/", label: "בית" }, { label: "תנאי שימוש" }]}
       />
-      <article className="space-y-5 py-4 text-[var(--gray-600)]">
-        <h1 className="text-3xl font-bold text-[var(--gray-900)]">
+      <article className="space-y-7 py-6 text-[var(--gray-600)] sm:py-8">
+        <h1 className="text-3xl leading-tight font-semibold tracking-tight text-balance text-[var(--gray-900)] sm:text-4xl">
           תנאי שימוש
         </h1>
-        <p>
+        <p className="text-lg leading-relaxed">
           השימוש באתר הוא באחריות המשתמשים. התוכן נועד לסדר ולהסביר תהליכים
           ואינו תחליף לייעוץ משפטי, רפואי או פיננסי המותאם למקרה אישי.
         </p>
-        <section>
-          <h2 className="text-xl font-semibold text-[var(--gray-900)]">
+        <section className="border-t border-[var(--gray-200)] pt-5">
+          <h2 className="text-xl leading-snug font-semibold text-[var(--gray-900)]">
             עדכניות ואימות
           </h2>
           <p className="mt-2">
@@ -34,8 +34,8 @@ export default function TermsPage() {
             מול הגוף הרשמי.
           </p>
         </section>
-        <section>
-          <h2 className="text-xl font-semibold text-[var(--gray-900)]">
+        <section className="border-t border-[var(--gray-200)] pt-5">
+          <h2 className="text-xl leading-snug font-semibold text-[var(--gray-900)]">
             קישורים חיצוניים
           </h2>
           <p className="mt-2">

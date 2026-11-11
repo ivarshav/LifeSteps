@@ -105,7 +105,7 @@ export default async function StepPage({ params }: Props) {
               ובדיקה. בינתיים אפשר לחזור לקטגוריה ולבחור צעד זמין אחר.
             </p>
             <a
-              className="mt-4 inline-flex rounded-[var(--radius-md)] bg-[var(--brand-500)] px-[18px] py-2.5 font-semibold text-white no-underline hover:bg-[var(--brand-600)] hover:no-underline"
+              className="mt-4 inline-flex min-h-11 items-center rounded-[var(--radius-md)] bg-[var(--brand-action)] px-[18px] py-2.5 font-semibold text-[var(--brand-on-action)] no-underline hover:bg-[var(--brand-700)] hover:no-underline"
               href={`/categories/${category.id}`}
             >
               חזרה ל{category.title}

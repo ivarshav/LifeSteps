@@ -59,7 +59,7 @@ export function CategoryBrowser({
           ].map(([value, label]) => (
             <button
               aria-pressed={filter === value}
-              className="inline-flex items-center rounded-[var(--radius-pill)] border border-[var(--gray-200)] bg-[var(--surface)] px-3.5 py-1.5 text-sm font-medium text-[var(--gray-600)] transition-colors aria-pressed:border-[var(--brand-500)] aria-pressed:bg-[var(--brand-500)] aria-pressed:text-white"
+              className="inline-flex min-h-11 items-center rounded-[var(--radius-pill)] border border-[var(--gray-200)] bg-[var(--surface)] px-3.5 py-1.5 text-sm font-medium text-[var(--gray-600)] transition-colors aria-pressed:border-[var(--brand-action)] aria-pressed:bg-[var(--brand-action)] aria-pressed:text-[var(--brand-on-action)]"
               key={value}
               onClick={() => setFilter(value as Filter)}
               type="button"
@@ -68,10 +68,13 @@ export function CategoryBrowser({
             </button>
           ))}
         </div>
+        <p aria-atomic="true" aria-live="polite" className="sr-only">
+          מוצגים {visible.length} צעדים
+        </p>
         <label className="flex items-center gap-2 text-sm text-[var(--gray-500)]">
           מיון:
           <select
-            className="rounded-[var(--radius-pill)] border border-[var(--gray-200)] bg-[var(--surface)] px-3 py-2 text-[var(--gray-700)]"
+            className="min-h-11 rounded-[var(--radius-pill)] border border-[var(--gray-200)] bg-[var(--surface)] px-3 py-2 text-[var(--gray-800)]"
             onChange={(event) => setSort(event.target.value as Sort)}
             value={sort}
           >

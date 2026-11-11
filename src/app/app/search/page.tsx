@@ -19,8 +19,8 @@ export default function SearchPage() {
       <Breadcrumbs
         items={[{ href: "/", label: "בית" }, { label: "תוצאות חיפוש" }]}
       />
-      <section className="py-4">
-        <h1 className="mb-4 text-3xl font-bold text-[var(--gray-900)]">
+      <section className="py-8 sm:py-10">
+        <h1 className="mb-5 text-3xl leading-tight font-semibold tracking-tight text-[var(--gray-900)] sm:text-4xl">
           תוצאות חיפוש
         </h1>
         <SearchClient />

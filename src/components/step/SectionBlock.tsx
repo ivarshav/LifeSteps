@@ -20,6 +20,7 @@ export function SectionBlock({
           ? `${domIdPrefix}-section-${section.id}`
           : `section-${section.id}`
       }
+      tabIndex={-1}
     >
       <div className="mb-2 flex flex-wrap items-center justify-between gap-3">
         <h2 className="flex items-center gap-2 text-xl font-semibold text-[var(--gray-900)]">

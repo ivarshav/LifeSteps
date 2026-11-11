@@ -9,6 +9,11 @@ type StoredList = {
   savedAt: string;
 };
 
+type StoreRead = {
+  lists: StoredList[];
+  error: boolean;
+};
+
 export type SavedList = StoredList & {
   selection: ShareSelection;
 };
@@ -26,17 +31,24 @@ function isStoredList(value: unknown): value is StoredList {
   );
 }
 
-function readStore(): StoredList[] {
+function readStoreResult(): StoreRead {
   try {
-    if (typeof window === "undefined") return [];
+    if (typeof window === "undefined") return { lists: [], error: false };
     const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return [];
+    if (!raw) return { lists: [], error: false };
     const parsed: unknown = JSON.parse(raw);
-    if (!Array.isArray(parsed)) return [];
-    return parsed.filter(isStoredList).slice(0, MAX_SAVED_LISTS);
+    if (!Array.isArray(parsed)) return { lists: [], error: true };
+    return {
+      lists: parsed.filter(isStoredList).slice(0, MAX_SAVED_LISTS),
+      error: false,
+    };
   } catch {
-    return [];
+    return { lists: [], error: true };
   }
+}
+
+function readStore(): StoredList[] {
+  return readStoreResult().lists;
 }
 
 function writeStore(lists: StoredList[]): boolean {
@@ -50,13 +62,22 @@ function writeStore(lists: StoredList[]): boolean {
 }
 
 export function getSavedLists(): SavedList[] {
+  return getSavedListsResult().lists;
+}
+
+export function getSavedListsResult(): {
+  lists: SavedList[];
+  error: boolean;
+} {
   const seenPayloads = new Set<string>();
-  return readStore().flatMap((list) => {
+  const result = readStoreResult();
+  const lists = result.lists.flatMap((list) => {
     if (seenPayloads.has(list.payload)) return [];
     seenPayloads.add(list.payload);
     const selection = decodeShare(list.payload);
     return selection ? [{ ...list, selection }] : [];
   });
+  return { lists, error: result.error };
 }
 
 export function isListSaved(selection: ShareSelection): boolean {
