@@ -7,6 +7,8 @@
   --brand-500: #3b6ff5;
   --brand-600: #2c57d4;
   --brand-700: #22449f;
+  --brand-action: var(--brand-600);
+  --brand-on-action: #ffffff;
   --accent-500: #0ea37a;
   --accent-50: #e7f7f1;
   --accent-action: #08785a;
@@ -60,6 +62,8 @@
   --brand-500: #6e96ff;
   --brand-600: #8fb0ff;
   --brand-700: #b3c8ff;
+  --brand-action: var(--brand-600);
+  --brand-on-action: #0b1220;
   --accent-500: #2fd3a4;
   --accent-50: #0f2a22;
   --accent-action: #2fd3a4;
@@ -218,16 +222,12 @@ button {
 }
 
 .ui-button-primary {
-  color: #fff;
+  color: var(--brand-on-action);
 }
 
 .ui-toast {
   background: var(--gray-900);
   color: var(--surface);
-}
-
-[data-theme="dark"] .ui-button-primary {
-  color: #0b1220;
 }
 
 [data-theme="dark"] .ui-toast {

@@ -54,7 +54,7 @@ export function MobileNav() {
       >
         {links.map((link) => (
           <a
-            className="rounded-lg px-4 py-2.5 font-medium text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
+            className="flex min-h-11 items-center rounded-lg px-4 py-2.5 font-medium text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
             href={link.href}
             key={link.href}
           >

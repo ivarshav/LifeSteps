@@ -22,7 +22,7 @@ export function CategoryCard({
       <p className="mt-1 text-sm text-[var(--gray-500)]">
         {category.description}
       </p>
-      <div className="mt-3 text-xs font-bold" style={{ color: category.color }}>
+      <div className="mt-3 text-xs font-bold text-[var(--gray-600)]">
         {stepCount.toLocaleString("he-IL")} צעדים ‹
       </div>
     </a>

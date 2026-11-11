@@ -44,7 +44,7 @@ export default function HomePage() {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                className="inline-flex items-center justify-center rounded-[var(--radius-md)] border border-transparent bg-[var(--brand-500)] px-6 py-3.5 text-base font-semibold text-white no-underline shadow-[var(--shadow-sm)] hover:bg-[var(--brand-600)] hover:no-underline"
+                className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] border border-transparent bg-[var(--brand-action)] px-6 py-3.5 text-base font-semibold text-[var(--brand-on-action)] no-underline shadow-[var(--shadow-sm)] hover:bg-[var(--brand-700)] hover:no-underline"
                 href="#categories"
               >
                 עיון בכל הקטגוריות
@@ -130,7 +130,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-8" id="categories">
+      <section className="scroll-mt-24 py-8" id="categories">
         <Container>
           <div className="mb-5">
             <h2 className="text-2xl font-semibold text-[var(--gray-900)]">
@@ -200,7 +200,7 @@ export default function HomePage() {
               <Card className="relative p-5 ps-20" key={title}>
                 <span
                   aria-hidden="true"
-                  className="absolute start-5 top-5 grid size-11 place-items-center rounded-full bg-[var(--brand-500)] text-lg font-bold text-white"
+                  className="absolute start-5 top-5 grid size-11 place-items-center rounded-full bg-[var(--brand-action)] text-lg font-bold text-[var(--brand-on-action)]"
                 >
                   {index + 1}
                 </span>

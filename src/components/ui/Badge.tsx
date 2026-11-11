@@ -19,7 +19,7 @@ const variants: Record<BadgeVariant, string> = {
   optional: "bg-[var(--gray-100)] text-[var(--gray-500)]",
   important: "bg-[var(--warn-50)] text-[var(--warn-500)]",
   due: "bg-[var(--brand-50)] text-[var(--brand-600)]",
-  personalized: "bg-[var(--accent-50)] text-[var(--accent-500)]",
+  personalized: "bg-[var(--accent-50)] text-[var(--accent-action)]",
 };
 
 export function Badge({ children, className, variant, ...props }: BadgeProps) {

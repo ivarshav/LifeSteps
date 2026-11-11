@@ -12,7 +12,7 @@ export function StepHeader({ step }: { step: Step }) {
         {step.emoji}
       </span>
       <div className="min-w-0 flex-1">
-        <h1 className="text-[2.125rem] leading-[1.25] font-bold text-[var(--gray-900)]">
+        <h1 className="text-[2rem] leading-tight font-semibold tracking-tight text-balance text-[var(--gray-900)] sm:text-[2.5rem]">
           {step.title}
         </h1>
         <p className="mt-2 max-w-[72ch] text-[var(--gray-600)]">

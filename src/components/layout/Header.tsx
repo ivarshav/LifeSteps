@@ -21,31 +21,31 @@ export function Header() {
           className="hidden items-center gap-1 lg:flex"
         >
           <a
-            className="rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
+            className="inline-flex min-h-11 items-center rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
             href="/"
           >
             בית
           </a>
           <a
-            className="rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
+            className="inline-flex min-h-11 items-center rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
             href="/#categories"
           >
             קטגוריות
           </a>
           <a
-            className="rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
+            className="inline-flex min-h-11 items-center rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
             href="/share"
           >
             שיתוף רשימה
           </a>
           <a
-            className="rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
+            className="inline-flex min-h-11 items-center rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
             href="/saved"
           >
             הרשימות ששמרתי
           </a>
           <a
-            className="rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
+            className="inline-flex min-h-11 items-center rounded-lg px-3 py-2 text-sm font-medium whitespace-nowrap text-[var(--gray-600)] hover:bg-[var(--gray-100)]"
             href="/about"
           >
             אודות

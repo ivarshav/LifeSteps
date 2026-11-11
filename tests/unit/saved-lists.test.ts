@@ -1,6 +1,11 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { getSavedLists, removeSavedList, saveList } from "@/lib/saved-lists";
+import {
+  getSavedLists,
+  getSavedListsResult,
+  removeSavedList,
+  saveList,
+} from "@/lib/saved-lists";
 import { encodeShare, type ShareSelection } from "@/lib/share";
 
 const selection: ShareSelection = {
@@ -58,6 +63,14 @@ describe("saved lists", () => {
     expect(getSavedLists()).toEqual([
       expect.objectContaining({ id: saved.id, selection }),
     ]);
+  });
+
+  it("reports when saved lists cannot be read from local storage", () => {
+    vi.spyOn(Storage.prototype, "getItem").mockImplementation(() => {
+      throw new DOMException("Storage unavailable", "SecurityError");
+    });
+
+    expect(getSavedListsResult()).toEqual({ lists: [], error: true });
   });
 
   it("ignores corrupt payloads and invalid saved timestamps", () => {

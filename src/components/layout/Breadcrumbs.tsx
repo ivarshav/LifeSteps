@@ -13,7 +13,10 @@ export function Breadcrumbs({ items }: { items: Breadcrumb[] }) {
         <span className="contents" key={`${item.label}-${index}`}>
           {index > 0 ? <span aria-hidden="true">›</span> : null}
           {item.href ? (
-            <a className="text-[var(--gray-500)]" href={item.href}>
+            <a
+              className="inline-flex min-h-11 items-center px-1 text-[var(--gray-500)] underline-offset-4 hover:underline"
+              href={item.href}
+            >
               {item.label}
             </a>
           ) : (

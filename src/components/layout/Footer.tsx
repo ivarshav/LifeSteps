@@ -21,7 +21,7 @@ export function Footer() {
         >
           <Container className="flex flex-col items-center">
             <h2
-              className="max-w-3xl text-balance text-2xl font-semibold text-[var(--gray-900)] sm:text-3xl"
+              className="max-w-3xl text-2xl font-semibold text-balance text-[var(--gray-900)] sm:text-3xl"
               id="footer-support-title"
             >
               אהבתם את צעדי חיים? מוזמנים להזמין לנו כוס קפה :)
@@ -31,11 +31,7 @@ export function Footer() {
               href={kofiUrl}
             >
               <span className="inline-flex items-center gap-2">
-                <Coffee
-                  aria-hidden="true"
-                  size={20}
-                  strokeWidth={2}
-                />
+                <Coffee aria-hidden="true" size={20} strokeWidth={2} />
                 <span>להזמין לנו כוס קפה</span>
               </span>
             </LinkWithExternalIcon>
@@ -111,7 +107,10 @@ function FooterList({
       <ul className="m-0 list-none space-y-1 p-0">
         {links.map((link) => (
           <li key={`${link.href}-${link.label}`}>
-            <a className="text-sm text-[var(--gray-500)]" href={link.href}>
+            <a
+              className="inline-flex min-h-11 items-center text-sm text-[var(--gray-500)] underline-offset-4 hover:text-[var(--gray-800)] hover:underline"
+              href={link.href}
+            >
               {link.label}
             </a>
           </li>
